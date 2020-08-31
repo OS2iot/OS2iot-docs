@@ -1,0 +1,11 @@
+_build
+_static
+_templates
+build
+.vscode
+[trash]
+_rels
+docProps
+word
+customXml
+[Content_Types].customXml
