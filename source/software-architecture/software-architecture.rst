@@ -1,4 +1,4 @@
-Software Architecture (O0500)
+Software Architecture
 =====================================
 
 Introduction

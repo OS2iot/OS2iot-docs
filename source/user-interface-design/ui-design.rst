@@ -1,4 +1,4 @@
-User-Interface Design (D0160)
+User-Interface Design
 =================================
 
 Introduction

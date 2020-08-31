@@ -1,4 +1,4 @@
-Programming Guidelines (DD160)
+Programming Guidelines
 ================================
 
 Introduction

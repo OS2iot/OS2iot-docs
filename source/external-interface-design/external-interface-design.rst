@@ -1,4 +1,4 @@
-External Interface Design (D0180)
+External Interface Design
 ====================================
 
 This document describes the external interface design of OS2iot. This

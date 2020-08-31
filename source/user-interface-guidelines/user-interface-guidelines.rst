@@ -1,4 +1,4 @@
-User-Interface Guidelines (D0100)
+User-Interface Guidelines
 ===================================
 
 Background

@@ -1,4 +1,4 @@
-Logical Datamodel (D0130)
+Logical Datamodel
 ===============================
 
 Introduction

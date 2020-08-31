@@ -1,4 +1,4 @@
-Installation Guide (O0100)
+Installation Guide
 ============================
 
 Introduction

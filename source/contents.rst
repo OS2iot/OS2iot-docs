@@ -1,9 +1,11 @@
 .. toctree::
    :maxdepth: 4
 
-   ExternalInterfaceDesign/d0180.rst
+   programming-guidelines/programming-guidelines.rst
+   user-interface-design/ui-design.rst
    user-interface-guidelines/user-interface-guidelines.rst
    logical-data-model/logical-datamodel.rst
-   user-interface-design/ui-design.rst
-   programming-guidelines/programming-guidelines.rst
+   external-interface-design/external-interface-design.rst
    software-architecture/software-architecture.rst
+   installation-guide/installation-guide.rst
+   maintenance-guide/maintenance-guide.rst
