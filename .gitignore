@@ -1,8 +1,8 @@
 _build
 _static
 _templates
-build
-.vscode
+build/
+.vscode/
 [trash]
 _rels
 docProps
