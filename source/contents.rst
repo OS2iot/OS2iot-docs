@@ -5,3 +5,4 @@
    user-interface-guidelines/user-interface-guidelines.rst
    logical-data-model/logical-datamodel.rst
    user-interface-design/ui-design.rst
+   programming-guidelines/programming-guidelines.rst
