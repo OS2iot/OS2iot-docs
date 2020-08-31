@@ -1,7 +1,7 @@
 _build
 _static
 _templates
-build/**
+build/
 .vscode/
 [trash]
 _rels
