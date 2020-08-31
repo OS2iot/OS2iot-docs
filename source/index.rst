@@ -10,7 +10,6 @@ Welcome to OS2IoT's documentation!
    :maxdepth: 2
    :caption: Contents:
    
-   ExternalInterfaceDesign/d0180.rst
    contents.rst
 
 
