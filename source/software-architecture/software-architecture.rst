@@ -277,17 +277,23 @@ User role          System name Permissions
 ================== =========== =======================================================
 Read access        Read        Read all data within an application.
 Write              Write       Create, modify and delete objects within an application
-Organization admin Orgadmin   
+Organization admin Orgadmin    Manage permissions for an organization and its applications
 Global admin       Globaladmin
 ================== =========== =======================================================
 
 Web application security
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-This section describes the security measues taken to ensure
-conficentiality an integrity of the part of OS2iot that is the web
+This section describes the security measures taken to ensure
+conficentiality and integrity of the part of OS2iot that is the web
 application. This includes both the frontend and backend of the
 solution, but not IoT device integrations or data target integrations.
+
+OS2iot REST API security
+~~~~~~~~~~~~~~~
+
+In order to use the REST API exposed by OS2iot, the user must be authenticated.
+TODO: Describe login endpoint and JWT security.
 
 Device security
 ~~~~~~~~~~~~~~~
@@ -344,3 +350,24 @@ attacks.
 .. |image3| image:: ./media/image9.png
    :width: 6.56806in
    :height: 3in
+
+Data target security
+~~~~~~~~~~~~~~~
+
+It is the responsibility of the users of OS2iot and administrators of the data targets to ensure data is encrypted during transmission using e.g. TLS. This section describes the available authentication options in OS2iot.
+
+HTTP PUSH
+^^^^^^
+OS2iot supports using a HTTP "Authorization" header or  HTTP basic authentication.
+
+MQTT
+^^^^^^
+TBD.
+
+Opendata.dk
+^^^^^^
+Authentication is done by providing a API key known by opendata.dk.
+
+NGSI-LD Context Broker
+^^^^^^
+No authentication is supported.
