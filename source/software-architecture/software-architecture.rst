@@ -292,25 +292,29 @@ solution, but not IoT device integrations or data target integrations.
 Device security
 ~~~~~~~~~~~~~~~
 
+Generic IoT devices
+^^^^^^^
+
+Generic IoT devices must provide a unique API key with every request to OS2iot. This provides both security and identification of the device sending data. Since the connection uses TLS, the API key is encrypted in the transmission.
+
+
 LoRaWAN
 ^^^^^^^
 
-Data fra LoRaWAN devices are end-to-end encrypted and protected against
+Data from LoRaWAN devices are end-to-end encrypted and protected against
 replay attacks
 (https://lora-alliance.org/sites/default/files/2019-05/lorawan_security_whitepaper.pdf).
 There is a theoretical possibility of packet forging and DoS attacks
 (https://backend.orbit.dtu.dk/ws/portalfiles/portal/200458018/PID5885861.pdf,
 https://ieeexplore.ieee.org/document/8766430/).
 
-Once device data is received by Chirpstack it is sent to OS2iot using
-MQTT and TLS.
+Once device data is received by Chirpstack it is sent to OS2iot using an internal
+MQTT broker and TLS.
 
 NB-IoT
 ^^^^^^
 
-Security for NB-IoT is enforced by Telia as the network operator or by
-the IoT-device administrators. Data sent to OS2iot from the devices are
-encrypted using TLS.
+Data from NB-IoT devices is received in the same manner as from generic IoT devices as described earlier and so uses the same security mechanisms.
 
 Sigfox
 ^^^^^^
