@@ -16,8 +16,8 @@ The documentation of the endpoints, their parameters and so forth is documented 
 You can access Swagger through the endpoint: ``/api/v1/docs/`` of the backend. So for the test environment, 
 it would be: `https://test-os2iot-backend.os2iot.dk/api/v1/docs/ <https://test-os2iot-backend.os2iot.dk/api/v1/docs/>`__.
 
-Authorization
-^^^^^^^^^^^^^
+Authentication
+^^^^^^^^^^^^^^
 
 The API is protected using JSON Web Token (JWT), see `https://jwt.io/introduction/ <https://jwt.io/introduction/>`__ for an introduction.
 To get a JWT you must perform a login using username and password to the ``/api/v1/auth/login`` endpoint.
@@ -46,3 +46,33 @@ To use Swagger with protected endpoints, you must first login, and then add the 
 This is done by pressing the "Authorize" button near the top right. 
 To test your login, the ``/api/v1/auth/profile`` endpoint can be called, it will return the contents of the JWT payload, 
 which is explained below.
+
+
+Authorization (Permissions)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+There is four levels of permissions in OS2IoT:
+
+
+- Global Admin
+
+ - Can do anything
+
+- Organization Admin 
+
+ - Is scoped to a single organization
+ - Can do anything to that organization
+ - Can add new users
+
+- Write 
+
+ - Is scoped to a single organization and zero or more applications
+ - Can write/create/delete entities within an organization on certain applications
+
+- Read
+
+ - Is scoped to a single organization and zero or more applications
+ - Can read (view) entities within certain applications within an organization
+
+The permissions are hieratical, meaning that you implicitly have all lesser permissions than the ones you have explicitly.
+For instance, if a user is an Organization Admin for an Organization, then that user also have the Write and Read permissions.
