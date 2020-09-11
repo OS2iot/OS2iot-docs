@@ -5,6 +5,7 @@
    user-interface-design/ui-design.rst
    user-interface-guidelines/user-interface-guidelines.rst
    logical-data-model/logical-datamodel.rst
+   internal-interface-design/internal-interface-design.rst
    external-interface-design/external-interface-design.rst
    software-architecture/software-architecture.rst
    installation-guide/installation-guide.rst
