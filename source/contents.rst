@@ -10,3 +10,4 @@
    software-architecture/software-architecture.rst
    installation-guide/installation-guide.rst
    maintenance-guide/maintenance-guide.rst
+   sigfox-integration/sigfox-integration.rst
