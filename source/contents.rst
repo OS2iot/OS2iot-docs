@@ -12,4 +12,5 @@
    maintenance-guide/maintenance-guide.rst
    sigfox-integration/sigfox-integration.rst
    payload-decoders/payload-decoders.rst
+   downlink-helpers/downlink-helpers.rst
    
