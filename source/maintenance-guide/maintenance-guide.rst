@@ -154,6 +154,20 @@ assumed a Windows laptop is used.
 
 4. Git/Git Extensions/Sourcetree/Sublime Merge
 
+Map
+~~~
+OS2IoT maps are running on the Leafletjs framework: https://leafletjs.com/. The tiles are current presented using OpenStreetMap: https://www.openstreetmap.org.
+
+The tiles can be changed by following the steps listed below: 
+
+1. Find "map.component.ts" in the frontend project
+
+2. Within the initMap() method, replace L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png') with the desired tiles
+
+   a. Make sure you also change the attribution attribute.
+
+Note that the solution must be deployed before the changes takes presence.
+
 Development procedures
 ~~~~~~~~~~~~~~~~~~~~~~
 
