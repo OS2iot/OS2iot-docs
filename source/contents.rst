@@ -13,4 +13,4 @@
    sigfox-integration/sigfox-integration.rst
    payload-decoders/payload-decoders.rst
    downlink-helpers/downlink-helpers.rst
-   
+   kombit-adgangsstyring/kombit-adgangsstyring.rst
