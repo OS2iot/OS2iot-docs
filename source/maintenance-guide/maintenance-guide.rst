@@ -57,6 +57,10 @@ Important! Prepare by setting up the repositories, OS2IoT-docker,
 OS2IoT-backend, and OS2IoT-frontend, in the same folder/path of your
 choosing
 
+Add os2iot-docker to file share in docker 
+
+-  Open Docker Desktop -> Settings -> Resources -> FILE SHARING -> add os2iot-docker as shared folder.
+
 Open command prompt and go to path of OS2IoT-docker and write
 
 Docker-compose up
@@ -66,6 +70,26 @@ see the UI result on http://localhost:4200/
 
 To quite, you can press Ctrl + C two times and docker will shut down
 safely.
+
+Common errors
+^^^^^^^^^^^^^
+Error: Issue connecting to chirpstacks PostgreSQL.
+
+Fix:
+Goto os2iot-docker in your a terminal
+
+-  Run: docker volume ls
+
+Located the image name os2iot-docker_postgresqldata and delete it by running:
+
+-  docker-compose down
+
+-  docker volume rm os2iot-docker_postgresqldata
+
+Add os2iot-docker to docker files share (se steps above).
+Once the path is added run:
+
+-  docker-compose up
 
 Advanced 
 ^^^^^^^^^
@@ -153,6 +177,22 @@ assumed a Windows laptop is used.
 3. Pgadmin
 
 4. Git/Git Extensions/Sourcetree/Sublime Merge
+
+Mac:
+In order to run os2iot-backend outside docker and connect to docker (run it via vs code) one must follow the steps below:
+
+* Add docker to hosts on mac
+
+* Run: sudo vim /etc/hosts
+
+* In vim type i to insert
+
+* Add line with ip and hosts.docker.internal e.g. 127.0.0.1 hosts.docker.internal
+
+* type: esc :wq to save and exit
+
+* start os2iot-backend in vs code via the terminal: npm run start
+
 
 Map
 ~~~
