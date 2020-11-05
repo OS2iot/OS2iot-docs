@@ -14,7 +14,7 @@ Prerequisites:
 
 1. A service agreement with KOMBIT, and access to "serviceplatformen", or another way of configuring an "It-system".
 
-2. A NemID FOCES or VOCES (FOCES is preferred) for production use (Issued by: TRUST2408 OCES CA). If the OS2IoT installation is a TEST system, and the test environment for KOMBIT adgangsstyring is being used, then a FOCES/VOCES for the NemID integration environmen is sufficent (Issued by: TRUST2408 Systemtest). ~
+2. A NemID FOCES or VOCES (FOCES is preferred) for production use (Issued by: TRUST2408 OCES CA). If the OS2IoT installation is a TEST system, and the test environment for KOMBIT adgangsstyring is being used, then a FOCES/VOCES for the NemID integration environment is sufficent (Issued by: TRUST2408 Systemtest).
 
 
 Once the prerequisites are in order the configuration can begin.
@@ -53,7 +53,7 @@ Steps:
             
             .. code-block:: javascript
 
-                BACKEND_BASEURL=https://test.os2iot.dk
+                BACKEND_BASEURL="https://test.os2iot.dk"
 
         iii. The variable :code:`KOMBIT_CERTIFICATEPRIVATEKEY` must be set to the private key from earlier. Since this file contains newlines, it might be easier to use `\\n` inside a string to set this variable.
             b. An example for :code:`.env` could be: 
@@ -62,4 +62,15 @@ Steps:
 
                 KOMBIT_CERTIFICATEPRIVATEKEY="-----BEGIN RSA PRIVATE KEY-----\nMIIEoQIBAFAKEAQEAlgq4JESby9DF7l73hViKZJ1/l9iIjCndQdjXNf0mOe9uMrWJ\nrDi0few9jFAKEIb0v33UmH20yFe7FiozjRBAgvml+lfZP2DN583evs6rGfHPNQHLb\nLP2g/2cehFAKE4asddasdsadsadX+hnYVJjnzOYmiPAAK418Tnq6g1tk4upPx9O\nlHgWWaDMwFAKEuKczbx/ALy9FxDk7x25Mpxqi3pUg35sMy76/JrdlEfuQzdjpaxp5\n4j29LqjPoFAKElpBJ6DjZotIcV9BL9rjNgZTb4N6jqHUqbyYOGfHAydFnJmeMYRMX\nViYkxag0WFAKEJ/P5YP9bCA3eYIbwJgyi6srT+wIDAQABAoIBAQCUmz1SvplIPxkr\nROgHLHC1wFAKEFoX3vSclpq1Rasdasda+7IJa9LF1v6z9VJWSCz9ZBnuIM\nngoiSY8EyFAKEj8X5LtLkb3CYlNZOQSvTX27xmqsxC2NRSTCt+wi3zpcqzqXXIZiX\n+asddasdsFAKEsadsdasdasdsadsdas+000hVqfokMxOyQ5ao0VECGXIokw+LSx\nlFhDvhRaJFAKEKhWL6nXiZC1QKGJdFsSZ+TdIemZoFaur8/C67Ih10AGH2wUnyoqy\naygdVg4WcFAKE5kDkAEYCpYtrXv0uqjGekSVeplYAaNdz1RXfklu7/k+PwJTv7mje\n15c5PABhAFAKEAPy80MzPKqm1SElhyRUbMx01yJEp6jouygHKLuoUlQu32ZntkjhY\nZjPE2+GmYFAKEXcocirmCpPf6MhbTJvvV4hDh4vmiuNjTWpudqK65UByFhzlnBuIZ\niNIZVHXyWFAKEwkd2fb0A59918LlERArVDYHXmTRVVjEyBgl8yTjIQSiDAoGBAJf6\nilrugZ8i1FAKEUgj606Ng5LBkW3ADgn9yz9PvpPXD3EiCEpSVKz7PxDa9xKjSrWqZ\n8EEYq6Z83FAKE7Gna/Ur97NfSPJDUtDbAw9m+9dDryNFqEbUrfxRAffAaq41xGjaY\nzp5t9wRsTFAKEkqCsDj+CChwSrCxc/TnffY4+AZ0pAoGAeftrz54hmj1LwVc35T72\ngZ+mySFw0FAKE14pM8F+0vC4lEV0PmLBZy5y0/4j8lTtPjTAPaI/8rU8Ng+SvyRan\nALz1fsUh8FAKES6dhdcstNkbgSD1InjHyzmy5TiAFYlGLxFAVSfa48yqKX/Dp4kyI\nM2XqpM6XRFAKEprCashQ9Fp8CgYB8uLBIVYlspnIk6P4cvnNmlcK3e3SKpWa33unt\nnLI8uoKRwFAKE6Iv33RvCbNPyVAra+//t/CgJ1lk8osayTHQn0eFHcJIhrV1Dvcg8\nbvlefdFtAFAKEzulYHmD75Xc5+UKw4ZBW9hmMuK/Jfz+lue1rcvWG+k/vjFSH5QAt\n9nbumQJ/RFAKEUqHciYXc+Q4lUSN3yvY5Ae6m1CvjmTg4Lzuc+0N7lnsp/FLDUg7P\nLbF7dgOw9FAKE40+sLhxAf8/b86LDVANUlfiN4JMUQYr6xZ1Ts1dCN9wRgZ4cbdU2\nT5XZL2YlXFAKEW5IcI8RKEYCHsNJIkPlh6LfNyrdAj56x2/w9Ew==\n-----END RSA PRIVATE KEY-----"
 
+        iiii. The variable :code:`KOMBIT_ENTRYPOINT` must be set to the entrypoint of KOMBIT. If unset, it will be set to: :code:`https://adgangsstyring.eksterntest-stoettesystemerne.dk/runtime/saml2/issue.idp`, which is the test environment.
+            c. An example for :code:`.env` could be:
 
+            .. code-block:: javascript
+
+                KOMBIT_ENTRYPOINT="https://adgangsstyring.eksterntest-stoettesystemerne.dk/runtime/saml2/issue.idp"
+
+
+Test:
+^^^^^
+
+To test the functionality, press the "Login med KOMBIT Adgangsstyring" button from the login page (:code:`/auth`).
