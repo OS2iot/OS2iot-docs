@@ -8,3 +8,9 @@ Source: https://stackoverflow.com/questions/52534844/decoding-sensit-3-payload-d
 
 .. literalinclude :: ./decode-sensit-payload.js
    :language: javascript
+
+Elsys ERS
+---------
+
+.. literalinclude :: ./decode-elsys-ers-payload.js
+   :language: javascript
