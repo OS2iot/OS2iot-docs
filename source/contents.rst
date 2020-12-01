@@ -14,3 +14,4 @@
    payload-decoders/payload-decoders.rst
    downlink-helpers/downlink-helpers.rst
    kombit-adgangsstyring/kombit-adgangsstyring.rst
+   audit-log/audit-log.rst
