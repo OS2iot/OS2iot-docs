@@ -41,15 +41,15 @@ can have the same id value.
 Temporal values
 ~~~~~~~~~~~~~~~
 
-Data in OS2iot is non-temporal. Each entity has "created" and "modified"
+Data in OS2iot is non-temporal. Each entity has "createdAt" and "updatedAt"
 attributes which contains the date and time an object was created and
 last modified, respectively. If an object has been created but not
-modified, "created" and "modified" contain the same values.
+modified, "createdAt" and "updatedAt" contain the same values.
 
-Each entity also has "createdBy" and "modifiedBy" attributes, which
+Each entity also has "createdBy" and "updatedBy" attributes, which
 contain the username of the user that created the object and the last
 person to modify an object. If an object has been created but not
-modified, "created" and "modified" contain the same values.
+modified, "createdAt" and "updatedAt" contain the same values.
 
 Enumerations
 ------------
@@ -184,10 +184,5 @@ SigFoxPayloadType
 5. RadioPlanningFrame
 6. Sensitv2
 
-.. |image0| image:: ./media/image3.emf
-   :width: 1.51111in
-   :height: 0.23194in
 .. |image1| image:: ./media/image4.png
-   :width: 6.56806in
-   :height: 3.78681in
 
