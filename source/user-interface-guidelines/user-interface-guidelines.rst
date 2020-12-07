@@ -380,7 +380,7 @@ Variables will be kept in a variables.scss file. They should be written
 with a structure where first you imply what it is and then the
 variation, like:
 
-.. code:: scss
+.. code:: css
 
    $alert-success;
 
@@ -453,41 +453,15 @@ Only elements such as titles, select options, links, buttons, input
 fields, etc are named programmatically. The content is user generated.
 
 .. |image0| image:: ./media/image4.emf
-   :width: 1.51111in
-   :height: 0.23194in
 .. |image1| image:: ./media/image5.png
-   :width: 2.1207in
-   :height: 2.31132in
 .. |image2| image:: ./media/image6.png
-   :width: 6.56806in
-   :height: 4.67083in
 .. |image3| image:: ./media/image7.png
-   :width: 6.56806in
-   :height: 4.675in
 .. |image4| image:: ./media/image8.png
-   :width: 3.91721in
-   :height: 0.64592in
 .. |image5| image:: ./media/image9.png
-   :width: 2.02112in
-   :height: 0.41672in
 .. |image6| image:: ./media/image5.png
-   :width: 2.1207in
-   :height: 2.31132in
 .. |image7| image:: ./media/image10.png
-   :width: 6.56806in
-   :height: 2.75764in
 .. |image8| image:: ./media/image11.png
-   :width: 5.85849in
-   :height: 4.59549in
 .. |image9| image:: ./media/image12.png
-   :width: 5.86793in
-   :height: 4.16922in
 .. |image10| image:: ./media/image13.png
-   :width: 6.56806in
-   :height: 4.66806in
 .. |image11| image:: ./media/image14.png
-   :width: 2.93791in
-   :height: 0.51049in
 .. |image12| image:: ./media/image15.png
-   :width: 0.79178in
-   :height: 1.28143in

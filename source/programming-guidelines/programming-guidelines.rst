@@ -168,5 +168,3 @@ docker for each part, and docker-compose to combine the containers.
    https://typeorm.io/#/
 
 .. |image0| image:: ./media/image3.emf
-   :width: 1.51111in
-   :height: 0.23194in

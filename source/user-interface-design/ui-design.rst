@@ -192,50 +192,18 @@ SMS
 ---
 
 .. |image0| image:: ./media/image4.emf
-   :width: 1.51111in
-   :height: 0.23194in
 .. |image1| image:: ./media/image5.png
-   :width: 6.16038in
-   :height: 2.49951in
 .. |image2| image:: ./media/image6.png
-   :width: 5.82373in
-   :height: 4.14151in
 .. |image3| image:: ./media/image7.png
-   :width: 5.83699in
-   :height: 4.15094in
 .. |image4| image:: ./media/image8.png
-   :width: 6.56806in
-   :height: 4.67083in
 .. |image5| image:: ./media/image9.png
-   :width: 6.56806in
-   :height: 2.95in
 .. |image6| image:: ./media/image10.png
-   :width: 6.08904in
-   :height: 4.33019in
 .. |image7| image:: ./media/image11.png
-   :width: 6.08889in
-   :height: 4.33007in
 .. |image8| image:: ./media/image12.png
-   :width: 5.97153in
-   :height: 4.24662in
 .. |image9| image:: ./media/image13.png
-   :width: 5.9717in
-   :height: 4.24674in
 .. |image10| image:: ./media/image14.png
-   :width: 6.12264in
-   :height: 4.35408in
 .. |image11| image:: ./media/image15.png
-   :width: 6.10377in
-   :height: 4.34066in
 .. |image12| image:: ./media/image16.png
-   :width: 6.13208in
-   :height: 4.36079in
 .. |image13| image:: ./media/image17.png
-   :width: 6.13194in
-   :height: 4.3607in
 .. |image14| image:: ./media/image18.png
-   :width: 6.0283in
-   :height: 4.28699in
 .. |image15| image:: ./media/image19.png
-   :width: 6.06604in
-   :height: 4.31383in

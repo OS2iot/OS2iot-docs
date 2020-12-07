@@ -159,32 +159,12 @@ Follow the steps given below to install Node.js in Windows environment.
 command \ **node –v** in the terminal window.\ |Verify Installation|
 
 .. |image0| image:: ./media/image4.emf
-   :width: 1.51111in
-   :height: 0.23194in
 .. |search for Docker app| image:: ./media/image5.png
-   :width: 2.61153in
-   :height: 2.35655in
 .. |whale on taskbar| image:: ./media/image6.png
-   :width: 2.20903in
-   :height: 0.50417in
 .. |Docker Quick Start tutorial| image:: ./media/image7.png
-   :width: 3.73255in
-   :height: 2.36944in
 .. |Download Visual Studio-kode| image:: ./media/image8.png
-   :width: 3.7913in
-   :height: 2.67872in
 .. |Opsætningsguide| image:: ./media/image9.png
-   :width: 3.64348in
-   :height: 2.8263in
 .. |IDE| image:: ./media/image10.png
-   :width: 3.73608in
-   :height: 2.76461in
 .. |Sti til krydsfiler| image:: ./media/image11.png
-   :width: 3.70435in
-   :height: 2.98841in
 .. |Download og kør installationsprogram| image:: ./media/image12.png
-   :width: 3.46369in
-   :height: 2.72183in
 .. |Verify Installation| image:: ./media/image13.png
-   :width: 1.74792in
-   :height: 0.69583in

@@ -339,35 +339,15 @@ used for critical applications due to poor protection from replay
 attacks.
 
 .. |image0| image:: ./media/image4.emf
-   :width: 1.51111in
-   :height: 0.23194in
 .. |image1| image:: ./media/image7.png
-   :width: 6.56806in
-   :height: 4.89861in
 .. |image2| image:: ./media/image8.png
-   :width: 6.56806in
-   :height: 3.78125in
 .. |image3| image:: ./media/image9.png
-   :width: 6.56806in
-   :height: 3in
 
 Data target security
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 It is the responsibility of the users of OS2iot and administrators of the data targets to ensure data is encrypted during transmission using e.g. TLS. This section describes the available authentication options in OS2iot.
 
 HTTP PUSH
-^^^^^^
-OS2iot supports using a HTTP "Authorization" header or  HTTP basic authentication.
-
-MQTT
-^^^^^^
-TBD.
-
-Opendata.dk
-^^^^^^
-Authentication is done by providing a API key known by opendata.dk.
-
-NGSI-LD Context Broker
-^^^^^^
-No authentication is supported.
+^^^^^^^^^^^^
+OS2iot supports using a HTTP "Authorization" header or HTTP basic authentication

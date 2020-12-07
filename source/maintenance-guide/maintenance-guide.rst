@@ -407,47 +407,17 @@ Architect model. Perform the following steps to establish connection:
    d. Database: OS2iot
 
 .. |image0| image:: ./media/image4.emf
-   :width: 1.51111in
-   :height: 0.23194in
 .. |image1| image:: ./media/image5.png
-   :width: 6.56806in
-   :height: 0.51319in
 .. |image2| image:: ./media/image6.png
-   :width: 5.16806in
-   :height: 2.70861in
 .. |image3| image:: ./media/image7.png
-   :width: 6.56806in
-   :height: 0.48542in
 .. |image4| image:: ./media/image8.png
-   :width: 6.56806in
-   :height: 0.6in
 .. |image5| image:: ./media/image9.png
-   :width: 6.56528in
-   :height: 3.55625in
 .. |image6| image:: ./media/image10.png
-   :width: 6.56806in
-   :height: 3.55764in
 .. |image7| image:: ./media/image11.png
-   :width: 6.56806in
-   :height: 3.58056in
 .. |image8| image:: ./media/image12.png
-   :width: 6.56806in
-   :height: 3.57569in
 .. |image9| image:: ./media/image13.png
-   :width: 3.30254in
-   :height: 3.08376in
 .. |image10| image:: ./media/image14.png
-   :width: 3.9851in
-   :height: 1.31123in
 .. |Debugging diagram| image:: ./media/image15.png
-   :width: 3.74783in
-   :height: 2.10335in
 .. |Simplified initial Run and Debug view| image:: ./media/image16.png
-   :width: 4in
-   :height: 2.68681in
 .. |image13| image:: ./media/image17.png
-   :width: 3.97411in
-   :height: 2.26479in
 .. |A successful Git branching model » nvie.com| image:: ./media/image18.png
-   :width: 3.8087in
-   :height: 5.04698in
