@@ -64,9 +64,130 @@ PermissionLevel
 3. OrgAdmin
 4. GlobalAdministrator
 
+ActionType
+~~~~~~~~~~~~~~~
+These are the types of action which can be part of the `AuditLog <../audit-log/audit-log.html>`_.
+
+1. DELETE
+2. CREATE
+3. UPDATE
+
+SearchResultType
+~~~~~~~~~~~~~~~~
+
+1. Gateway
+2. IoTDevice
+3. Application
+
+
+AuthorizationType 
+~~~~~~~~~~~~~~~~~
+
+1. NO_AUTHORIZATION
+2. HTTP_BASIC_AUTHORIZATION
+3. HEADER_BASED_AUTHORIZATION
+
+
+DataTargetType
+~~~~~~~~~~~~~~~~~
+
+1. HttpPush
+
+IoTDeviceType
+~~~~~~~~~~~~~~~~~
+
+1. GenericHttp
+2. LoRaWAN
+3. SigFox
+
+ErrorCodes 
+~~~~~~~~~~~~~~~~~
+
+1. IdDoesNotExists
+2. IdMissing
+3. NameInvalidOrAlreadyInUse
+4. IdInvalidOrAlreadyInUse
+5. InvalidApiKey
+6. InvalidPost
+7. WrongLength
+8. NotValidFormat
+9. BadEncoding
+10. MissingOTAAInfo
+11. MissingABPInfo
+12. UserAlreadyExists
+13. OrganizationAlreadyExists
+14. OrganizationDoesNotExists
+15. OrganizationDoesNotMatch
+16. UserInactive
+17. NotSameApplication
+18. PasswordNotMetRequirements
+19. SigFoxBadLogin
+20. GatewayIdNotAllowedInUpdate
+21. GroupCanOnlyBeCreatedOncePrOrganization
+22. DeviceDoesNotExistInSigFoxForGroup
+23. DownlinkNotSupportedForDeviceType
+24. DownlinkLengthWrongForSigfox
+25. OnlyAllowedForLoRaWANAndSigfox
+26. DeviceIsNotActivatedInChirpstack
+27. QueryMustNotBeEmpty
+28. IsUsed
+29. CannotModifyOnKombitUser
+30. SigfoxError
+31. NoData
+32. MissingRole
+33. DeleteNotAllowedItemIsInUse
+34. DeleteNotAllowedHasSigfoxDevice
+35. DeleteNotAllowedHasLoRaWANDevices
+36. KOMBITLoginFailed
+
+KafkaTopic 
+~~~~~~~~~~~~~~~~~
+
+1. RAW_REQUEST
+2. TRANSFORMED_REQUEST
+
+ActivationType
+~~~~~~~~~~~~~~~~~
+1. NONE
+2. OTAA
+3. ABP
+
+PermissionType 
+~~~~~~~~~~~~~~~~~
+
+1. GlobalAdmin
+2. OrganizationAdmin
+3. Write
+4. Read
+5. OrganizationPermission
+6. OrganizationApplicationPermissions
+
+SendStatus
+~~~~~~~~~~~~~~~~~
+
+1. OK
+2. ERROR
+
+SigFoxDownlinkMode
+~~~~~~~~~~~~~~~~~~
+1. DIRECT
+2. CALLBACK
+3. NONE
+4. MANAGED
+
+SigFoxPayloadType
+~~~~~~~~~~~~~~~~~
+1. RegularRawPayload
+2. CustomGrammar
+3. Geolocation
+4. DisplayInASCII
+5. RadioPlanningFrame
+6. Sensitv2
+
 .. |image0| image:: ./media/image3.emf
    :width: 1.51111in
    :height: 0.23194in
 .. |image1| image:: ./media/image4.png
    :width: 6.56806in
    :height: 3.78681in
+
