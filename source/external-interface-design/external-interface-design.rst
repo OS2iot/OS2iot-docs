@@ -72,21 +72,11 @@ Figure 4 - Data target integrations
 
 OS2iot supports integrations to:
 
--  CIM Context Broker based on NGSI-LD
-
 -  Opendata.dk
 
 -  Any external system supporting one of the following
 
-   -  CoAP
-
    -  HTTPS
-
-   -  WebSocket
-
-   -  MQTT
-
-All use request-response except MQTT, which uses publish-subscribe.
 
 Authentication
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -95,11 +85,7 @@ Authentication
 
 Figure 5 - External authentication systems
 
-OS2iot integrates to two external authentication systems:
-
--  KOMBIT Adgangsstyring
-
--  Active Directory
+OS2iot integrates to the external authentication system: KOMBIT Adgangsstyring
 
 These are described in detail in section 6 and 7, respectively.
 
@@ -287,7 +273,7 @@ Error handling
 
 ..
 
-   Errors received from chirpstack will be logged and displayed. Simple
+   Errors received from chirpstack will be logged and displayed. 
 
 Communicating with edge devices
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -589,227 +575,42 @@ exponential back-off. Or an API exposing all messages which have not
 been acknowledged by the receiver, for a short period of time (for
 instance 3 days like SigFox).
 
-NGSI-LD
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-OS2iot can update attributes on entities in a CIM Context Broker according to the NGSI-LD specification.
-https://www.etsi.org/deliver/etsi_gs/CIM/001_099/009/01.01.01_60/gs_CIM009v010101p.pdf
-
-Prerequisites
-~~~~~~~~~~~~~
-
-OS2iot can only update existing attributes and existing entities in the Context Broker. This means that the entites must already be created in the Context Broker before OS2iot can send data to the Context Broker. The responsibility for this lies outside the scope of OS2iot.
-
-Integration pattern
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The integration uses the request-response pattern. The following describes how and when data is sent to the CIM Context Broker from OS2iot:
-1.	OS2iot receives data from an IoT device
-2.	Once the data has been stored in OS2iot and the data has been transformed, the transformed data is sent to the Context Broker
-3.	Data is sent as a HTTP PATCH request
-
-Authorization
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The FIWARE reference implementations Orion-LD and Scorpio use no authentication or authorization.
-
-Data and format
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Data must use the JSON-LD format. FIWARE Smart Data Models define the available entities and attributes:
-https://github.com/smart-data-models
-
-Update entity attribute
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The NGSI-LD specification defines how attributes in the Context Broker are updated:
-https://github.com/FIWARE/context.Orion-LD/blob/develop/doc/manuals-ld/developer-documentation.md#patch-ngsi-ldv1entitiesentityidattrs
-A HTTP PATCH request is sent to "/ngsi-ld/v1/entities/{entityId}/attrs" with a JSON-LD object containing the attribute values. The data transformation in OS2iot is responsible for transforming the IoT device payload and OS2iot device metadata to valid JSON-LD.
-
 Opendata.dk
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-OS2iot can send data from IoT devices to opendata.dk by adding the
-received data to a opendata.dk resource after it has been received by
-OS2iot.
+Users of OS2iot can expose the data sent from their devices to opendata.dk by setting up a data-target to share with opendata.dk.
 
-Data is saved in opendata.dk in a Data Store in a Data Set created under
-an Organization.
+The IoTDevices whose data is exposed is the devices which are listed in the data-target. The data is transformed using their corresponding payload transformers.
+Each data-target which is shared creates one data-set is opendata.dk and in that dataset there is once resouce, namely an HTTP endpoint which exposes the data as an array of JSON objects.
+
+Opendata.dk autogenerates their catalogue of OS2iot data, by parsing the DCAT json file which is exposed at the :code:`​/api​/v1​/open-data-dk-sharing​/{organizationId}` endpoint. 
+The organizationId for your organization is shown in the frontend. 
+
+The data itself is exposed on the :code:`/api/v1/open-data-dk-sharing/{organizationId}/data/{shareId}` endpoint.
 
 .. _prerequisites-1:
-
-Prerequisites
-~~~~~~~~~~~~~
-
-The integration has the following prerequisites:
-
--  The necessary opendata.dk credentials has been added to the
-   organization in OS2iot. This includes the API key needed for
-   authenticating with opendata.dk.
-
--  The Organization and Data Set must be created in opendata.dk.
-
--  A payload transformation exists in OS2iot for transforming the device
-   payload to valid JSON.
-
-When creating or modifying an IoT device in OS2iot, it is possible to
-choose to also send device data to opendata.dk. When doing this, the
-user must also chose which data transformation to use and provide the
-name of the data store.
-
-Integration pattern
-~~~~~~~~~~~~~~~~~~~
-
-The following describes how and when data is sent to opendata.dk from
-OS2iot
-
-1. OS2iot receives data from an IoT device
-
-2. Once the data has been stored in OS2iot and the payload has been
-   transformed, the data (device metadata plus transformed payload) is
-   sent to opendata.dk
-
-3. Data is sent as a HTTP PUSH request to an opendata.dk API.
 
 Authorization
 ~~~~~~~~~~~~~
 
-Each HTTP request to the opendata.dk must contain a header containing
-the api key, i.e.:
-
-Authorization: [GUID]
+The endpoints listed above is not protected by a requirement of authorization, since they are intended to be publicly available.
 
 Data and format
 ~~~~~~~~~~~~~~~
 
-The data sent to opendata.dk is all properties and metadata for the
-entity "IoTDevice" along with the transformed payload. Data is sent as
-JSON.
-
-.. code-block:: javascript
-   
-   {
-      "DeviceName": "name",
-      "Description": "description",
-      [...],
-      "Metadata": { "metadata 1": "value 1", "metadata 2": "value 2"},
-      "Payload": "payload"
-   }
-
-The payload value depends on the associated data transformation, but
-must be valid JSON.
-
-|image7|
-
-Figure 6 - IoT device and data target data model
-
-Create/update data store
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-Before data can be added to opendata.dk, a data store must be created
-which includes the schema of the data store. Creation and updating is
-done in the same way, but a field cannot change type once it has been
-created.
-
-URL: https://demo.ckan.org/api/action/datastore_create
-
-.. code-block:: javascript
-
-   {
-      "resource_id": "[data set id]",
-      "fields": [
-         {
-            "id": "DeviceId",
-            "type": "text"
-         },
-         {
-            "id": "DeviceName",
-            "type": "text"
-         },
-         {
-            "id": "Description",
-            "type": "text"
-         },
-         {
-            "id": "BatteryLevel",
-            "type": "int"
-         },
-         [...],
-         {
-            "id": "Metadata",
-            "type": "json"
-         },
-         {
-            "id": "Payload",
-            "type": "json"
-         }
-      ],
-      "primary_key": ["DeviceId"],
-      "force": "True"
-   }
-
-
-TODO: Decide when this is done and if it happens automatically.
-
-Supported field types:
-
-https://docs.ckan.org/en/2.8/maintaining/datastore.html#field-types
-
-Insert data into data store
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Data is inserted into the data store by sending JSON using a HTTP PUSH
-request to opendata.dk.
-
-URL: https://demo.ckan.org/api/action/datastore_upsert
-
-.. code-block:: javascript
-
-   {
-      "resource_id": "data store id",
-      "method": "upsert",
-      "records": [
-         {
-            "DeviceId": "device id",
-            "DeviceName": "device name",
-            [...],
-            "payload": { "temp":30, "humidity": "high" }
-         }
-      ],
-      "force": "True"
-   }
-
-
-
+The data exposed is entirely defined by the payload transformer, and thus the user of OS2iot, rather than the system imposing a data format.
 
 KOMBIT Adgangstyring
 -------------------------------------------------------------------
-TODO
 
-Active Directory
--------------------------------------------------------------------
-TODO
+See `the seperate page for KOMBIT adgangsstyring <../kombit-adgangsstyring/kombit-adgangsstyring.html>`_
+
 
 .. |image0| image:: media/image4.emf
-   :width: 1.51111in
-   :height: 0.23194in
 .. |image1| image:: media/image5.png
-   :width: 6.56806in
-   :height: 4.60556in
 .. |image2| image:: media/image6.png
-   :width: 5.048in
-   :height: 3.13939in
 .. |image3| image:: media/image7.png
-   :width: 6.56806in
-   :height: 4.27569in
 .. |image4| image:: media/image8.png
-   :width: 6.56806in
-   :height: 3.09306in
 .. |image5| image:: media/image9.png
-   :width: 6.56806in
-   :height: 2.27153in
 .. |image6| image:: media/image10.png
-   :width: 6.56806in
-   :height: 1.33819in
 .. |image7| image:: media/image12.png
-   :width: 4.58209in
-   :height: 3.94017in
