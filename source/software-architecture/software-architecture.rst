@@ -7,11 +7,6 @@ Introduction
 Architectural goals and constraints
 -----------------------------------
 
-Use case perspective
---------------------
-
-TBA
-
 Logical perspective
 -------------------
 
@@ -73,9 +68,6 @@ This way we avoid using stale data, or other inaccuracies. Instead we
 opt to query the database more often, but since the queries will mostly
 be very simple, i.e. fetching a single row, or a row with a joined
 table, the cost is deemed low.
-
-Raise alarm
-~~~~~~~~~~~
 
 Implementation perspective
 --------------------------
@@ -147,10 +139,6 @@ controller cannot access the data access layer and vice versa.
 Frontend
 ~~~~~~~~
 
-Dennis udfylder dette
-
-.. _technology-stack-1:
-
 Technology stack
 ^^^^^^^^^^^^^^^^
 
@@ -160,11 +148,6 @@ Technology Purpose       URL                License
 Angular    Web framework http://angular.io/ MIT License
 ========== ============= ================== ===========
 
-.. _solution-architecture-1:
-
-Solution architecture
-^^^^^^^^^^^^^^^^^^^^^
-
 Deployment perspective
 ----------------------
 
@@ -173,8 +156,6 @@ The solution is deployed as a number of Docker containers.
 -  OS2iot Frontend
 
 -  OS2iot Backend
-
--  Data target MQTT Broker
 
 -  Chirpstack
 
@@ -239,7 +220,7 @@ User login and permissions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In OS2iot, user authentication is done by either en external system or
-by OS2iot. Authorization is handled by OS2iot by assigning users to
+by OS2iot. Authorization is handled in OS2iot by assigning users to
 either organizations or applications with a given permission level.
 
 This does not comply with "Den fælleskommunale rammearkitektur", which
@@ -276,7 +257,7 @@ User permissions
 User role          System name Permissions
 ================== =========== =======================================================
 Read access        Read        Read all data within an application.
-Write              Write       Create, modify and delete objects within an application
+Write access       Write       Create, modify and delete objects within an application
 Organization admin Orgadmin    Manage permissions for an organization and its applications
 Global admin       Globaladmin
 ================== =========== =======================================================
@@ -290,19 +271,20 @@ application. This includes both the frontend and backend of the
 solution, but not IoT device integrations or data target integrations.
 
 OS2iot REST API security
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In order to use the REST API exposed by OS2iot, the user must be authenticated.
-TODO: Describe login endpoint and JWT security.
+
+Authentication is done using the JWT gained from the :code:`/api/v1/auth/login` endpoint.
+The JWT is inserted as a Bearer token in the :code:`Authorization` header of the type :code:`Bearer` as described in RFC 6750, section 2.1.
 
 Device security
 ~~~~~~~~~~~~~~~
 
 Generic IoT devices
-^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 
 Generic IoT devices must provide a unique API key with every request to OS2iot. This provides both security and identification of the device sending data. Since the connection uses TLS, the API key is encrypted in the transmission.
-
 
 LoRaWAN
 ^^^^^^^
@@ -321,6 +303,7 @@ NB-IoT
 ^^^^^^
 
 Data from NB-IoT devices is received in the same manner as from generic IoT devices as described earlier and so uses the same security mechanisms.
+It is required that the device itself can be configured to send to a configured HTTP endpoint, and supports HTTPS.
 
 Sigfox
 ^^^^^^
