@@ -80,16 +80,17 @@ frontend.
 
 OS2iot uses the following 3\ :sup:`rd` party components as dependencies:
 
-============ ============================================================================== =========================== ====================
-Component    Use                                                                            Reference                   License
-============ ============================================================================== =========================== ====================
-Chirpstack   LoRaWAN device Integration                                                     https://chirpstack.io       MIT License
-Mosquitto    MQTT broker for LoRaWAN and data target integrations                           https://mosquitto.org/      EPL/EDL License
-Apache Kafka Internal message broker used in the OS2iot backed for device data integrations https://kafka.apache.org/   Apache License 2.0
-PostgreSQL   Persistent data storage                                                        https://www.postgresql.org/ PostgreSQL License
-Redis        In-memory data store                                                           https://redis.io/           BSD License
-Docker       Virtualization software                                                        https://www.docker.com/     Apache License 2.0
-============ ============================================================================== =========================== ====================
+============ ============================================================================== =========================== ==================== ==============
+Component    Use                                                                            Reference                   License              Version
+============ ============================================================================== =========================== ==================== ==============
+Chirpstack   LoRaWAN device Integration                                                     https://chirpstack.io       MIT License          3
+Mosquitto    MQTT broker for LoRaWAN and data target integrations                           https://mosquitto.org/      EPL/EDL License      1.6
+Apache Kafka Internal message broker used in the OS2iot backed for device data integrations https://kafka.apache.org/   Apache License 2.0   2.6
+PostgreSQL   Persistent data storage                                                        https://www.postgresql.org/ PostgreSQL License   12
+Redis        In-memory data store                                                           https://redis.io/           BSD License          5
+Docker       Virtualization software                                                        https://www.docker.com/     Apache License 2.0   19.03.13
+============ ============================================================================== =========================== ==================== ===============
+
 
 Backend
 ~~~~~~~
