@@ -1,170 +1,164 @@
-Installation Guide
-============================
-
-Introduction
-------------
+Installation guide
+==================
 
 Purpose
-~~~~~~~
+-------
 
-Target audience
-~~~~~~~~~~~~~~~
+This page is intended for audiences who wants to run OS2iot on their own machine to test it out, or deploy to a server for a production environment.
 
-Definitions and abbreviations
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Delimitations
-~~~~~~~~~~~~~
+Running locally using docker-compose
+------------------------------------
 
 Prerequisites
-~~~~~~~~~~~~~
+^^^^^^^^^^^^^
 
-Environment variables
-~~~~~~~~~~~~~~~~~~~~~
+1. docker version version 19.03.13 (or above)
+2. docker-compose version 1.27.4 (or above)
 
-======== ================= =========================== ===========================
-Variable Development       Internal test               External test
-======== ================= =========================== ===========================
-[APPURL] http://os2iot-dev https://os2iot-internaltest https://os2iot-externaltest
-======== ================= =========================== ===========================
+Configuration
+^^^^^^^^^^^^^
 
-Docker configuration
---------------------
+1. If the application needs to be accessable from non-localhost machines then modify the :code:`environment.prod.ts` file in :code:`OS2IoT-frontend/src/environments` folder.
 
-OS2IoT Backend
-~~~~~~~~~~~~~~
+   a. This changes the location the frontend accesses the backend on, so this URL should be the way another computer would reach the computer running docker-compose.
 
-.. code:: shell
+2. If callbacks from Sigfox is required then the backend needs to know what URL to configure Sigfox to callback to.
 
-   git clone https://github.com/OS2iot/Os2iot-backend
-   cd Os2iot-backend
-   docker build -t Os2iot-backend .
-   docker run --name os2iot-api -d -p 49160:8080 Os2iot-backend
+   a. This is done by setting the environment variable :code:`BACKEND_BASEURL` in the runtime environment for the backend.
 
-Chirpstack
-~~~~~~~~~~
-.. code:: shell
+   b. In docker-compose this can be set in the :code:`docker-compose.yml` file. 
 
-   docker pull chirpstack/chirpstack-network-server
-   cd chirpstack-docker
-   docker-compose up
+      i. I.e. :code:`BACKEND_BASEURL: "https://os2iot.dk"`
 
-After setting up the chirpstack docker container. The API documentation
-will be exposed on http://localhost:8080/api . More information can be
-found on https://www.chirpstack.io/application-server/integrate/rest/
+Steps
+^^^^^
 
-https://www.chirpstack.io/application-server/install/config/
+1. Clone the three repositories into the same folder, such that the structure is as follows:
 
-Install standard software
--------------------------
+   a. OS2IoT
 
-Install Docker Desktop
-~~~~~~~~~~~~~~~~~~~~~~
+       ├── OS2IoT-backend (https://github.com/OS2iot/OS2IoT-backend)
 
-**Requirement: Docker account**
+       ├── OS2IoT-docker (https://github.com/OS2iot/OS2IoT-docker)
+       
+       ├── OS2IoT-frontend (https://github.com/OS2iot/OS2IoT-frontend)
 
-1. Double-click Docker Desktop Installer.exe to run the installer.
+2. Make sure that Chirpstacks configuration files for initializing the postgres database is in unix format, such that the docker container can run it
 
-2. If you haven’t already downloaded the installer (Docker Desktop
-   Installer.exe), you can get it from \ `Docker
-   Hub <https://hub.docker.com/editions/community/docker-ce-desktop-windows/>`__.
-   It typically downloads to your Downloads folder, or you can run it
-   from the recent downloads bar at the bottom of your web browser.
+   a. This can be done with dos2unix or another tool :code:`dos2unix OS2IoT-docker/configuration/postgresql/initdb/001-init-chirpstack_ns.sh OS2IoT-docker/configuration/postgresql/initdb/002-init-chirpstack_as.sh OS2IoT-docker/configuration/postgresql/initdb/003-chirpstack_as_trgm.sh OS2IoT-docker/configuration/postgresql/initdb/004-chirpstack_as_hstore.sh`
 
-3. When prompted, ensure the **Enable Hyper-V Windows Features** option is selected on the Configuration page.
+3. Build the docker containers using docker-compose
 
-4. Follow the instructions on the installation wizard to authorize the
-   installer and proceed with the install.
+   a. navigate to the OS2IoT-docker folder in your terminal
 
-5. When the installation is successful, click **Close** to complete
-   the installation process.
+   b. Run :code:`docker-compose build`
 
-6. If your admin account is different to your user account, 
-   you must add the user to the *docker-users* group. 
-   Run *Computer Management* as an administrator and 
-   navigate to *Local Users and Groups > Groups > docker-users* 
-   Right-click to add the user to the group. Log out and log back in for the changes to take effect.
+4. Run the docker containers using docker-compose
 
-Start Docker Desktop
-^^^^^^^^^^^^^^^^^^^^
+   a. Run :code:`docker-compose run`
 
-Docker Desktop does not start automatically after installation. To start
-Docker Desktop, search for Docker, and select \ **Docker Desktop** in
-the search results.
+      1. Use the :code:`-d` flag to start it in the background.
 
-|search for Docker app|
+5. Access the frontend on http://localhost:8081/auth'
 
-When the whale icon in the status bar stays steady, Docker Desktop is
-up-and-running, and is accessible from any terminal window.
+6. If this instance of OS2IoT should be accessible from other machines, then naturally the relevant ports should be opened in the firewall(s).
 
-|whale on taskbar|
+   a. Relevant ports: 
 
-If the whale icon is hidden in the Notifications area, click the up
-arrow on the taskbar to show it. To learn more, `see Docker
-Settings. <https://docs.docker.com/docker-for-windows/#docker-settings-dialog>`__
+      i. Frontend: 8081
 
-When the initialization is complete, Docker Desktop launches the
-onboarding tutorial. The tutorial includes a simple exercise to build an
-example Docker image, run it as a container, push and save the image to
-Docker Hub.
+      ii. Backend: 3000
 
-|Docker Quick Start tutorial|
+      iii. Chirpstack Application Server: 8080
 
-Visual Studio Code
-~~~~~~~~~~~~~~~~~~
+      iv. Chirpstack Gateway (UDP from gateways to Chirpstack): 1700
 
-This is an open source IDE from Visual Studio. It is available for Mac
-OS X, Linux and Windows platforms. VScode is available at
-− \ `https://code.visualstudio.com/ <https://code.visualstudio.com/?utm_expid=101350005-25.TcgI322oRoCwQD7KJ5t8zQ.0>`__
 
-**Step 1** − `Download Visual Studio
-Code <https://code.visualstudio.com/docs?dv=win>`__ for Windows.
+Running in Kubernetes
+---------------------
 
-|Download Visual Studio-kode|
+During the development of OS2IoT, Azure was used for hosting the solution.
 
-**Step 2** − Double-click on VSCodeSetup.exe  to launch the setup
-process. This will only take a minute
+`Helm <https://helm.sh/>`_ was used for configuration, the Helm charts used can be found in the :code:`OS2IoT-docker/helm` folder.
 
-|Opsætningsguide|
+Disclaimer
+^^^^^^^^^^
 
-**Step 3** − A screenshot of the IDE is given below.
+This configuration is not intended for a production setup. 
+There is no persistent volumes for the database(s), Redis, Kafka etc. so data will not be persisted when using this configuration.
+There is no log gathering setup.
 
-|IDE|
+Setting up an environment
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Step 4 − You may directly traverse to the file’s path by right clicking
-on the file → open in command prompt. Similarly, the Reveal in Explorer
-option shows the file in the File Explorer.
+We used:
 
-|Sti til krydsfiler|
+   1. Azure AKS to run Kubernetes.
 
-Installing Node.js
-~~~~~~~~~~~~~~~~~~
+   2. Azure ACR to hold our docker images.
 
-Node.js is an open source, cross-platform runtime environment for
-server-side JavaScript. Node.js is required to run JavaScript without a
-browser support. It uses Google V8 JavaScript engine to execute code.
-You may download Node.js source code or a pre-built installer for your
-platform. Node is available here
-− \ `https://nodejs.org/en/download <https://nodejs.org/en/download/>`__
+   3. Azure DNS to manage DNS.
 
-**Installation on Windows**
+   4. Azure Load balancer to load balancing the traffic to Azure AKS.
 
-Follow the steps given below to install Node.js in Windows environment.
+      a. Both TCP (HTTP) traffic for web-browsers, and HTTP callbacks.
 
-**Step 1** − Download and run the .msi installer for Node.
+      b. ... and UDP traffic to chirpstack-gateway-bridge on port 1700 in a separate loadbalancer.
 
-|Download og kør installationsprogram|
+   5. Azure VM to host Jenkins.
 
-**Step 2** − To verify if the installation was successful, enter the
-command \ **node –v** in the terminal window.\ |Verify Installation|
+The exact steps will depend on the wishes for the exact deployment, and therefore it is left as an exercise for the reader. 
 
-.. |image0| image:: ./media/image4.emf
-.. |search for Docker app| image:: ./media/image5.png
-.. |whale on taskbar| image:: ./media/image6.png
-.. |Docker Quick Start tutorial| image:: ./media/image7.png
-.. |Download Visual Studio-kode| image:: ./media/image8.png
-.. |Opsætningsguide| image:: ./media/image9.png
-.. |IDE| image:: ./media/image10.png
-.. |Sti til krydsfiler| image:: ./media/image11.png
-.. |Download og kør installationsprogram| image:: ./media/image12.png
-.. |Verify Installation| image:: ./media/image13.png
+Deployment
+^^^^^^^^^^
+
+We used Jenkins for deployment, the deploy used the following shell script to perform the deploy.
+Sensitive information have been redacted.
+
+.. code-block:: bash 
+
+   #!/bin/sh
+   set -xe
+
+   az login --service-principal --username redacted --password redacted --tenant redacted
+   az acr login --name os2iot
+
+   # Build containers
+   sed -i "s/baseUrl: 'http:\/\/localhost:3000\/api\/v1\/'/baseUrl: 'https:\/\/${namespace}-os2iot-backend.os2iot.dk\/api\/v1\/'/" OS2IoT-frontend/src/environments/environment.prod.ts
+   # Replace BACKEND_BASEURL for backend:
+   sed -i "s/'https:\/\/test-os2iot-backend.os2iot.dk'/'https:\/\/${namespace}-os2iot-backend.os2iot.dk'/" OS2IoT-docker/helm/charts/os2iot-backend/templates/deployment.yaml
+
+   if $USE_DOCKER_BUILD_CACHE; then export OPTIONAL_ARGS=""; else export OPTIONAL_ARGS="--no-cache"; fi
+
+   docker build $OPTIONAL_ARGS -t os2iot-backend:${BUILD_NUMBER} ./OS2IoT-backend
+   docker build $OPTIONAL_ARGS -t os2iot-frontend:${BUILD_NUMBER} -f ./OS2IoT-frontend/Dockerfile-prod ./OS2IoT-frontend
+
+   # Tag and push to ACR
+   docker tag os2iot-backend:${BUILD_NUMBER} os2iot.azurecr.io/os2iot-backend:${BUILD_NUMBER}
+   docker push os2iot.azurecr.io/os2iot-backend:${BUILD_NUMBER}
+
+   docker tag os2iot-frontend:${BUILD_NUMBER} os2iot.azurecr.io/os2iot-frontend:${BUILD_NUMBER}
+   docker push os2iot.azurecr.io/os2iot-frontend:${BUILD_NUMBER}
+
+   # Setup  right private key for KOMBIT
+   if [ "${namespace}" = "test" ]; then export PRIVATEKEY="-----BEGIN PRIVATE KEY-----\nM-REDACTEDoP\n-----END PRIVATE KEY-----"; fi
+   if [ "${namespace}" = "demo" ]; then export PRIVATEKEY="-----BEGIN PRIVATE KEY-----\nM-REDACTEDoP\n-----END PRIVATE KEY-----"; fi
+
+   if [ "${namespace}" = "test" ]; then export ENTRYPOINT="https://adgangsstyring.eksterntest-stoettesystemerne.dk/runtime/saml2/issue.idp"; fi
+   if [ "${namespace}" = "demo" ]; then export ENTRYPOINT="https://adgangsstyring.stoettesystemerne.dk/runtime/saml2/issue.idp"; fi
+
+   # Create namespace or not
+   NOT_EXISTS=`kubectl get po -n ${namespace} 2>&1 | grep "No resources" | wc -l`
+   if [ "$NOT_EXISTS" = "1" ]; then kubectl create namespace ${namespace}; fi
+
+   # Helm deploy
+   cat <<EOT >> OS2IoT-docker/helm/values.yaml
+   os2iot-backend:
+     DOCKER_IMAGE_TAG: $BUILD_NUMBER
+     KOMBIT_CERTIFICATEPRIVATEKEY: '$PRIVATEKEY'
+     KOMBIT_ENTRYPOINT: '$ENTRYPOINT'
+   os2iot-frontend:
+     DOCKER_IMAGE_TAG: $BUILD_NUMBER
+   EOT
+
+   helm upgrade --install os2iot ./OS2IoT-docker/helm --namespace ${namespace}
