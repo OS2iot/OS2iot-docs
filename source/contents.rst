@@ -12,6 +12,7 @@
    maintenance-guide/maintenance-guide.rst
    sigfox-integration/sigfox-integration.rst
    payload-decoders/payload-decoders.rst
+   iot-data-handling/iot-data-handling.rst
    downlink-helpers/downlink-helpers.rst
    kombit-adgangsstyring/kombit-adgangsstyring.rst
    audit-log/audit-log.rst
