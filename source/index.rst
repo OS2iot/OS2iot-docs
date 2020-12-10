@@ -1,22 +1,18 @@
-.. OS2IoT documentation master file, created by
-   sphinx-quickstart on Fri Aug 14 10:47:03 2020.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+.. image:: https://os2.eu/sites/default/files/styles/node_banner/public/products/os2_produktbanner_iot.png
+
 
 Welcome to OS2IoT's documentation!
 ==================================
 
+This is the documentation of OS2iot.
+General information about what problem this tries to solve is available at the `OS2 website here <https://os2.eu/produkt/os2iot>`__ (in danish).
+
+This source-code is hosted on Github: https://github.com/OS2iot/ 
+
+If you want to try out the project using docker-compose then see the `installation guide <./installation-guide/installation-guide.html#running-locally-using-docker-compose>`__.
+
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
    
    contents.rst
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

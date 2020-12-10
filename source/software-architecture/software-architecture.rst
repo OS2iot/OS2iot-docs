@@ -89,7 +89,7 @@ Apache Kafka Internal message broker used in the OS2iot backed for device data i
 PostgreSQL   Persistent data storage                                                        https://www.postgresql.org/ PostgreSQL License   12
 Redis        In-memory data store                                                           https://redis.io/           BSD License          5
 Docker       Virtualization software                                                        https://www.docker.com/     Apache License 2.0   19.03.13
-============ ============================================================================== =========================== ==================== ===============
+============ ============================================================================== =========================== ==================== ==============
 
 
 Backend
