@@ -45,7 +45,21 @@ Steps:
         iii. Check that the info shown in the pop-up is correct for your certificate.
     d. Accept terms and save.
 
-4. Configure OS2IoT-backend to support KOMBIT adgangsstrying:
+4. Create a pair of brugersystemroller og jobfunktionsroller.
+    a. In IT-systemer choose the IT-system created above and go to the Brugervendt System tab. Under Brugersystemroller create a new one.
+        i. Navn: os2iot-adgang-brugersystemrolle
+        ii. Domæne: os2iot.dk
+        iii. Rollenavn: adgang
+        iv. Version: 1
+        v. This must yield the URI: :code:`http://os2iot.dk/roles/usersystemrole/adgang/`, if another one is wishes then pass the environment variable :code:`KOMBIT_ROLE_NAME` to the backend (default: :code:`http://os2iot.dk/roles/usersystemrole/adgang/`).
+        vi. Save the IT-system
+    b. Create a Jobfunktionsrolle (or update existing)
+        i. Navn and Rollenavn is decided by you.
+        ii. Press "Tilknyt brugersystemrolle" and locate the IT-system and brugersystemrolle created above and save it.
+        iii. Save the jobfunktionsrolle.
+    c. Update your IdP to give the relevant users the jobfunktionsrolle created here.
+
+5. Configure OS2IoT-backend to support KOMBIT adgangsstrying:
     a. You need to add two environment variables to the command running the backend server in your environment.
         i. This can be using the :code:`.env` file, or by setting them in some other manner.
         ii. The variable :code:`BACKEND_BASEURL` must be set to the URL a users browser will access the backend at, including the protocol, i.e. :code:`https://test.os2iot.dk`. The domain must be identical to the value you put into the metadata file above: `{YOUR_BASE_URL}`.
@@ -56,6 +70,7 @@ Steps:
                 BACKEND_BASEURL="https://test.os2iot.dk"
 
         iii. The variable :code:`KOMBIT_CERTIFICATEPRIVATEKEY` must be set to the private key from earlier. Since this file contains newlines, it might be easier to use `\\n` inside a string to set this variable.
+
             b. An example for :code:`.env` could be: 
 
             .. code-block:: javascript
