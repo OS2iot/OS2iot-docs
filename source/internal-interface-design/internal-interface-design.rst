@@ -36,7 +36,7 @@ The JWT payload currently contains two pieces of information:
 JWT Expiration
 ~~~~~~~~~~~~~~
 
-The JWT is by default set to expire after nine hours. upon which it is invalid. To aquire a new one, 
+The JWT is by default set to expire after nine hours. upon which it is invalid. To acquire a new one, 
 a new login must be performed as described above.
 
 Using Swagger with authorization

@@ -142,54 +142,12 @@ Receipts
 Bootstrap alerts are used to verify to the user that their action was
 successful.
 
-Wire frames
------------
-
-The solution can be found at:
-https://www.figma.com/proto/dWWZ3nNsM0GBnwnYQPTrIj/OS2iot---frontend-design?node-id=2%3A0&viewport=-800%2C-85%2C0.5&scaling=min-zoom
+Mobile / Tablet
+---------------
 
 The mobil and tablet version is the same except the menu has been placed
 in a header bar in accordance with the bootstrap best practices.
 https://getbootstrap.com/docs/4.0/components/navbar/
-
-Dashboard
-~~~~~~~~~
-
-|image6|
-
-Mine applikationer (My applications)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-|image7|
-
-Alle IoT enheder (All IoT units)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-|image8|
-
-Opret ny applikation (Create new application)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-|image9|
-
-Tilføj en ny IoT enhed (Add new IoT unit)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-|image10|\ |image11| |image12| |image13| |image14|
-
-IoT unit
-~~~~~~~~
-
-|image15|
-
-Reports
--------
-
-Emails
-------
-
-SMS
----
 
 .. |image0| image:: ./media/image4.emf
 .. |image1| image:: ./media/image5.png

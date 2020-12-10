@@ -1,19 +1,11 @@
 Maintenance Guide
 =========================
 
-Introduction
-------------
-
 Purpose
-~~~~~~~
+-------
 
-The purpose of this document is to enable the application management
-team to service the solution in production and develop changes for the
+The purpose of this document is to enable the maintainers of this project to develop changes for the
 solution.
-
-The target audience for the deliverable is either Netcompany AMC or the
-customers application management team that supports the solution in
-production.
 
 Development
 -----------
@@ -73,7 +65,7 @@ safely.
 
 Common errors
 ^^^^^^^^^^^^^
-Error: Issue connecting to chirpstacks PostgreSQL.
+Error: Issue connecting to Chirpstacks PostgreSQL.
 
 Fix:
 Goto os2iot-docker in your a terminal
@@ -464,34 +456,6 @@ command \ **node –v** in the terminal window.\ |Verify Installation|
 .. |Sti til krydsfiler| image:: ./media/image11.png
 .. |Download og kør installationsprogram| image:: ./media/image12.png
 .. |Verify Installation| image:: ./media/image13.png
-
-
-Jenkins
-~~~~~~~
-
-Jenkins is used for CI and CD. It can be accessed here:
-
-https://jenkins.os2iot.dk/
-
-Enterprise Architect
-~~~~~~~~~~~~~~~~~~~~
-
-The project uses a database hosted in Azure for storing the Enterprise
-Architect model. Perform the following steps to establish connection:
-
-1. Open Enterprise Architect
-
-2. Open Server connection
-
-3. Choose "Microsoft OLE DB Provider for SQL Server"
-
-   a. Server name: os2iot-ea.database.windows.net
-
-   b. User name: ea-admin
-
-   c. Password: Found in KeePass
-
-   d. Database: OS2iot
 
 .. |image1| image:: ./media/image5.png
 .. |image2| image:: ./media/image6.png

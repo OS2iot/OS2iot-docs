@@ -11,12 +11,6 @@ application to adequately perform as expected. This also servers to let
 the frontend developer of the application have a clear idea of what the
 vision is and what should be implemented.
 
-Target group
-~~~~~~~~~~~~
-
-UI/UX designers working on the OS2IOT project and whomever else it may
-concern.
-
 General principles
 ------------------
 
