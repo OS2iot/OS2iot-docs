@@ -1,6 +1,7 @@
 .. toctree::
    :maxdepth: 3
 
+   users-notes/users-notes.rst
    maintenance-guide/maintenance-guide.rst
    installation-guide/installation-guide.rst
    programming-guidelines/programming-guidelines.rst
