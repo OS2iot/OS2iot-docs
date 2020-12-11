@@ -18,3 +18,4 @@
    kombit-adgangsstyring/kombit-adgangsstyring.rst
    audit-log/audit-log.rst
    testing/testing.rst
+   exit-strategy/exit-strategy.rst
