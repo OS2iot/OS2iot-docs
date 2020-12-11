@@ -58,7 +58,7 @@ Receive IoT device data
 
 |image2|
 
-As the message broker, Kafka is used. Furthermore ZooKeeper is used to
+Kafka is used as the internal message broker. Furthermore ZooKeeper is used to
 manage it. We deploy both as separate docker containers as part of our
 docker-compose for development and to Kubernetes (via. Helm). All the
 processing will be done by stateless functions, the data we pass on the
@@ -208,8 +208,8 @@ created and last modified, respectively. If an object has been created
 but not modified, "createdAt" and "updatedAt" contain the same values.
 
 Each entity also has "createdBy" and "modifiedBy" attributes, which
-contain the username of the user that created the object and the last
-person to modify an object. If an object has been created but not
+contain the userID of the user that created the object and the last
+user to modify an object. If an object has been created but not
 modified, "createdBy" and "modifiedBy" contain the same values.
 
 Security perspective
@@ -254,14 +254,14 @@ organizations or applications.
 User permissions
 ^^^^^^^^^^^^^^^^
 
-================== =========== =======================================================
-User role          System name Permissions
-================== =========== =======================================================
-Read access        Read        Read all data within an application.
-Write access       Write       Create, modify and delete objects within an application
-Organization admin Orgadmin    Manage permissions for an organization and its applications
-Global admin       Globaladmin
-================== =========== =======================================================
+================== ==================== =======================================================
+User role          System name          Permissions
+================== ==================== =======================================================
+Global admin       Globaladmin          Super user, CRUD everything within the domain
+Organization admin Orgadmin             Manage permissions for an organization and its applications
+Write access       Write                Create, modify and delete objects within an application
+Read access        Read                 Read all data within an application.
+================== ==================== =======================================================
 
 Web application security
 ~~~~~~~~~~~~~~~~~~~~~~~~

@@ -43,7 +43,7 @@ npm install -g @angular/cli
 npm install -g typescript
 
 Quick setup
-^^^^^^
+^^^^^^^^^^^
 
 Important! Prepare by setting up the repositories, OS2IoT-docker,
 OS2IoT-backend, and OS2IoT-frontend, in the same folder/path of your
@@ -83,7 +83,7 @@ Once the path is added run:
 -  docker-compose up
 
 Advanced setup
-^^^^^^^^^
+^^^^^^^^^^^^^^
 
 **Important!** Prepare by setting up the repositories, OS2IoT-docker,
 OS2IoT-backend, and OS2IoT-frontend, in the same folder/path of your
