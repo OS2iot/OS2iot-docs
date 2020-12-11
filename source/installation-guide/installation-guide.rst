@@ -107,7 +107,7 @@ We used:
 
    5. Azure VM to host Jenkins.
 
-The exact steps will depend on the wishes for the exact deployment, and therefore it is left as an exercise for the reader. 
+The exact steps will depend on the requirements for the exact deployment, and therefore it is left as an exercise for the reader. 
 
 Deployment
 ^^^^^^^^^^

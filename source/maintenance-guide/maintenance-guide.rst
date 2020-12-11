@@ -29,7 +29,7 @@ Setup developement
 
 To setup your dev environment please follow these instructions:
 
-**Step 1** - Get solution from Github. See 4.14.1 Source control and
+**Step 1** - Get the solution from Github. See section 4.14.1 Source control and
 pull the OS2IoT-docker, OS2IoT-backend, and OS2IoT-frontend.
 
 **Step 2 -** Install typescript and angular globally on your computer .
@@ -42,7 +42,7 @@ npm install -g @angular/cli
 
 npm install -g typescript
 
-Quick 
+Quick setup
 ^^^^^^
 
 Important! Prepare by setting up the repositories, OS2IoT-docker,
@@ -58,10 +58,9 @@ Open command prompt and go to path of OS2IoT-docker and write
 Docker-compose up
 
 Hereafter the docker will install the backend and frontend and you can
-see the UI result on http://localhost:4200/
+access the frontend at http://localhost:4200/
 
-To quite, you can press Ctrl + C two times and docker will shut down
-safely.
+To quit: In your terminal you can press Ctrl + C twice. This will safely shut down docker.
 
 Common errors
 ^^^^^^^^^^^^^
@@ -78,15 +77,15 @@ Located the image name os2iot-docker_postgresqldata and delete it by running:
 
 -  docker volume rm os2iot-docker_postgresqldata
 
-Add os2iot-docker to docker files share (se steps above).
+Add os2iot-docker to docker files share (Described in the quick setup).
 Once the path is added run:
 
 -  docker-compose up
 
-Advanced 
+Advanced setup
 ^^^^^^^^^
 
-Important! Prepare by setting up the repositories, OS2IoT-docker,
+**Important!** Prepare by setting up the repositories, OS2IoT-docker,
 OS2IoT-backend, and OS2IoT-frontend, in the same folder/path of your
 choosing
 
@@ -274,7 +273,7 @@ GitFlow involves the following branches:
    not push directly to this branch - we use Instead pull requests
    through Github. If development from a feature branch is not to be
    included in the next release, this should not be merged to develop,
-   men instead wait for the correct release branch to be set up.
+   but instead wait for the correct release branch to be set up.
 
 -  "function" branches - contains code for individual new functions.
    Created from develop block and merge to develop branch via a pull
@@ -290,7 +289,7 @@ GitFlow involves the following branches:
 
 -  “release” branches - new releases candidates and is used to deploy a
    version to the test, pre-production and production environments. Each
-   gang and liberating branch is created, "required" policies must be
+   time a liberating branch is created, "required" policies must be
    configured for it, such as:
 
    -  Reviewers
@@ -339,8 +338,8 @@ Chirpstack
    docker-compose up
 
 After setting up the chirpstack docker container. The API documentation
-will be exposed on http://localhost:8080/api . More information can be
-found on https://www.chirpstack.io/application-server/integrate/rest/
+will be exposed at http://localhost:8080/api . More information can be
+found at https://www.chirpstack.io/application-server/integrate/rest/
 
 https://www.chirpstack.io/application-server/install/config/
 
@@ -352,13 +351,13 @@ Install Docker Desktop
 
 **Requirement: Docker account**
 
-1. Double-click Docker Desktop Installer.exe to run the installer.
-
-2. If you haven’t already downloaded the installer (Docker Desktop
+1. If you haven’t already downloaded the installer (Docker Desktop
    Installer.exe), you can get it from \ `Docker
    Hub <https://hub.docker.com/editions/community/docker-ce-desktop-windows/>`__.
    It typically downloads to your Downloads folder, or you can run it
    from the recent downloads bar at the bottom of your web browser.
+
+2. Double-click Docker Desktop Installer.exe to run the installer.
 
 3. When prompted, ensure the **Enable Hyper-V Windows Features** option is selected on the Configuration page.
 
@@ -383,7 +382,7 @@ the search results.
 
 |search for Docker app|
 
-When the whale icon in the status bar stays steady, Docker Desktop is
+When the Docker icong (a whale) in the status bar says steady, Docker Desktop is
 up-and-running, and is accessible from any terminal window.
 
 |whale on taskbar|
@@ -411,8 +410,8 @@ Code <https://code.visualstudio.com/docs?dv=win>`__ for Windows.
 
 |Download Visual Studio-kode|
 
-**Step 2** − Double-click on VSCodeSetup.exe  to launch the setup
-process. This will only take a minute
+**Step 2** − Double-click on VSCodeSetup.exe to launch the setup
+process. This should only take a minute
 
 |Opsætningsguide|
 

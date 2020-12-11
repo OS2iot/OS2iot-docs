@@ -62,7 +62,7 @@ https://angular.io/guide/file-structure
 Back-end
 ^^^^^^^^
 
-| We use a structure similar to the one described here:
+| The structure is similar to the one described here:
 | https://softwareontheroad.com/ideal-nodejs-project-structure/
 
 Some of the important parts are:
@@ -107,14 +107,14 @@ Code analysis
 
 We use ESLint to lint the code an ensure that we follow best practices.
 
-SonarCude / SIG? (TBD)
+SonarQube / SIG? (TBD)
 
 Front-end – Programming standards
 ---------------------------------
 
 The frontend code is written in TypeScript [2]_ (Angular 9). In the
 project ESLint [3]_ is setup to lint the code for preventable and/or
-syntax related errors. . To keep code formatting consistent we use
+syntax related errors. To keep code formatting consistent we use
 Prettier [4]_ to format the code. We try to follow the do’s and don’ts
 of TypeScript
 (https://www.typescriptlang.org/docs/handbook/declaration-files/do-s-and-don-ts.html).
@@ -144,9 +144,7 @@ For testing we use Jest or Mocha (TBD). We attempt to write both
 unit-test for each unit in isolation in addition to integration-tests to
 ensure that the whole is functioning. We strive to do Test Driven
 Development (TDD) and keep the code coverage as high as reasonably
-possible. (Requirement 24 dictates: At least 50% coverage for less
-complex units and 70% for more complex units, and a line coverage above
-75%).
+possible.
 
 To minimize differences between how the code runs on each pc, we use
 docker for each part, and docker-compose to combine the containers.

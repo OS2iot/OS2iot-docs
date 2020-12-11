@@ -1,7 +1,7 @@
 Users' notes
 ============
 
-This page is for useful information for users of the system.
+This page is meant to serve as useful information for users of the system.
 
 Default passwords
 -----------------
