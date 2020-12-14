@@ -77,6 +77,28 @@ Steps
 
       iv. Chirpstack Gateway (UDP from gateways to Chirpstack): 1700
 
+Troubleshooting
+^^^^^^^^^^^^^^^
+
+Error: Issue connecting to Chirpstacks PostgreSQL.
+
+Fix:
+Goto os2iot-docker in your a terminal
+
+-  Run: :code:`docker volume ls`
+
+Located the image name os2iot-docker_postgresqldata and delete it by running:
+
+-  :code:`docker-compose down`
+
+-  :code:`docker volume rm os2iot-docker_postgresqldata`
+
+Add os2iot-docker to docker files share (Described in the quick setup).
+Once the path is added run:
+
+-  :code:`docker-compose up`
+
+More docker related troubleshooting can be found at: https://github.com/OS2iot/OS2IoT-docker#troubleshooting-faq
 
 Running in Kubernetes
 ---------------------

@@ -10,6 +10,43 @@ solution.
 Development
 -----------
 
+Configuration of developer machine
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following should be installed in order to develop on OS2iot. It is assumed a Windows laptop is used.
+
+1. Docker Desktop
+
+2. Visual Studio Code with the following extensions:
+
+   a. ESLint
+
+   b. Npm
+
+   c. Jest
+
+   d. Prettier
+
+3. Pgadmin
+
+4. Git/Git Extensions/Sourcetree/Sublime Merge
+
+Mac:
+In order to run os2iot-backend outside docker and connect to docker (run it via vs code) one must follow the steps below:
+
+* Add docker to hosts on mac
+
+* Run: sudo vim /etc/hosts
+
+* In vim type i to insert
+
+* Add line with ip and hosts.docker.internal e.g. 127.0.0.1 hosts.docker.internal
+
+* type: esc :wq to save and exit
+
+* start os2iot-backend in vs code via the terminal: npm run start
+
+
 Source Code
 ~~~~~~~~~~~
 
@@ -47,110 +84,32 @@ To setup your dev environment please follow these instructions:
 4. For OS2IoT-backend install dependencies and start
    a. Navigate terminal to the OS2IoT-backend folder and type :code:`npm install`
 
-Quick setup
-^^^^^^^^^^^
+Starting dependencies for development
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Important! Prepare by setting up the repositories, OS2IoT-docker,
-OS2IoT-backend, and OS2IoT-frontend, in the same folder/path of your
-choosing
+1. (windows) Add os2iot-docker to file share in docker 
 
-Add os2iot-docker to file share in docker 
+   a. Open Docker Desktop -> Settings -> Resources -> FILE SHARING -> add os2iot-docker as shared folder.
 
--  Open Docker Desktop -> Settings -> Resources -> FILE SHARING -> add os2iot-docker as shared folder.
-
-Open terminal and go to path of OS2IoT-docker and write
-
-:code:`docker-compose up`
-
-Hereafter the docker will install the backend and frontend and you can
-access the frontend at http://localhost:8081/
-
-To quit: In your terminal you can press Ctrl + C twice. This will safely shut down docker.
-
-Common errors
-^^^^^^^^^^^^^
-Error: Issue connecting to Chirpstacks PostgreSQL.
-
-Fix:
-Goto os2iot-docker in your a terminal
-
--  Run: :code:`docker volume ls`
-
-Located the image name os2iot-docker_postgresqldata and delete it by running:
-
--  :code:`docker-compose down`
-
--  :code:`docker volume rm os2iot-docker_postgresqldata`
-
-Add os2iot-docker to docker files share (Described in the quick setup).
-Once the path is added run:
-
--  :code:`docker-compose up`
-
-More docker related troubleshooting can be found at: https://github.com/OS2iot/OS2IoT-docker#troubleshooting-faq
-
-Advanced setup
-^^^^^^^^^^^^^^
-
-For ease of development, run all
-
-**Important!** Prepare by setting up the repositories, OS2IoT-docker,
-OS2IoT-backend, and OS2IoT-frontend, in the same folder/path of your
-choosing
-
-1. Open terminal and go to path of OS2IoT-docker and write
+2. Open terminal and go to path of OS2IoT-docker and write
 
    .. code-block:: bash
 
       docker-compose up chirpstack-network-server postgresql chirpstack-gateway-bridge chirpstack-geolocation-server chirpstack-application-server os2iot-outbound-mosquitto mosquitto redis os2iot-inbound-mosquitto os2iot-kafka os2iot-postgresql os2iot-zookeeper
 
-2. Open terminal and go to path/folder of OS2IoT-frontend and write :code:`npm install`. It will then install all the npm dependencies to the solution.
-3. Open terminal and go to path of OS2IoT-docker and write :code:`npm start`
+3. To quit: In your terminal you can press Ctrl + C twice. This will safely shut down docker.
+
+Starting the frontend and backend for development
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Open the OS2IoT-frontend in visual studio code and start angular using: :code:`npm start`
+2. Open the OS2IoT-backend in another instance of visual studio code and start it using :code:`npm start`
 
 Database
 ^^^^^^^^
 
 To access the database, using PGAdmin is recommended.
 The default credential can be seen in `Users Notes <../users-notes/users-notes.html>`_.
-
-
-Configuration of developer machine
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The following must be installed in order to develop on OS2iot. It is
-assumed a Windows laptop is used.
-
-1. Docker Desktop
-
-2. Visual Studio Code with the following extensions:
-
-   a. ESLint
-
-   b. Npm
-
-   c. Jest
-
-   d. Prettier
-
-3. Pgadmin
-
-4. Git/Git Extensions/Sourcetree/Sublime Merge
-
-Mac:
-In order to run os2iot-backend outside docker and connect to docker (run it via vs code) one must follow the steps below:
-
-* Add docker to hosts on mac
-
-* Run: sudo vim /etc/hosts
-
-* In vim type i to insert
-
-* Add line with ip and hosts.docker.internal e.g. 127.0.0.1 hosts.docker.internal
-
-* type: esc :wq to save and exit
-
-* start os2iot-backend in vs code via the terminal: npm run start
-
 
 Map
 ~~~
@@ -165,13 +124,6 @@ The tiles can be changed by following the steps listed below:
    a. Make sure you also change the attribution attribute.
 
 Note that the solution must be deployed before the changes takes presence.
-
-Database
-^^^^^^^^
-
-The database is created code first using TypeORM.
-
-Database changes are done using the TypeORM migrations.
 
 Debugging 
 ^^^^^^^^^^
@@ -228,8 +180,8 @@ To update the documentation, i.e. these pages you are reading now, you must edit
 
 The documentation is written in reStructuredText, see https://docutils.sourceforge.io/rst.html for an intro.
 
-Setting up a local environment
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Building locally
+~~~~~~~~~~~~~~~~
 
 1. Install python if you do not already have it
 2. Install sphinx: :code:`pip install sphinx`

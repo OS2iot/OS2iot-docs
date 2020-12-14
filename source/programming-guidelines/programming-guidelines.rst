@@ -107,7 +107,7 @@ Code analysis
 
 We use ESLint to lint the code an ensure that we follow best practices.
 
-SonarQube / SIG? (TBD)
+SIG is used to weekly evaluate code-quality: https://www.softwareimprovementgroup.com/
 
 Front-end – Programming standards
 ---------------------------------
@@ -140,7 +140,7 @@ To connect to the database we use TypeORM [5]_, and we use the “Data
 Mapper” pattern for all our queries. We determine the datebase schema
 code-first, and use TypeORM database migrations to change it.
 
-For testing we use Jest or Mocha (TBD). We attempt to write both
+For testing we use Jest. We attempt to write both
 unit-test for each unit in isolation in addition to integration-tests to
 ensure that the whole is functioning. We strive to do Test Driven
 Development (TDD) and keep the code coverage as high as reasonably
