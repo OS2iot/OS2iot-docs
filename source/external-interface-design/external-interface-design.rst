@@ -9,11 +9,10 @@ integrations (IoT device and data target, respectively).
 Interfaces
 -------------------------------------------------------------------
 
-Figure 1 shows an overview of the external interfaces of OS2iot.
+This figure shows an overview of the external interfaces of OS2iot, each will be explained later in seperate sections.
 
 |image1|
 
-Figure - OS2iot external interfaces
 
 Integration patterns
 -------------------------------------------------------------------
@@ -21,11 +20,9 @@ Integration patterns
 Internal systems
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Internally, OS2iot consists of five components shown in Figure 2.
+Internally, OS2iot consists of four components shown in this figure.
 
 |image2|
-
-Figure 2 - Internal interfaces
 
 Two different patterns are used between the internal components:
 
@@ -33,7 +30,7 @@ Two different patterns are used between the internal components:
    | Used between the frontend, backend and database.
 
 -  | **Publish-subscribe**
-   | Used in communication between the backend and MQTT brokers.
+   | Used in communication between the backend and MQTT broker for Chirpstack.
 
 External systems
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -68,26 +65,21 @@ Data targets
 
 |image4|
 
-Figure 4 - Data target integrations
-
 OS2iot supports integrations to:
 
 -  Opendata.dk
 
--  Any external system supporting one of the following
-
-   -  HTTPS
+-  HTTP(S) Push data targets
 
 Authentication
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 |image5|
 
-Figure 5 - External authentication systems
+OS2iot integrates to the external authentication system: KOMBIT Adgangsstyring.
+See `the seperate page for KOMBIT adgangsstyring <../kombit-adgangsstyring/kombit-adgangsstyring.html>`_.
 
-OS2iot integrates to the external authentication system: KOMBIT Adgangsstyring
 
-These are described in detail in section 6 and 7, respectively.
 
 IoT Device Integrations
 -------------------------------------------------------------------
@@ -264,16 +256,9 @@ specific order.
 Error handling
 ~~~~~~~~~~~~~~
 
--  What happens if data cannot be sent from OS2iot to Chirpstack?
-
--  What happens if device data cannot be sent from Chirpstack to OS2iot?
-
--  Descripe scope of error handling (errors between device and gateway
-   is out of scope)
-
-..
-
-   Errors received from chirpstack will be logged and displayed. 
+Errors which occur in integrations are handled and logged as much as possible.
+If the action was caused by a user, then the user will receive an error message detailing this.
+If the error occured without it being caused by a user, e.g. IoT-device sends data, then the error will be logged.
 
 Communicating with edge devices
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
