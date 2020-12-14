@@ -161,9 +161,8 @@ The solution is deployed as a number of Docker containers.
 
 -  Apache Kafka
 
-Docker Compose is used to ease deployment of the solution. For
-scalability and increased robustness, the solution can be deployed to a
-cluster such as Kubernetes, or OpenShift.
+Docker Compose is used to ease deployment of the solution. 
+For scalability and increased robustness, the solution can be deployed to kubernetes cluser.
 
 Of these container only the OS2iot frontend and OS2iot backend
 containers are made in the OS2iot project, the remaining is made by

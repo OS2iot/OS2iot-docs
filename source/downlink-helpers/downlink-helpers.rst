@@ -1,7 +1,9 @@
 Downlink helpers
 ================================
 
-These javascript samples can help compute valid downlinks for 
+These javascript samples can help compute valid downlinks for Elsys ERS and Sensit 3.0.
+
+Note, the Elsys code requires to be run in node.js due to useing Buffers.
 
 Elsys (LORAWAN)
 ----------------
