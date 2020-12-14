@@ -606,7 +606,6 @@ KOMBIT Adgangstyring
 See `the seperate page for KOMBIT adgangsstyring <../kombit-adgangsstyring/kombit-adgangsstyring.html>`_
 
 
-.. |image0| image:: media/image4.emf
 .. |image1| image:: media/image5.png
 .. |image2| image:: media/image6.png
 .. |image3| image:: media/image7.png

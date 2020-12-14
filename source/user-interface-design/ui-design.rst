@@ -149,7 +149,6 @@ The mobil and tablet version is the same except the menu has been placed
 in a header bar in accordance with the bootstrap best practices.
 https://getbootstrap.com/docs/4.0/components/navbar/
 
-.. |image0| image:: ./media/image4.emf
 .. |image1| image:: ./media/image5.png
 .. |image2| image:: ./media/image6.png
 .. |image3| image:: ./media/image7.png

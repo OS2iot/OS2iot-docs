@@ -446,7 +446,6 @@ Content guidelines
 Only elements such as titles, select options, links, buttons, input
 fields, etc are named programmatically. The content is user generated.
 
-.. |image0| image:: ./media/image4.emf
 .. |image1| image:: ./media/image5.png
 .. |image2| image:: ./media/image6.png
 .. |image3| image:: ./media/image7.png

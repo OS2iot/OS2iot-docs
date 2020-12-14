@@ -45,7 +45,11 @@ Steps
 
 2. Make sure that Chirpstacks configuration files for initializing the postgres database is in unix format, such that the docker container can run it
 
-   a. This can be done with dos2unix or another tool :code:`dos2unix OS2IoT-docker/configuration/postgresql/initdb/001-init-chirpstack_ns.sh OS2IoT-docker/configuration/postgresql/initdb/002-init-chirpstack_as.sh OS2IoT-docker/configuration/postgresql/initdb/003-chirpstack_as_trgm.sh OS2IoT-docker/configuration/postgresql/initdb/004-chirpstack_as_hstore.sh`
+   a. This can be done with dos2unix or another tool 
+
+         .. code-block:: bash
+         
+            dos2unix OS2IoT-docker/configuration/postgresql/initdb/001-init-chirpstack_ns.sh OS2IoT-docker/configuration/postgresql/initdb/002-init-chirpstack_as.sh OS2IoT-docker/configuration/postgresql/initdb/003-chirpstack_as_trgm.sh OS2IoT-docker/configuration/postgresql/initdb/004-chirpstack_as_hstore.sh
 
 3. Build the docker containers using docker-compose
 
@@ -86,12 +90,13 @@ Disclaimer
 
 This configuration is not intended for a production setup. 
 There is no persistent volumes for the database(s), Redis, Kafka etc. so data will not be persisted when using this configuration.
-There is no log gathering setup.
+There is no log gathering in this setup.
+These should at least be resolved before deploying OS2iot in a production setup. 
 
 Setting up an environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We used:
+During development the following was used:
 
    1. Azure AKS to run Kubernetes.
 
@@ -112,7 +117,7 @@ The exact steps will depend on the requirements for the exact deployment, and th
 Deployment
 ^^^^^^^^^^
 
-We used Jenkins for deployment, the deploy used the following shell script to perform the deploy.
+Jenkins was used for deployment, the deploy used the following shell script to perform the deploy.
 Sensitive information have been redacted.
 
 .. code-block:: bash 

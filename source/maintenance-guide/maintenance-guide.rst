@@ -261,41 +261,6 @@ OS2IoT uses git and GitFlow
 https://datasift.github.io/gitflow/IntroducingGitFlow.html for source
 code version control.
 
-|A successful Git branching model » nvie.com|
-
-GitFlow involves the following branches:
-
--  "master" - The main industry with the current code in production.
-
--  “develop” - The main development industry. Created from the master
-   industry and merges back into master cutting which often only through
-   and frees branch. Contains latest development work, but changes can
-   not push directly to this branch - we use Instead pull requests
-   through Github. If development from a feature branch is not to be
-   included in the next release, this should not be merged to develop,
-   but instead wait for the correct release branch to be set up.
-
--  "function" branches - contains code for individual new functions.
-   Created from develop block and merge to develop branch via a pull
-   request when the new feature is complete.
-
-   -  CRM depot prefixes, industries are with OS2, eg OS2feature /
-      somenewfeature
-
--  “hotfix” branches - contains quick changes to master / release
-   branch. Will be merged for master / release via a pull request. After
-   a hotfix is ​​merged, downstream branches need to be updated, in most
-   cases developed.
-
--  “release” branches - new releases candidates and is used to deploy a
-   version to the test, pre-production and production environments. Each
-   time a liberating branch is created, "required" policies must be
-   configured for it, such as:
-
-   -  Reviewers
-
-   -  Low validation
-
 Naming Convention of branches
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
