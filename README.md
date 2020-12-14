@@ -18,7 +18,7 @@ This work is licensed under a
 
 Get started:
 * Make sure that you have Python installed, and that it is available in PATH
-* Run: "pip install sphinx"
-* Run: "Make HTML" to generate the docs.
+* Run: "pip install -r requirements.txt"
+* Run: "make html" to generate the docs once or "sphinx-autobuild source build" to rebuild contentiously.
     * The generated documentation can be found in /build/html/index.html
 * For spelling check you can install "Code Spell Checker" assuming that you run Visual Code.
