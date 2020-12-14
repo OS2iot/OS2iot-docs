@@ -459,115 +459,27 @@ https://support.sigfox.com/apidocs#operation/deviceTypeBulkRestart is
 used. At a later point the bulk job status API can be used:
 https://support.sigfox.com/apidocs#operation/getBulkJobForDevice.
 
-.. _data-targets-1:
-
 Data Targets
--------------------------------------------------------------------
+------------
 
 This section describes the different possible data target types in
 OS2IoT, i.e. how incoming data from the IoT devices can be sent to
-receiving systems. With the exception of MQTT, where the solution
-includes an MQTT broker, it is the responsibility of the receiving
-system to ensure availability and responsiveness.
-
-Since, at the time of writing, it is not intended for payload data to be
-persisted inside OS2IoT. It will be hard to guarantee the delivery of
-this data to a data target. For example if the data target is offline.
+receiving systems. 
 
 HTTP Push
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^
 
-*[The points below are the things you need to consider for each
-integration regardless of whether the service is a traditional web
-service, or a file service.]*
-
--  Service description (utilisation of the service)
-
--  Functionality (description of how the service works)
-
--  Validation (which validations are made, when service is called)
-
--  Applied integration patterns (how to communicate)
-
--  Error messages (which error messages can you expect from the service)
-
-MQTT
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-MQTT is a messaging standard, which is commonly used within IoT
-solutions. It works as a publish-subscribe system, where a message
-broker acts as an intermediary. There are many message brokers, each
-with their own use-cases. It can be secured with TLS, password and/or
-certificates.
-
-The message broker is intended to run outside of the system but as an
-integrated part of the OS2IoT package.
-
-MQTT has the concept of Quality of Service (“QoS”), in which there are
-three levels:
-
-1. At most once (“Fire and forget”)
-
-2. At least once
-
-3. Exactly once
-
-This is part of the message sent from the client to the MQTT broker. The
-broker is then responsible for following the QoS level. We can use this
-in OS2IoT, and even expose it to the user. Since we (expect to) have a
-stable connection between OS2IoT and the data target, “Fire and forget”
-will be sufficient in most cases. Read more about MQTT QoS here:
-https://www.hivemq.com/blog/mqtt-essentials-part-6-mqtt-quality-of-service-levels/
-
-CoAP
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-*[The points below are the things you need to consider for each
-integration regardless of whether the service is a traditional web
-service, or a file service.]*
-
--  Service description (utilisation of the service)
-
--  Functionality (description of how the service works)
-
--  Validation (which validations are made, when service is called)
-
--  Applied integration patterns (how to communicate)
-
--  Error messages (which error messages can you expect from the service)
-
-WebSocket
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
--  Service description (utilisation of the service)
-
--  Functionality (description of how the service works)
-
--  Validation (which validations are made, when service is called)
-
--  Applied integration patterns (how to communicate)
-
--  Error messages (which error messages can you expect from the service)
-
-WebHook
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-WebHook is an method of integrating via registering a callback and then
+HTTP Push is an method of integrating via registering a callback and then
 having the capability of receiving it. This is also how the SigFox
 integration works. The main advantage is that the initiator of the call
 is the party which knows that new information is available, thus
 needless pooling is avoided.
 
-To support WebHooks as part of OS2IoT, the user should be allowed to
+To support HTTP Push as part of OS2IoT, the user should be allowed to
 define the URL on which they’ll receive the callbacks, moreover the
 communication should be encrypted (over HTTPS) and using a way of
 authentication (HTTP basic Auth; or a secret header/url-parameter
 definded by the user, configured in OS2IoT).
-
-Depending on the desired quality of service more functionality should be
-implemented. If a “fire-and-forget”-strategy is acceptable, then we
-should simply implement the callbacks as described above, and leave it
-at that.
 
 If the receiver of the data want a higher level of assurance, then there
 are several ways of achieving it. A simple solution is retrying with an
@@ -576,7 +488,7 @@ been acknowledged by the receiver, for a short period of time (for
 instance 3 days like SigFox).
 
 Opendata.dk
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^
 
 Users of OS2iot can expose the data sent from their devices to opendata.dk by setting up a data-target to share with opendata.dk.
 
@@ -587,8 +499,6 @@ Opendata.dk autogenerates their catalogue of OS2iot data, by parsing the DCAT js
 The organizationId for your organization is shown in the frontend. 
 
 The data itself is exposed on the :code:`/api/v1/open-data-dk-sharing/{organizationId}/data/{shareId}` endpoint.
-
-.. _prerequisites-1:
 
 Authorization
 ~~~~~~~~~~~~~
