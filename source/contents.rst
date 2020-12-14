@@ -1,5 +1,5 @@
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 4
 
    users-notes/users-notes.rst
    maintenance-guide/maintenance-guide.rst
