@@ -12,5 +12,6 @@ These passwords are the default, and should be changed in the respective systems
 System                   Username                Password
 ======================== ======================= =====================
 OS2iot                   global-admin@os2iot.dk  hunter2
+OS2iot-postgres          os2iot                  toi2so
 Chirpstack               admin                   admin
 ======================== ======================= =====================

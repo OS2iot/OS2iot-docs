@@ -13,6 +13,5 @@ If you want to try out the project using docker-compose then see the `installati
 
 .. toctree::
    :maxdepth: 1
-   :caption: Contents:
    
    contents.rst

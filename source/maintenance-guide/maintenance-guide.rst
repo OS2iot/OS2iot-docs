@@ -10,6 +10,19 @@ solution.
 Development
 -----------
 
+Source Code
+~~~~~~~~~~~
+
+Github is used to store the source code for the OS2iot project. It uses
+the following repositories:
+
+-  OS2IoT-frontend: https://github.com/OS2iot/OS2IoT-backend
+
+-  OS2IoT-backend: https://github.com/OS2iot/OS2IoT-frontend
+
+-  OS2IoT-docker: https://github.com/OS2iot/OS2IoT-docker
+
+
 Requirements
 ~~~~~~~~~~~~
 
@@ -20,27 +33,19 @@ Requirements
 
 -  **PGAdmin** – download at https://www.pgadmin.org/download/
 
-For futher instructions for installation of standard software go to
-`O0100 – installation
-guide <https://goto.netcompany.com/cases/GTE720/ERHIO2/Deliverables/Migreret%20til%20Git%20(DONT%20MODIFY!)/D0100%20-%20User-Interface%20Guidelines.docx?web=1>`__
-
 Setup developement
 ~~~~~~~~~~~~~~~~~~
 
 To setup your dev environment please follow these instructions:
 
-**Step 1** - Get the solution from Github. See section 4.14.1 Source control and
-pull the OS2IoT-docker, OS2IoT-backend, and OS2IoT-frontend.
-
-**Step 2 -** Install typescript and angular globally on your computer .
-
--  **Angular 9** – install by open command prompt and type
-
-npm install -g @angular/cli
-
--  Typescript – install by open command prompt and type
-
-npm install -g typescript
+1. Get the solution from Github. Clone the OS2IoT-docker, OS2IoT-backend, and OS2IoT-frontend.
+2. Install typescript and angular globally on your computer.
+   a. Angular 9 – install by open terminal and type :code:`npm install -g @angular/cli`
+   b. Typescript – install by open terminal and type :code:`npm install -g typescript`
+3. For OS2IoT-frontend install dependencies and start
+   a. Navigate terminal to the OS2IoT-frontend folder and type :code:`npm install`
+4. For OS2IoT-backend install dependencies and start
+   a. Navigate terminal to the OS2IoT-backend folder and type :code:`npm install`
 
 Quick setup
 ^^^^^^^^^^^
@@ -53,12 +58,12 @@ Add os2iot-docker to file share in docker
 
 -  Open Docker Desktop -> Settings -> Resources -> FILE SHARING -> add os2iot-docker as shared folder.
 
-Open command prompt and go to path of OS2IoT-docker and write
+Open terminal and go to path of OS2IoT-docker and write
 
-Docker-compose up
+:code:`docker-compose up`
 
 Hereafter the docker will install the backend and frontend and you can
-access the frontend at http://localhost:4200/
+access the frontend at http://localhost:8081/
 
 To quit: In your terminal you can press Ctrl + C twice. This will safely shut down docker.
 
@@ -69,86 +74,48 @@ Error: Issue connecting to Chirpstacks PostgreSQL.
 Fix:
 Goto os2iot-docker in your a terminal
 
--  Run: docker volume ls
+-  Run: :code:`docker volume ls`
 
 Located the image name os2iot-docker_postgresqldata and delete it by running:
 
--  docker-compose down
+-  :code:`docker-compose down`
 
--  docker volume rm os2iot-docker_postgresqldata
+-  :code:`docker volume rm os2iot-docker_postgresqldata`
 
 Add os2iot-docker to docker files share (Described in the quick setup).
 Once the path is added run:
 
--  docker-compose up
+-  :code:`docker-compose up`
+
+More docker related troubleshooting can be found at: https://github.com/OS2iot/OS2IoT-docker#troubleshooting-faq
 
 Advanced setup
 ^^^^^^^^^^^^^^
+
+For ease of development, run all
 
 **Important!** Prepare by setting up the repositories, OS2IoT-docker,
 OS2IoT-backend, and OS2IoT-frontend, in the same folder/path of your
 choosing
 
-1 Open command prompt and go to path of OS2IoT-docker and write
+1. Open terminal and go to path of OS2IoT-docker and write
 
-docker-compose up chirpstack-network-server postgresql
-chirpstack-gateway-bridge chirpstack-geolocation-server
-chirpstack-application-server os2iot-outbound-mosquitto mosquitto redis
-os2iot-inbound-mosquitto os2iot-kafka os2iot-postgresql os2iot-zookeeper
-os2iot-backend
+   .. code-block:: bash
 
-|image1|
+      docker-compose up chirpstack-network-server postgresql chirpstack-gateway-bridge chirpstack-geolocation-server chirpstack-application-server os2iot-outbound-mosquitto mosquitto redis os2iot-inbound-mosquitto os2iot-kafka os2iot-postgresql os2iot-zookeeper
 
-Docker will install all dependencies to the backend, and you can go to
-`http://[::1]:3000/api/v1/docs/ <http://[::1]:3000/api/v1/docs/>`__ and
-the result should look like the below picture.
-
-|image2|
-
-2 Open command prompt and go to path/folder of OS2IoT-frontend and write
-
-npm install
-
-|image3|
-
-It will then install all the npm dependencies to the solution.
-
-1 Open command prompt and go to path of OS2IoT-docker and write
-
-Npm start
-
-|image4|
+2. Open terminal and go to path/folder of OS2IoT-frontend and write :code:`npm install`. It will then install all the npm dependencies to the solution.
+3. Open terminal and go to path of OS2IoT-docker and write :code:`npm start`
 
 Database
 ^^^^^^^^
 
-To see the data you have to install PGAdmin as described in 2.1
-Requirements.
+To access the database, using PGAdmin is recommended.
+The default credential can be seen in `Users Notes <../users-notes/users-notes.html>`_.
 
-Open PGAdmin
 
-|image5|
-
-Add a new server
-
-|image6|
-
-Name the server
-
-|image7|
-
-Fill in the connection tab with the following information
-
-|image8|
-
-You can checkout the information(password, port, username) to the server
-setup in C:\repos\OS2IoT\OS2IoT-docker\docker-compose.yml. and scroll
-down to os2iot-postgresql
-
-|image9|
-
-Configuration of developer laptop
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Configuration of developer machine
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The following must be installed in order to develop on OS2iot. It is
 assumed a Windows laptop is used.
@@ -209,50 +176,15 @@ Database changes are done using the TypeORM migrations.
 Debugging 
 ^^^^^^^^^^
 
-Debug VSCode 
-'''''''''''''
+Debugging the frontend
+''''''''''''''''''''''
 
-One of the key features of Visual Studio Code is its debugging support.
-VS Code's built-in debugger helps accelerate edit, compile and debug
-loop. The solution is setup to debug on a firefox browser and therefore
-you have to install the **Debugger for Firefox** extension. Go to
-extension and search for **Debugger for Firefox and install it.**
+Use the **debugger for chrome** plugin to enable debugging in Chrome, follow the upto-date instruction in their readme.
 
-|image10|
+Debugging the backend
+'''''''''''''''''''''
 
-Afterwards you can start debugging the code by adding a breakpoint
-somewhere.
-
-|Debugging diagram|
-
-If running and debugging is not yet configured (no launch.json has been
-created) VSCode show the Run start view.
-
-|Simplified initial Run and Debug view|
-
-To run or debug a simple app in VS Code, press F5 and VS Code will try
-to run your currently active file.
-
-However, for most debugging scenarios, creating a launch configuration
-file is beneficial because it allows you to configure and save debugging
-setup details. VS Code keeps debugging configuration information in
-a launch.json file located in a .vscode folder in your workspace
-(project root folder) or in your \ `user
-settings <https://code.visualstudio.com/docs/editor/debugging#_global-launch-configuration>`__ or `workspace
-settings <https://code.visualstudio.com/docs/editor/multi-root-workspaces#_workspace-launch-configurations>`__.
-
-To create a launch.json file, open your project folder in VS Code
-(File > Open Folder) and then select the Configure gear icon on the Run
-view top bar.
-
-Debug VSCode with Chrome
-''''''''''''''''''''''''
-
-If you want to use Chrome as the default browser for debugging you have
-to install **debugger for chrome** in the extension menu. Afterwards got
-to launch.json in the .vscode folder and add the following configuration
-
-|image13|
+Use the built in debugging, after launching using the `launch.json` configuration.
 
 Branching strategy
 ~~~~~~~~~~~~~~~~~~
@@ -264,12 +196,9 @@ code version control.
 Naming Convention of branches
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Naming feature branches follows standard: **feature / Branch name.**
+Naming feature branches follows standard: **feature/branch-name**, i.e. :code:`feature/IOT-1337`.
 
-Naming the publishing branches follows standard: **release / Branch
-name**
-
-Naming the hotfix branches follows standard: **hotfix / Branch name**
+Naming the hotfix branches follows standard: **hotfix/branch-name**, i.e. :code:`hotfix/IOT-1337`.
 
 Format of commit message
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -282,134 +211,31 @@ from the code and to the case.
 Tools
 -----
 
-Source code control
-~~~~~~~~~~~~~~~~~~~
-
-Github is used to store the source code for the OS2iot project. It uses
-the following repositories:
-
--  OS2IoT-frontend: https://github.com/OS2iot/OS2IoT-backend
-
--  OS2IoT-backend: https://github.com/OS2iot/OS2IoT-frontend
-
--  OS2IoT-docker: https://github.com/OS2iot/OS2IoT-docker
-
 Chirpstack
 ~~~~~~~~~~
-.. code:: shell
 
-   docker pull chirpstack/chirpstack-network-server
-   cd chirpstack-docker
-   docker-compose up
+Chirpstack is bundled as part of OS2IoT-docker.
 
-After setting up the chirpstack docker container. The API documentation
-will be exposed at http://localhost:8080/api . More information can be
-found at https://www.chirpstack.io/application-server/integrate/rest/
+The Chirpstack API documentation will be exposed at http://localhost:8080/api . 
+More information can be found at https://www.chirpstack.io/application-server/integrate/rest/
 
-https://www.chirpstack.io/application-server/install/config/
+For installation configuration of Chirpstack see: https://www.chirpstack.io/application-server/install/config/
 
-Install standard software
--------------------------
+Maintaining the docs
+--------------------
 
-Install Docker Desktop
-~~~~~~~~~~~~~~~~~~~~~~
+To update the documentation, i.e. these pages you are reading now, you must edit the OS2IoT-docs Git repository: https://github.com/OS2iot/Os2iot-docs 
 
-**Requirement: Docker account**
+The documentation is written in reStructuredText, see https://docutils.sourceforge.io/rst.html for an intro.
 
-1. If you haven’t already downloaded the installer (Docker Desktop
-   Installer.exe), you can get it from \ `Docker
-   Hub <https://hub.docker.com/editions/community/docker-ce-desktop-windows/>`__.
-   It typically downloads to your Downloads folder, or you can run it
-   from the recent downloads bar at the bottom of your web browser.
+Setting up a local environment
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-2. Double-click Docker Desktop Installer.exe to run the installer.
+1. Install python if you do not already have it
+2. Install sphinx: :code:`pip install sphinx`
+3. Run :code:`make html` to generate HTML from the source.
 
-3. When prompted, ensure the **Enable Hyper-V Windows Features** option is selected on the Configuration page.
-
-4. Follow the instructions on the installation wizard to authorize the
-   installer and proceed with the install.
-
-5. When the installation is successful, click **Close** to complete
-   the installation process.
-
-6. If your admin account is different to your user account, 
-   you must add the user to the *docker-users* group. 
-   Run *Computer Management* as an administrator and 
-   navigate to *Local Users and Groups > Groups > docker-users* 
-   Right-click to add the user to the group. Log out and log back in for the changes to take effect.
-
-Start Docker Desktop
-^^^^^^^^^^^^^^^^^^^^
-
-Docker Desktop does not start automatically after installation. To start
-Docker Desktop, search for Docker, and select \ **Docker Desktop** in
-the search results.
-
-|search for Docker app|
-
-When the Docker icong (a whale) in the status bar says steady, Docker Desktop is
-up-and-running, and is accessible from any terminal window.
-
-|whale on taskbar|
-
-If the whale icon is hidden in the Notifications area, click the up
-arrow on the taskbar to show it. To learn more, `see Docker
-Settings. <https://docs.docker.com/docker-for-windows/#docker-settings-dialog>`__
-
-When the initialization is complete, Docker Desktop launches the
-onboarding tutorial. The tutorial includes a simple exercise to build an
-example Docker image, run it as a container, push and save the image to
-Docker Hub.
-
-|Docker Quick Start tutorial|
-
-Visual Studio Code
-~~~~~~~~~~~~~~~~~~
-
-This is an open source IDE from Visual Studio. It is available for Mac
-OS X, Linux and Windows platforms. VScode is available at
-− \ `https://code.visualstudio.com/ <https://code.visualstudio.com/?utm_expid=101350005-25.TcgI322oRoCwQD7KJ5t8zQ.0>`__
-
-**Step 1** − `Download Visual Studio
-Code <https://code.visualstudio.com/docs?dv=win>`__ for Windows.
-
-|Download Visual Studio-kode|
-
-**Step 2** − Double-click on VSCodeSetup.exe to launch the setup
-process. This should only take a minute
-
-|Opsætningsguide|
-
-**Step 3** − A screenshot of the IDE is given below.
-
-|IDE|
-
-Step 4 − You may directly traverse to the file’s path by right clicking
-on the file → open in command prompt. Similarly, the Reveal in Explorer
-option shows the file in the File Explorer.
-
-|Sti til krydsfiler|
-
-Installing Node.js
-~~~~~~~~~~~~~~~~~~
-
-Node.js is an open source, cross-platform runtime environment for
-server-side JavaScript. Node.js is required to run JavaScript without a
-browser support. It uses Google V8 JavaScript engine to execute code.
-You may download Node.js source code or a pre-built installer for your
-platform. Node is available here
-− \ `https://nodejs.org/en/download <https://nodejs.org/en/download/>`__
-
-**Installation on Windows**
-
-Follow the steps given below to install Node.js in Windows environment.
-
-**Step 1** − Download and run the .msi installer for Node.
-
-|Download og kør installationsprogram|
-
-**Step 2** − To verify if the installation was successful, enter the
-command \ **node –v** in the terminal window.\ |Verify Installation|
+ReadTheDocs will automatically pull changes pushed to the :code:`master` branch and build it.
 
 .. |search for Docker app| image:: ./media/image5.png
 .. |whale on taskbar| image:: ./media/image6.png

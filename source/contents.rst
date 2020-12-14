@@ -1,5 +1,6 @@
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
+   :caption: Contents
 
    users-notes/users-notes.rst
    maintenance-guide/maintenance-guide.rst
