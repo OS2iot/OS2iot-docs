@@ -1,19 +1,10 @@
 Software Architecture
 =====================================
 
-Introduction
-------------
-
-Architectural goals and constraints
------------------------------------
-
-Logical perspective
--------------------
-
 This section describes the logical architecture of OS2iot.
 
 Overview
-~~~~~~~~
+--------
 
 The solution is divided into a number of logical, loosely coupled
 components. This ensures that the solution is extensible with regard to
@@ -23,7 +14,11 @@ different solution components. Orange components are 3\ :sup:`rd` party
 solution dependencies that are not developed or maintained in this
 project, but are necessary for OS2iot to function
 
+|image4|
+
 Figure 1 - Solution overview
+
+|image5|
 
 Figure 2 - Layered architecture
 
@@ -215,6 +210,28 @@ modified, "createdBy" and "modifiedBy" contain the same values.
 Security perspective
 --------------------
 
+This figure shows the classes which make up the permission model for OS2IoT.
+A User has zero or more permission, these permissions are each one of four concrete types:
+
+1. GlobalAdmin
+
+2. OrganizationAdmin
+   
+   a. This relates to a single organization
+
+3. Write
+   
+   a. This relates to a single organization
+   
+   b. This relates to a list of applications within that organization
+
+4. Read
+
+   a. This relates to a single organization
+
+   b. This relates to a list of applications within that organization
+
+
 |image3|
 
 User login and permissions
@@ -325,6 +342,8 @@ attacks.
 .. |image1| image:: ./media/image7.png
 .. |image2| image:: ./media/image8.png
 .. |image3| image:: ./media/image9.png
+.. |image4| image:: ./media/image3.png
+.. |image5| image:: ./media/image4.png
 
 Data target security
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
