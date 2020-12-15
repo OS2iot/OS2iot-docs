@@ -12,7 +12,6 @@
    internal-interface-design/internal-interface-design.rst
    external-interface-design/external-interface-design.rst
    software-architecture/software-architecture.rst
-   sigfox-integration/sigfox-integration.rst
    payload-decoders/payload-decoders.rst
    iot-data-handling/iot-data-handling.rst
    downlink-helpers/downlink-helpers.rst

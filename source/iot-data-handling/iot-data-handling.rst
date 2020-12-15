@@ -3,6 +3,10 @@ IoT Data Management
 
 This chapter describes how data is ingested into OS2iot, how it is processed, and how it is sent to data target.
 
+The following sequence diagram illustrates how data is processed when it is received.
+
+|image2|
+
 Data ingestion
 --------------
 
@@ -72,3 +76,5 @@ The data-targets are configured as part of an application, and therefore can onl
 For each IoT-Device, it is up to the user to select an appropriate payload decoder, to translate the raw payload to JSON.
 
 At the time of writing there is no retry mechanism in OS2iot, rather it uses "fire-and-forget" / "at most once delivery", over HTTP(S).
+
+.. |image2| image:: ./media/image8.png

@@ -51,18 +51,7 @@ Process perspective
 Receive IoT device data
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-|image2|
-
-Kafka is used as the internal message broker. Furthermore ZooKeeper is used to
-manage it. They are deployed as separate docker containers as part of our
-docker-compose for development and to Kubernetes (via. Helm). All the
-processing will be done by stateless functions, the data is passed on the
-Kafka event stream will never contain copies of the entities stored in
-the database. And only contain their ids, or another unique reference.
-This way stale data is avoided. Instead it is
-opted to query the database more often, but since the queries will mostly
-be very simple, i.e. fetching a single row, or a row with a joined
-table, the cost is deemed low.
+See the seperate page: `IoT Data management <../iot-data-handling/iot-data-handling.html`_.
 
 Implementation perspective
 --------------------------
@@ -338,7 +327,6 @@ used for critical applications due to poor protection from replay
 attacks.
 
 .. |image1| image:: ./media/image7.png
-.. |image2| image:: ./media/image8.png
 .. |image3| image:: ./media/image9.png
 .. |image4| image:: ./media/os2iot-overview.png
 .. |image5| image:: ./media/os2iot-layers.png
