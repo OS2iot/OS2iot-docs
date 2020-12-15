@@ -340,8 +340,8 @@ attacks.
 .. |image1| image:: ./media/image7.png
 .. |image2| image:: ./media/image8.png
 .. |image3| image:: ./media/image9.png
-.. |image4| image:: ./media/image3.png
-.. |image5| image:: ./media/image4.png
+.. |image4| image:: ./media/os2iot-overview.png
+.. |image5| image:: ./media/os2iot-layers.png
 
 Data target security
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
