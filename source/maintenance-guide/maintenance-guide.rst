@@ -99,6 +99,11 @@ Starting dependencies for development
 
 3. To quit: In your terminal you can press Ctrl + C twice. This will safely shut down docker.
 
+Troubleshooting
+^^^^^^^^^^^^^^^
+
+For troubleshooting help see the `installation guide <../installation-guide/installation-guide.html#troubleshooting>`_.
+
 Starting the frontend and backend for development
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -131,7 +136,7 @@ Debugging
 Debugging the frontend
 ''''''''''''''''''''''
 
-Use the **debugger for chrome** plugin to enable debugging in Chrome, follow the upto-date instruction in their readme.
+Use the `debugger for chrome <https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome>`_ plugin to enable debugging in Chrome, follow the upto-date instruction in their readme.
 
 Debugging the backend
 '''''''''''''''''''''
