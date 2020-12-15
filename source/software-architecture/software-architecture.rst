@@ -54,13 +54,13 @@ Receive IoT device data
 |image2|
 
 Kafka is used as the internal message broker. Furthermore ZooKeeper is used to
-manage it. We deploy both as separate docker containers as part of our
+manage it. They are deployed as separate docker containers as part of our
 docker-compose for development and to Kubernetes (via. Helm). All the
-processing will be done by stateless functions, the data we pass on the
+processing will be done by stateless functions, the data is passed on the
 Kafka event stream will never contain copies of the entities stored in
 the database. And only contain their ids, or another unique reference.
-This way we avoid using stale data, or other inaccuracies. Instead we
-opt to query the database more often, but since the queries will mostly
+This way stale data is avoided. Instead it is
+opted to query the database more often, but since the queries will mostly
 be very simple, i.e. fetching a single row, or a row with a joined
 table, the cost is deemed low.
 
@@ -93,7 +93,7 @@ Backend
 Technology stack
 ^^^^^^^^^^^^^^^^
 
-In the backend we use the following technologies:
+In the backend the following technologies are used:
 
 ========== ========================================================================== =============================== ==================
 Technology Purpose                                                                    URL                             License
@@ -108,8 +108,7 @@ Nest.js    Web framework                                                        
 Solution architecture
 ^^^^^^^^^^^^^^^^^^^^^
 
-We use a classical three-layer model consisting of the following three
-layers:
+A classical three-layer model consisting of the following three layers is used in the backend:
 
 -  Controller layer
 

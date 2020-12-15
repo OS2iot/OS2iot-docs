@@ -43,7 +43,7 @@ Furthermore the body is set to:
 
 When the callback is called, the :code:`deviceTypeId` is validated to be one that matches what OS2iot knows exists.
 The :code:`deviceId` of the body is validated to exist in OS2iot, if it does, then the message is further processed, and the callback is responded with 204 No Content.
-Note: If the value of :code:`ack` is :code:`true`, then the device is ready for a downlink message, then OS2iot will see if we have a message queued for the device, and if we do, remove it from the queue and send it back with status 200 OK.
+Note: If the value of :code:`ack` is :code:`true`, then the device is ready for a downlink message, then OS2iot will see if it has a message queued for the device, and if it does, remove it from the queue and send it back with status 200 OK.
 
 Generic HTTP devices
 ^^^^^^^^^^^^^^^^^^^^

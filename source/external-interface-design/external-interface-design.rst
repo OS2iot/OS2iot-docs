@@ -228,13 +228,13 @@ field. A request would thus be setup as follows:
 Prerequisites 
 """"""""""""""""""""""""""""""
 
-In order to use the Chirpstack surdent things has to be set up, in a
+In order to use the Chirpstack certain things has to be set up, in a
 specific order.
 
 -  Network server
 
-   -  The network server has to be added. This can be set up as a
-      automatic process for when we set up the docker containers.
+   -  The network server has to be added. This is set up as a
+      automatic process on startup of OS2iot backend.
 
 -  Gateway
 
@@ -349,12 +349,11 @@ https://iotdk.dk/sigfox-iot/.
 
 In SigFox’es information model they have “DeviceTypes” and “Group”,
 these can loosely be translated to “Applikation” and “Brugergruppe” in
-the OS2IoT model. Alternatively we could implement the integration using
+the OS2IoT model. Alternatively the integration could be implemented using
 just one DeviceType and one group for an entire OS2IoT installation.
 
 The API is rate-limited, meaning that if too many requests are sent
-within a short timeframe, we will get a 429 too many requests, error
-back.
+within a short timeframe, a 429 too many requests will be sent back.
 
 .. _register-new-device-2:
 
@@ -365,7 +364,7 @@ Before being able to register a new device, it’s required to have a
 DeviceType, which in turn requires a Group.
 
 To register a new device, the “createDevice” API endepoint is called
-with the POST method. Here we need to provide an id, a name, a
+with the POST method. Here OS2IoT need to provide an id, a name, a
 deviceType and a “Porting Access Code” (PAC). The endpoint returns the
 unique identifier which the device is identified as by SigFox, this must
 be saved for future calls.
@@ -396,10 +395,10 @@ interesting, as it allows us to geolocate and get metadata, but comes at
 the cost of a 30second delay, see
 https://build.sigfox.com/backend-callbacks-and-api#callbacks for more.
 
-To achive this, we must first create a callback configuration at SigFox
+To achive this, OS2IoT must first create a callback configuration at SigFox
 using the API.
 
-The callback is defined for one DeviceType, which means that we will
+The callback is defined for one DeviceType, which means that OS2IoT will
 either have to implement one callback for all devices or one for each
 application in OS2IoT. Though they can be registered to the same URL.
 
@@ -408,7 +407,7 @@ means that Sigfox will produce one callback for each IoT device
 transmission, BATCH_URL means that data is pushed at most once pr.
 Second and contains all packages in that timeframe.
 
-We must also define the body of information we wish to receive as the
+OS2IoT must also define the body of information it wish to receive as the
 bodyTemplate parameter.
 
 More information about the custom callback features are located here:
@@ -417,10 +416,10 @@ https://support.sigfox.com/docs/custom-callback-creation
 SigFox’es documentation for the API is located at:
 https://support.sigfox.com/apidocs#operation/createCallback
 
-To receive this information from the callback, we must construct an
+To receive this information from the callback, OS2IoT must construct an
 endpoint for it to call.
 
-To check if we missed any callbacks we should periodically call the
+To check if OS2IoT missed any callbacks OS2IoT could periodically call the
 callback errors API for each device type. It will return all the failed
 callbacks:
 https://support.sigfox.com/apidocs#operation/getCallbackMessagesErrorListForDeviceType

@@ -2,7 +2,7 @@ Audit Log
 =========
 
 Whenever an action that creates, updates or deletes an entity in OS2iot, it is logged.
-We refer to this as audit logging, since it can be used to audit who have performed changes to certain entities.
+This is referred to as audit logging, since it can be used to audit who have performed changes to certain entities.
 
 Storage of log-files
 --------------------

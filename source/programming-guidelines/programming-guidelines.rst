@@ -19,7 +19,7 @@ Code standards
 Naming conventions
 ~~~~~~~~~~~~~~~~~~
 
-We follow the same naming conventions as the TypeScript project itself:
+The codebase should follow the same naming conventions as the TypeScript project itself:
 https://github.com/Microsoft/TypeScript/wiki/Coding-guidelines#names.
 
 Form and style
@@ -74,7 +74,7 @@ Some of the important parts are:
 Docker
 ^^^^^^
 
-In the root directory we place the docker-compose file. In the
+In the root directory is the docker-compose file. In the
 configuration folder, there is another folder for each part of the
 project, in which their respective configuration options.
 
@@ -105,7 +105,7 @@ Patterns and heuristics
 Code analysis
 ~~~~~~~~~~~~~
 
-We use ESLint to lint the code an ensure that we follow best practices.
+ESLint is used to lint the code an ensure that the developers follow best practices.
 
 SIG is used to weekly evaluate code-quality: https://www.softwareimprovementgroup.com/
 
@@ -114,40 +114,33 @@ Front-end – Programming standards
 
 The frontend code is written in TypeScript [2]_ (Angular 9). In the
 project ESLint [3]_ is setup to lint the code for preventable and/or
-syntax related errors. To keep code formatting consistent we use
-Prettier [4]_ to format the code. We try to follow the do’s and don’ts
-of TypeScript
+syntax related errors. To keep code formatting consistent Prettier [4]_ is used to format the code. 
+We try to follow the do’s and don’ts of TypeScript
 (https://www.typescriptlang.org/docs/handbook/declaration-files/do-s-and-don-ts.html).
 For more examples of keeping the code clean see:
 https://labs42io.github.io/clean-code-typescript/
 
-Testing will primarily be done manually in the frontend. If automated
-test is needed we will use Karma as is the standard in Angular. See:
-https://angular.io/guide/testing
+Testing will primarily be done manually in the frontend. 
 
 Back-end – Programming standards
 --------------------------------
 
 The backend code is written in TypeScript. In the project ESLint will be
-setup to lint the code for common, machine fixable mistakes. To keep
-code formatting consistent we use Prettier to format the code. We try to
-follow the do’s and don’ts of TypeScript
+setup to lint the code for common, machine fixable mistakes.
+To keep code formatting consistent Prettier [4]_ is used to format the code. 
+We try to follow the do’s and don’ts of TypeScript
 (https://www.typescriptlang.org/docs/handbook/declaration-files/do-s-and-don-ts.html).
 For more examples of keeping the code clean see:
 https://labs42io.github.io/clean-code-typescript/
 
-To connect to the database we use TypeORM [5]_, and we use the “Data
-Mapper” pattern for all our queries. We determine the datebase schema
+To connect to the database TypeORM [5]_ is used, and the “Data
+Mapper” pattern for all our queries. The datebase schema is determined
 code-first, and use TypeORM database migrations to change it.
 
-For testing we use Jest. We attempt to write both
-unit-test for each unit in isolation in addition to integration-tests to
-ensure that the whole is functioning. We strive to do Test Driven
-Development (TDD) and keep the code coverage as high as reasonably
-possible.
+For testing Jest is used. The primary method of testing is integration tests, which make sure that the API is acting accordingly.
 
-To minimize differences between how the code runs on each pc, we use
-docker for each part, and docker-compose to combine the containers.
+To minimize differences between how the code runs on each pc,
+docker is used for each part, and docker-compose to combine the containers.
 
 .. [1]
    https://github.com/brocaar/chirpstack-docker
@@ -164,5 +157,3 @@ docker for each part, and docker-compose to combine the containers.
 
 .. [5]
    https://typeorm.io/#/
-
-.. |image0| image:: ./media/image3.emf
