@@ -188,9 +188,12 @@ The documentation is written in reStructuredText, see https://docutils.sourcefor
 Building locally
 ~~~~~~~~~~~~~~~~
 
-1. Install python if you do not already have it
-2. Install sphinx: :code:`pip install sphinx`
-3. Run :code:`make html` to generate HTML from the source.
+1. Make sure that you have Python installed, and that it is available in PATH
+2. Run: :code:`pip install -r requirements.txt`
+3. Run: :code:`make html` to generate the docs once or :code:`sphinx-autobuild source build` to rebuild contentiously.
+   a. The generated documentation can be found in /build/html/index.html or on the link shown in the CLI if using sphinx-autobuild
+4. For spelling check you can install "Code Spell Checker" assuming that you run Visual Code.
+
 
 ReadTheDocs will automatically pull changes pushed to the :code:`master` branch and build it.
 
