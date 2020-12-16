@@ -53,7 +53,6 @@ The tab order will be from top to bottom and left to right in a columnal
 fashion for all interactive elements . See the below image for further
 details.
 
-|image2|
 
 No right-click or double-click functions in this solution.
 
@@ -84,7 +83,6 @@ The design will include clear visual hierarchies grouping the different
 elements such that the user is easily able to differentiate the
 different types of information on the page. See the image below:
 
-|image3|
 
 Using bootstrap 4 will help including the existing conventions that
 usears are used to from many other applications.
@@ -170,8 +168,6 @@ footer will contain a “menu”, “search” and a “user” item. The follow
 image is a sketch and not an actual screenshot of how the footer menu
 will look like:
 
-|image4|
-
 Mobile
 ^^^^^^
 
@@ -194,11 +190,6 @@ HTML guide and Bootstrap
 
 The general guidelines for the visual design and for the use of
 bootstrap, css and js can be found at:
-
-https://www.figma.com/proto/dWWZ3nNsM0GBnwnYQPTrIj/OS2iot---frontend-design?node-id=2%3A0&viewport=-800%2C-85%2C0.5&scaling=min-zoom
-
-and
-
 https://github.com/itk-dev/datatidy/tree/develop/assets
 
 Page elements
@@ -222,7 +213,6 @@ Links
 
 Bold font, light blue, otherwise like bootstrap convention.
 
-|image5|
 
 Text
 ~~~~
@@ -242,31 +232,13 @@ Alt text and titles should be provided.
 Icons
 ~~~~~
 
-Icons should be used for menu items and throughout the page. They are
-used both supplemental to text and as standalone. See below for
-examples:
+Fontawesome icons are used
 
-|image6|
-
-|image7|
 
 Tables
 ~~~~~~
 
-Bootstrap tables are used and styled as seen in the last image in
-section 6.6
-
-Paging
-~~~~~~
-
-|image8|
-
-|image9|
-
-Breadcrumb
-~~~~~~~~~~
-
-|image10|
+Materials tables are used and styled 
 
 Input fields
 ~~~~~~~~~~~~
@@ -285,7 +257,6 @@ Radio buttons
 
 See the following image:
 
-|image11|
 
 Otherwise follow the bootstrap 4 approach.
 
@@ -294,7 +265,6 @@ Check boxes
 
 Use bootstrap 4 checkboxes and style them as seen below:
 
-|image12|
 
 Dropdowns, combo-boxes
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -447,14 +417,3 @@ Only elements such as titles, select options, links, buttons, input
 fields, etc are named programmatically. The content is user generated.
 
 .. |image1| image:: ./media/image5.png
-.. |image2| image:: ./media/image6.png
-.. |image3| image:: ./media/image7.png
-.. |image4| image:: ./media/image8.png
-.. |image5| image:: ./media/image9.png
-.. |image6| image:: ./media/image5.png
-.. |image7| image:: ./media/image10.png
-.. |image8| image:: ./media/image11.png
-.. |image9| image:: ./media/image12.png
-.. |image10| image:: ./media/image13.png
-.. |image11| image:: ./media/image14.png
-.. |image12| image:: ./media/image15.png
