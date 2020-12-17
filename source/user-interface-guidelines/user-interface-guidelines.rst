@@ -203,7 +203,7 @@ Modal windows
 ~~~~~~~~~~~~~
 
 Except menu and search modals for mobile and tablet views the app will
-not include modals. The menu and search modals will be full sreen size
+not include modals. The menu and search modals will be full screen size
 modals sliding up from the bottom of the screen when the corresponding
 menu item is pushed. The modals will be closable by clicking a close”X”
 icon on the top right or by pressing the back button of the device.

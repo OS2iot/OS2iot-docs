@@ -21,8 +21,6 @@ Dependencies
 
     - The layouts, and components are developed with the help of Bootstrap 4.5. Please see the documentation on https://getbootstrap.com/docs/4.5/getting-started/introduction/
 
-
-
 Page Structure
 ===============
 This describes how the structure of the page is designed. 
@@ -52,7 +50,6 @@ and the content is only boxed in with at .container-fluid class from Bootstrap, 
         </div>
     </div>
   </div>
-  
 
 Boxed Feature width Layout
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -84,7 +81,6 @@ The Boxed feature width template will be centered with a custom class called "os
 
     <form class="os2-form p-3 mt-4"></form>
 
-
 Feature box Layout
 ~~~~~~~~~~~~~~~~~~~~~~
 |image2-4|
@@ -110,7 +106,6 @@ Every page on the OS2IoT will be based on a page template.
 Each template will have a defined page layout, and a set of placeholders (areas) to which components can be added.
 In this section each template used on the customer portal is outlined along with the page layout used.
 
-
 =====================  ===============  
   Template Name          Page Layout    
 =====================  =============== 
@@ -121,14 +116,12 @@ Overview Template       Boxed Full Width Layout
 List Template           Boxed Full Width Layout
 =====================  ===============
 
-
-Design
+Global Design
 ========
 This chapter describes the overall design, navigation principles, and general components of the OS2IoT.
 
 Navigation
 --------------
-
 
 This section describes the User's navigation options in the System. 
 Here, the navigation options that the User has available are at the left of all the System's pages via the navigation bar and a graphical overview of the System's pages is displayed in the form of a sitemap.
@@ -220,58 +213,89 @@ The following entities are searchable via global search:
     - IoT-devices
     - Gateways
 
+|image4-1|
+
 Indexed fields for free text search
 ~~~~~~~~~~~~~~~
 To minimize irrelevant search results, not all fields are indexed to the global search. 
 For example, it will i.a. be possible to seek a application on the basis of the application name, or application id, 
 but not on e.g. the creation date, as searches on dates would otherwise yield too many irrelevant results.
-Some latency (delay) can be expected after an item has been modified or created. 
-
-Field Types
---------------
-
-Input
-~~~~~~~~~~~~~~~
-
+Some latency (delay) can be expected after an item has been modified or created. The picture below shows how the search result is presented.
+|image4-2|
+    1) showing which icon the search has broad, separated into applications, units, and gateways, 
+    2) which type divided into Applications, Generic Http, Lorawan, Sigfox, and Gateways,
+    3) showing the name,
+    4) showing the id,
+    5) showing which organization the item belongs to. 
 
 Help
 --------------
-Help icons are placed on the right side above input fields in the forms.
-Clicking them opens a small text box next to the icon.
+
+Info boxes
+~~~~~~~~~~~~~~~
+Info boxes provides information about the use of a particular feature. These can be shown in to different ways: 
+
+Whereas the blue boc highlights the information,
+
+|image5-1|
+
+and the other one is more discrete in its expression. 
+|image5-2|
+
+Orientation
+~~~~~~~~~~~~~~~
+Orientations are intended to draw the user's attention, and to communicate information. The OS2IoT will display the User a modal which is provided by google materials.
+
+|image6|
 
 Validations
 --------------
-Validations are handled on the server side.
+Validations are handled on the server side. When data is stored on the server side, validation of the User's entries is performed for each field, 
+and together for the form. If the server side, after validating the User's entries, finds that the entry does not comply with the validation 
+rules that have been set, the User will be informed that the entry is not valid.
+
+Field Validation
+~~~~~~~~~~~~~~~
+When the user leaves a field that does not meet the set validation rules, the field for the user is marked in red and a message is displayed for the User, 
+with the criterion not met. 
+
+|image7-1|
+
+Validation of user actions.
+~~~~~~~~~~~~~~~
+When the User performs an action, eg by submitting a form by pressing the Save button, the user's action is validated by the server side before it is performed. 
+The User's action is validated overall and any validation errors are presented to the User in an overall overview, presented in a red box above the form.
+
+|image7-2|
 
 Error messages
 --------------
+Error messages occur in various ways such as an error page. 
 
-Error messages will be the bootstrap alerts.
-https://getbootstrap.com/docs/4.0/components/alerts/
+When an error occurs in the OS2IoT that prevents the User from continuing his work, the OS2IoT will display the User a page with an error message or alert.
+|image8|
 
-
-Edit
+Edit / delete
 --------------
 Handled server side. An api is called when saving, editing or deleting
 items.
-Delete
----------------------
-Handled server side. An api is called when saving, editing or deleting
-items.
 
-Listview
---------------
-Tables
-~~~~~~~~~~~~~~~
-PointList
-~~~~~~~~~~~~~~~
 Tab order & Shortcuts
 ---------------------
-
 The tab order will be from top to bottom and left to right in a columnal
 fashion for all interactive elements . See the below image for further
 details.
 
+Shortcuts has been disregarded for now
+
+.. Overview Design
+.. ========
+.. Create/Edit Design
+.. ========
+.. Detailed Design
+.. ========
+.. Login Design
+.. ========
 
 Security
 ========
@@ -282,20 +306,25 @@ In general, the user interface acts in three ways, to enforce the user's rights 
 these are to hide action buttons for the user, mask data on lists and deny access to parts of the solution.
 
 Hide components and buttons
----------------------
+---------------------------
 Action Buttons in tables and list on overview pages are hidden if the user does not have rights to use / view them.
 [Picture] shows a user with write access to a certain organisation and cannot delete a device profile if not granted the rights to it 
 [Picture] shows a organisation admin with visible buttons in the same view. 
 
-|image|
-|image|
+User with read rights. 
+
+|image9-1|
+
+User with write rights
+
+|image9-2|
 
 
 Access denied
 ---------------------
 If the user actively changes the URL to access a applications, details pages or anything else he may not have access to, 
 according to his user system roles and associated data boundaries, he will be redirected to an empty page with HTTP error response in the header. 
-|image|
+|image10|
 
 
 
@@ -306,4 +335,15 @@ according to his user system roles and associated data boundaries, he will be re
 .. |image2-4| image:: ./media/image2-4.png
 .. |image3| image:: ./media/image3.png
     :width: 200px
+.. |image4-1| image:: ./media/image4-1.png
+.. |image4-2| image:: ./media/image4-2.png
+.. |image5-1| image:: ./media/image5-1.png
+.. |image5-2| image:: ./media/image5-2.png
+.. |image6| image:: ./media/image6.png
+.. |image7-1| image:: ./media/image7-1.png
+.. |image7-2| image:: ./media/image7-2.png
+.. |image8| image:: ./media/image8.png
+.. |image9-1| image:: ./media/image9-1.png
+.. |image9-2| image:: ./media/image9-2.png
+.. |image10| image:: ./media/image10.png
 
