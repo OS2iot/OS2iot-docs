@@ -113,7 +113,7 @@ NB-IoT devices are supported in OS2iot using the endpoint for receiving data fro
 LoRaWAN (Chirpstack)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Chirpstack (https://chirpstack.io) is used to communicate with LoRaWAN
+`Chirpstack <https://chirpstack.io>`_ is used to communicate with LoRaWAN
 IoT devices. This means that OS2iot communicates with Chirpstack, which
 in turn communicates with gateways and devices.
 
@@ -125,7 +125,7 @@ Data from IoT devices is received by Chirpstack and sent to OS2iot by
 publishing to a MQTT broker which has OS2iot as a subscriber.
 
 Data sent to IoT devices is sent from OS2iot to Chirpstack using a
-RESTful gRPC interface. Communication between the IoT devices, gateways
+the REST API. Communication between the IoT devices, gateways
 and Chirpstack is out of scope of this project.
 
 |image6|
@@ -164,7 +164,7 @@ This includes:
 Changes to these entities must always happen in OS2iot, which is then
 synchronized to Chirpstack. It is not supported to change data directly
 in Chirpstack. All manipulation of settings in the Chirpstack is thus
-done via the Chirpstack API. (http://localhost:8080/api#!)
+done via the Chirpstack API. If locally running on port 8080 then Chirpstack Application Services Swagger UI is available at http://localhost:8080/api
 
 Security
 ~~~~~~~~
@@ -174,43 +174,33 @@ users. Instead, all communication between OS2iot and Chirpstack is done
 using a service account with administrator permissions in Chirpstack.
 
 For communicating with the chirpstack api, it is necessary to set up a
-JWT token, this can be done via the Chirpstack UI
-(http://localhost:8080/#/api-keys) or by using the jwt.js tool found in
-OS2iot\OS2IoT-backend\jwt.js
+JWT token.
 
-node .\jwt.js
+We use the following code to generate a valid JWT for Chirpstack, here the is taken from the environment variable: :code:`CHIRPSTACK_JWTSECRET`, as described in `the installation guide <../installation-guide/installation-guide.html#id1>`_.
 
-The important part of creating the token is as follows.
+.. code-block:: typescript
 
-| In the claim object, the username and the subject has to be set to a
-  current user of the Chirpstack.
-| In the jwt.create() method set the secret value to something
-  predefined and shared between os2iot and the chirpstack
-  implementation.
+   @Injectable()
+   export class JwtToken {
+      static setupToken(): string {
+         const claims = {
+               iss: "as", // issuer of the claim
+               aud: "as", // audience for which the claim is intended
+               iat: Math.floor(new Date().valueOf() / 1000 - 10), // unix time from which the token is valid
+               nbf: Math.floor(new Date().valueOf() / 1000 - 10), // unix time from which the token is valid
+               exp: Math.floor(new Date().valueOf() / 1000) + 60 * 60 * 24 * 14, // unix time when the token expires
+               sub: "user", // subject of the claim (an user)
+               username: "admin", // username the client claims to be
+         };
 
-
-.. code-block:: javascript
-
-   var uuid = require("uuid");
-   var nJwt = require("njwt");
-   var claims = {
-       iss: "chirpstack-application-server", // issuer of the claim
-       aud: "chirpstack-application-server", // audience for which the claim is intended
-       nbf: Math.floor(new Date() / 1000), // unix time from which the token is valid
-       exp: Math.floor(new Date() / 1000) + 60 * 60 * 24 * 14, // unix time when the token expires
-       sub: "user", // subject of the claim (an user)
-       username: "admin", // username the client claims to be
-   };
-   var jwt = nJwt.create(claims, "secret", "HS256"); // set secret
-   var token = jwt.compact();
-   console.log(token)
+         const jwt = nJwt.create(claims, configuration()["chirpstack"]["jwtsecret"], "HS256");
+         const token = jwt.compact();
+         return token;
+      }
+   }
 
 
--------------------------------------------------------------------
-
-the most important part in relation to security is the header, which
-holds the aforementioned token in the 'Grpc-Metadata-Authorization
-field. A request would thus be setup as follows:
+The JWT is used as part of a special header named: :code:`Grpc-Metadata-Authorization`, while the value is the standard authorization header for a JWT as a Bearer token.
 
 .. code-block:: javascript
 
@@ -228,7 +218,7 @@ field. A request would thus be setup as follows:
 Prerequisites 
 """"""""""""""""""""""""""""""
 
-In order to use the Chirpstack certain things has to be set up, in a
+In order to use the Chirpstack for LoRaWAN devices certain things has to be set up, in a
 specific order.
 
 -  Network server
@@ -240,7 +230,7 @@ specific order.
 
    -  Create gateway profile
 
-   -  Add a minimum of 1 gateway server to the system
+   -  Add a minimum of 1 gateway server to the system (this is done automatically).
 
 -  Devices
 
@@ -264,10 +254,7 @@ Communicating with edge devices
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 REST API is the easiest way to send payloads to edge devices. Retrieving
-data is done via MQTT as illustrated in Fig 2. . Os2Iot LoRaWAN
-implementation
-
-**Fig 2.** Os2Iot LoRaWAN implementation
+data is done via MQTT.
 
 Reading data
 
@@ -317,24 +304,6 @@ that are enabled for the devices and the rate of messages that can send
 over the network by a device.
 
 .. _update-existing-device-1:
-
-Update existing device
-~~~~~~~~~~~~~~~~~~~~~~
-
-Firmware update over the air (sometimes called FUOTA) makes it possible
-to push firmware updates to one or multiple devices, making use of
-multicast. It it standardized by the following LoRa&reg Alliance
-specifications:
-
-lorawan-fota-signing-tool sign-binary -b
-example-firmware/xdot-blinky.bin -o xdot-blinky-signed.bin
---output-format bin --override-version
-
-This is an experimental feature, the implementation including the API
-might change!
-
-`Link to chirpstack - firmware
-update <https://www.chirpstack.io/application-server/use/fuota/>`__
 
 Sigfox
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
