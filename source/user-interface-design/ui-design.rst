@@ -122,6 +122,14 @@ Global Design
 =============
 This chapter describes the overall design, navigation principles, and general components of the OS2IoT.
 
+Internationalization (i18n)
+--------------
+Internationalization is the process of preparing for localization. It ensures products and services can be easily translated into local languages and cultures. 
+It's often shortened to i18n. Ensure that commands, buttons, and forms are easy for each culture to understand.
+
+In OS2IoT we have prepared and applied Internationalization, and setting danish up as the default language, and more languages can be applied.  
+
+
 Navigation
 --------------
 
