@@ -3,9 +3,7 @@ User-Interface Guidelines
 
 Background
 ----------
-
-OS2 has provided NC with design documents for the frontend application
-for the OS2IoT project. This document is written with the goal of
+This document is written with the goal of
 highlighting and detail the wants and needs of the customer for the
 application to adequately perform as expected. This also servers to let
 the frontend developer of the application have a clear idea of what the
@@ -29,20 +27,12 @@ The app will have a main navigation menu in the left column. This is
 solely used to switch between the different main pages of the app.
 
 The Dashboard page will be the landing page of the app. On the top left
-the logo functions as a home button. The header will contain a search
+the logo functions as a home button. The top header will contain a search
 input field stretching thereby removing it from the navigation menu
 where it is displayed in the image below.
 
 |image1|
 
-The active and hovered menu item is highlighted by a grey
-background-color and bold font (font-weight: 600). Other menu items have
-a thin font-weight of 300.
-
-If the page connected to a menu item has a specific single option to add
-more like e.g. “Mine applikationer” (My applications) has the ability to
-ad a new application, the a shortcut to add this will be displayed on
-the right side of the menu item when hovering it or when active.
 
 Use of keyboard
 ~~~~~~~~~~~~~~~
@@ -53,63 +43,43 @@ The tab order will be from top to bottom and left to right in a columnal
 fashion for all interactive elements . See the below image for further
 details.
 
-
 No right-click or double-click functions in this solution.
 
-Flow for deleting information
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Ease of Use & Accessibility
+---------------------------
+WCAG AA
+~~~~~~~
+OS2IoT is partially designed based on current user-friendliness standards, as defined in:
 
-If elements are deletable this will be visible via a vertical “…” button
-next to it. Clicking or hovering this will show a menu of available
-options, such as delete, rename or share. When deleting the user should
-be prompted a dialog informating of the action and/or consequences and
-if the wish to continue with the action.
+   • W3C standards see https://www.w3.org
+   • The guidelines in WCAG 2.1 Level AA, see http://www.w3.org/TR/WCAG21/.
 
-Help functions
-~~~~~~~~~~~~~~
+Although, OS2IoT is an internal system used within the organization and therefore is **not** WCAG Compliant. 
+But as Web Content Accessibility Guidelines (WCAG) 2.1 includes a wide range of recommendations on how to make web content widely available, 
+there have been some considerations regarding user friendliness, and partly because: 
 
-At the bottom of the page there will be a link to a forum where the user
-can search for help. Should there be tooltips?
-
-Usability considerations
-------------------------
-
-Existing conventions are used such as highlighting interactable elements
-using color and background-color. The most relevant information are
-furthest to the left and only relevant information is displayed for the
-user.
-
-The design will include clear visual hierarchies grouping the different
-elements such that the user is easily able to differentiate the
-different types of information on the page. See the image below:
+   1) Following these guidelines can ensure accessibility for a larger group of people with disabilities, including the blind and partially sighted, deaf and hard of hearing, people with learning disabilities, cognitive limitations, limited mobility, speech impairment and photosensitivity, and people with combinations thereof. 
+   2) Following these guidelines will also often make web content more user-friendly in general.
+   3) And in order to provide the necessary degree of accessibility that commits Erhvervsstyrelsen, this document will briefly mention the key points from WCAG, so that developers have the best possible conditions for making qualified decisions to increase accessibility. 
 
 
-Using bootstrap 4 will help including the existing conventions that
-usears are used to from many other applications.
+Principles of WCAG
+^^^^^^^^^^^^^^^^^^
+Therefore, OS2IoT will use the best practices of level AA where four principles are set out which form the foundation and success criterion for web accessibility:
+   
+   - **Perceivable:** Users of adult education must be able to perceive the information presented. Information and user interface components must not be invisible to all the user's senses.
+   - **Applicable:** Adult education users must be able to operate user interface components, and these must not require interaction that a user cannot perform.
+   - **Understandable:** Information and the use of the user interface must be intuitively understandable by the users of adult education.
+   - **Robust:** Content must be robust enough to be reliably interpreted with a wide range of user agents, including aids such as screen readers and the like.
 
-Accessibility considerations
-----------------------------
+It is necessary for developers or other stakeholders to know and adhere to the above principles when developing task, stories or user interface components for the solution.
 
-WCAG will be taken into consideration for this app as this has been
-requested by the customer. WCAG is concerned with making the web page
-accessible to all users such as vision or movement impaired users, but
-also many others. Please refer to the official WCAG site for more
-information about this.
-https://www.w3.org/WAI/standards-guidelines/wcag/
+Keyboard-accessibility 
+^^^^^^^^^^^^^^^^^^^^^^^
 
-Access to Siteimprove account will be provided by the customer and is
-used to continually assess the accessibility of the app.
-
-`WCAG AA <#RANGE!_Toc378677835>`__
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The WCAG 2.1 standard will be used for this app. See
-https://www.w3.org/WAI/WCAG21/Understanding/
-
-Guidelines
-^^^^^^^^^^
-
-See https://www.w3.org/WAI/standards-guidelines/wcag/
+In accordance with the official WCAG guidelines in section 2.1 –
+Keyboard Accessible. See
+https://www.w3.org/TR/UNDERSTANDING-WCAG20/keyboard-operation.html
 
 Graphics – and other resources of non-textual character
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -125,53 +95,49 @@ Furthermore the app should take into considerations the needs for color
 blind users in accordance with the legal requirements in 1.4.1 in WCAG
 about use of color
 https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html
-.
 
-Form-elements
-^^^^^^^^^^^^^
 
-Same principles apply as for section 4.1.2
+Guidelines
+^^^^^^^^^^^^^^^^^^
+Under the principles there are guidelines. The guidelines are the basic goals or best practices that developers, editors, 
+and UXs should work toward to make content more accessible to users with various disabilities. 
+The guidelines are not testable, but provide the framework and overall objectives that can help editorial staff 
+understand the success criteria and implement the techniques better.
+A large number of the guidelines WCAG sets out have been taken into account in the markup provided in the HTML guide. 
+By being loyal to the HTML guide's instructions, many guidelines will be implicitly followed.
+THe following sections is a list of guidelines that developers on the project are expected to follow:
 
-Keyboard-accessibility 
-^^^^^^^^^^^^^^^^^^^^^^^
 
-In accordance with the official WCAG guidelines in section 2.1 –
-Keyboard Accessible. See
-https://www.w3.org/TR/UNDERSTANDING-WCAG20/keyboard-operation.html
-
-Page structure
+Page principles
 --------------
+Below is a description of guidelines for page structure, as well as a description of the expected production in the defined breakpoints 
+for responsive web design.
 
-Responsive design and screen resolution
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Responsive design and screen resolutions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The solution is designed according to the desktop-first principle. The design is based on the solution working
+optimally on larger screens, and that the information presented is displayed clearly.
+On smaller screens, the same information will be available, and all functions can also be accessed via 
+touch devices. Some pages such as the detailed overview are also optimized for tablets.
 
-The page will be responsive using the Bootstrap framework.
+Grid (adaptation for tablet and mobile)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+A responsive grid is used. A 12-column grid from the framework Bootstrap 4.5 is used. 
+The design of screens must in principle accommodate desktop views first, then tablets and mobile.
 
-Grid
-^^^^
+|image2-1|
+ 
+Breakpoints are given by Bootstrap's responsive grid. If needed, the number of columns in the grid can be expanded. 5 breakpoints are used:
 
-Bootstraps regular 12-grid is used.
+|image2-2|
 
-Desktop 
-^^^^^^^^
+As a starting point, the content of OS2IoT fills with a max-width of 1140px. 
+The last pixels are used for margins so that the contents of the system do not stick to the edge of the screen.
+As a starting point, Bootstrap uses a fixed pixel value for the width of the content on large screens (1200px).
 
-Left menu will be used. Otherwise follow the images and descriptions
-provided throughout this document.
-
-Tablet
-^^^^^^
-
-For smaller screen sizes the design will follow the principles provided
-by bootstrap 4. The left side navigation menu will be moved to the
-bottom of the screen (in the footer) and can be opened as a modal. The
-footer will contain a “menu”, “search” and a “user” item. The following
-image is a sketch and not an actual screenshot of how the footer menu
-will look like:
-
-Mobile
-^^^^^^
-
-Same priciples as tablet.
+4.1.2 Screen resolution
+^^^^^^^^^^^^^^^^^^^^^^^^
+OS2IoT is designed as a starting point for the resolution 1280 * 1024 (desktop-first).
 
 Positioning of cursor
 ~~~~~~~~~~~~~~~~~~~~~
@@ -180,17 +146,26 @@ Regular position of cursor and existing conventions of using a pointer
 when elements are clickable and cursor: text when an text can be
 selected or in text inputs.
 
-Tab-sequence
-~~~~~~~~~~~~
+4.3 Tab sequence
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+If no tab index is explicitly defined, the tab sequence on all pages will be from the top left corner to the right and then down.
 
-See section 2.2
+4.4 The HTML Guide, Bootstrap, and Google Materials
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+These points has to be considered before developing further:
+   - Bootstrap is an open source framework consisting of front-end resources. It consists of a collection of tools for creating components and technical behavior on websites and web applications.
+   - In connection with this solution, Materials has been expanded to form the basis of the elements that underlies the HTML guide. 
+   - In addition, responsive breakpoints for the solution are defined by Bootstrap's default values ​​for the same, just as responsive customization is provided by Bootstrap's codebase.
+   - All webparts must use the HTML guide and must have consistent design patterns and look and feel. 
+   - OS2IoT's HTML guide and especially the prototype must serve as a starting point for the entire user interface and all its elements. Below, use is made of the elements, classes and methods found in the guide. 
+   - The templates and design principles developed by Erhvervsstyrelsen must be used in the project. 
+   - New templates must conform to these.
+   - The framework includes HTML and SCSS-based design templates for style, forms, buttons, charts, navigation, and other user interface components.
+   - In this project,Materials is used partly as a toolbox for aesthetics and functionality in relation to the aforementioned components, and not least as a base for implementing responsive design. This also means that the only thing that is corrected in relation to Bootstrap's standard cuddle base is the file containing variables for style, colors, margins, etc.
 
-HTML guide and Bootstrap
-~~~~~~~~~~~~~~~~~~~~~~~~
+The implemented version of Bootstrap is v4.5.0. It is generally not recommended to try to upgrade this version. 
+If you still have a winning argument for upgrading, Netcompany.UI and Erhvervsstyrelsen should be consulted before the upgrade.
 
-The general guidelines for the visual design and for the use of
-bootstrap, css and js can be found at:
-https://github.com/itk-dev/datatidy/tree/develop/assets
 
 Page elements
 -------------
@@ -219,10 +194,13 @@ Text
 
 Font for all text in the app is Roboto.
 
-Headlines
-~~~~~~~~~
+|image3|
 
-Black color, h2 elements.
+Fonts and typography deal with the selected fonts, as well as formatting and use of text and headings.
+
+|image5|
+
+Headings are both a visual tool and a structure in the code that matter to users who use screen readers. It is possible to follow a strict structure in headings for screen readers and at the same time adapt the visual expression of the headings to users who orient themselves visually.
 
 Pictures
 ~~~~~~~~
@@ -232,7 +210,9 @@ Alt text and titles should be provided.
 Icons
 ~~~~~
 
-Fontawesome icons are used
+Fontawesome icons is used
+
+|image4|
 
 
 Tables
@@ -251,6 +231,14 @@ Buttons
 
 Follow the standard bootstrap 4 approach using the color scheme for the
 project provided by OS2.
+
+Dropdowns
+~~~~~~~~~~
+If elements are deletable this will be visible via a vertical “…” button
+next to it. Clicking or hovering this will show a menu of available
+options, such as delete, rename or share. When deleting the user should
+be prompted a dialog informating of the action and/or consequences and
+if the wish to continue with the action.
 
 Radio buttons
 ~~~~~~~~~~~~~
@@ -416,4 +404,9 @@ Content guidelines
 Only elements such as titles, select options, links, buttons, input
 fields, etc are named programmatically. The content is user generated.
 
-.. |image1| image:: ./media/image5.png
+.. |image1| image:: ./media/image1.png
+.. |image2-1| image:: ./media/image2-1.png
+.. |image2-2| image:: ./media/image2-2.png
+.. |image3| image:: ./media/image3.png
+.. |image4| image:: ./media/image4.png
+.. |image5| image:: ./media/image5-1.png
