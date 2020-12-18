@@ -109,7 +109,7 @@ THe following sections is a list of guidelines that developers on the project ar
 
 
 Page principles
---------------
+---------------
 Below is a description of guidelines for page structure, as well as a description of the expected production in the defined breakpoints 
 for responsive web design.
 
@@ -151,7 +151,7 @@ selected or in text inputs.
 If no tab index is explicitly defined, the tab sequence on all pages will be from the top left corner to the right and then down.
 
 4.4 The HTML Guide, Bootstrap, and Google Materials
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 These points has to be considered before developing further:
    - Bootstrap is an open source framework consisting of front-end resources. It consists of a collection of tools for creating components and technical behavior on websites and web applications.
    - In connection with this solution, Materials has been expanded to form the basis of the elements that underlies the HTML guide. 
@@ -163,15 +163,10 @@ These points has to be considered before developing further:
    - The framework includes HTML and SCSS-based design templates for style, forms, buttons, charts, navigation, and other user interface components.
    - In this project,Materials is used partly as a toolbox for aesthetics and functionality in relation to the aforementioned components, and not least as a base for implementing responsive design. This also means that the only thing that is corrected in relation to Bootstrap's standard cuddle base is the file containing variables for style, colors, margins, etc.
 
-The implemented version of Bootstrap is v4.5.0. It is generally not recommended to try to upgrade this version. 
-If you still have a winning argument for upgrading, Netcompany.UI and Erhvervsstyrelsen should be consulted before the upgrade.
-
-
 Page elements
 -------------
 
-A colour scheme has been provided by OS2 and can be found in the
-base.scss file at
+A colour scheme has been provided by OS2 and can be found in the base.scss file at
 https://github.com/itk-dev/datatidy/blob/develop/assets/scss/base.scss
 
 Modal windows
