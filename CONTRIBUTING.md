@@ -4,7 +4,7 @@ Thank you for contributing!
 
 We understand that creating a public IoT standard like this, can only be set in collaboration with as many public technologists, policy makers and interested folk as possible. Thus we appreciate your input, enjoy feedback and welcome improvements to this project and are very open to collaboration.
 
-We love issues and pull requests from everyone. If you're not comfortable with GitHub, you can use our community to give your feedback at www.os2iot.os2.eu
+We love issues and pull requests from everyone. If you're not comfortable with GitHub, you can use our community to give your feedback at https://os2iot.os2.eu 
 
 ## Problems, suggestions and questions in issues
 
