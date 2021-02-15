@@ -12,7 +12,7 @@ This is the repo for documentation of OS2IoT.
 
 See https://os2iot.readthedocs.io/en/latest/ for the pretty version.
 
-### Code of conduct
+### Code of conduct:
 
 - [x] Be carefull <br/>
 - [x] Be respectfull <br/>
@@ -25,7 +25,7 @@ See "https://os2.eu/side/code-conduct" for the full code of conduct in danish.
 ---
 
 
-Get started:
+### Get started:
 * Make sure that you have Python installed, and that it is available in PATH
 * Run: "pip install -r requirements.txt"
 * Run: "make html" to generate the docs once or "sphinx-autobuild source build" to rebuild contentiously.
