@@ -1,6 +1,6 @@
 
 
-# OS2iot-docs
+# OS2IoT-docs
 
 [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa] [![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]
 
