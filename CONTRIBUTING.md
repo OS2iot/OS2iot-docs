@@ -52,4 +52,4 @@ Your ideas, documentation and code have become an integral part of this project.
 
 ---
 
-### Please remember to fork the code in any circumstances when using OS2iot
+### Please remember to fork the code in any circumstances when using OS2iot and follow [OS2's code of conduct](https://os2.eu/side/code-conduct%22)
