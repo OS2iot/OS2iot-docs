@@ -14,10 +14,10 @@ See https://os2iot.readthedocs.io/en/latest/ for the pretty version.
 
 ### Code of conduct
 
-[ x ] Be carefull <br/>
-[ x ] Be respectfull <br/>
-[ x ] Be open <br/>
-[ x ] When in doubt or when disagreements arise - consult others 
+- [ x ] Be carefull <br/>
+- [ x ] Be respectfull <br/>
+- [ x ] Be open <br/>
+- [ x ] When in doubt or when disagreements arise - consult others 
 
 See "https://os2.eu/side/code-conduct" for the full code of conduct in danish. 
 
