@@ -17,6 +17,10 @@ If your input concerns:
 
 You don't need to change any of our code or documentation to be a contributor!
 
+## Security policy
+
+For any security related issues, please do not open a public GitHub issue. Instead, email them to os2@os2.eu.
+
 ## Documentation and code in pull requests
 
 If you want to add to the documentation or code of one of our projects you should make a pull request.
