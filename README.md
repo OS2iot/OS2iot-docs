@@ -11,7 +11,7 @@ See https://os2iot.readthedocs.io/en/latest/ for the pretty version.
 [x] Be open
 [x] When in doubt or when disagreements arise - consult others 
 
-See "https://os2.eu/side/code-conduct" for full code of conduct in danish. 
+See "https://os2.eu/side/code-conduct" for the full code of conduct in danish. 
 
 
 
