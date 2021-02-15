@@ -1,0 +1,112 @@
+# This repository adheres to the publiccode.yml standard by including this metadata file that makes public software easily discoverable. More info at https://github.com/italia/publiccode.yml
+
+publiccodeYmlVersion: '0.2'
+
+name: OS2iot
+url: "https://github.com/OS2iot"
+landingURL: "https://os2.eu/produkt/os2iot"
+
+softwareVersion: "1.0" 
+releaseDate: "01-01-2021"
+
+platforms: 
+- windows
+- mac 
+- linux
+- web
+
+categories: 
+- network-management
+- data-collection
+- it-asset-management
+
+usedBy:
+- municipalities of Denmark
+
+developmentStatus: stable
+softwareType: standalone/iot
+
+description:
+  en:
+    localisedName: OS2iot  
+    genericName: IoT networkserver/platform
+    shortDescription: >
+          An agnostic IoT platform which support all transmission protocols/ network types.
+    longDescription: >
+          *OS2iot removes that IoT-headache, you have over the technological side of your IoT-projects. 
+          Gain an overview and more time to work on the results of the data.
+          This solution is currently the only of its kind in Denmark. 
+          It lets you register all your sensors (across technology and transmission type) and it leave you more time to choose your analyzing methods,
+          so you get the most of your data.*
+          
+    documentation: 'https://os2iot.readthedocs.io/en/latest/contents.html' 
+    apiDocumentation: /api/v1/docs/ (swagger)
+     
+    features:
+    DEVICE & GATEWAY MANAGEMENT
+       - Gathers everything related to IoT adminstration in one place (e.g. set up devices and data targets) 
+       - Gives you an full overview of all your IoT devices (data sources) across network technologies (e.g. when did my devices last send data)
+       - Data decoding feature (e.g. convert the raw bytes (the payload) to JSON) 
+       - Exellent user access controls (e.g. Share specific applications) 
+       - Ability to share gateways and data from IoT devices across organizations
+       - Supports bulk import of IoT devices and downlink (e.g. used to configure the device)
+       - Show devices and gateways on a map
+       - Create your own LoRaWAN network (Set up & monitor LoRa Gateways)
+       - Fully integrated with Sigfox
+       - Generic HTTP interface; allow you to utilize all kinds of IoT protocols (e.g NB-iot/LTE). 
+       - Data targets; Easily publish the collected data (e.g. send data to datawarehouse or Grafana). 
+
+legal:
+  license: "MPL-2.0"
+  mainCopyrightOwner: "OS2"
+
+maintenance:
+  type: "internal", "community"
+
+  contact:
+    - name: OS2
+      email: "os2@os2.eu"
+    
+localisation:
+  localisationReady: yes
+  availableLanguages:
+    - en
+    - dk
+    
+dependsOn:
+    open: 
+          - name: Chirpstack
+            optional: false
+            version: '3'
+            versionMax: ''
+            versionMin: ''
+            
+          - name: Mosquitto
+            optional: false
+            version: '1.6'
+            versionMax: ''
+            versionMin: ''
+           
+          - name: Apache Kafka
+            optional: false
+            version: '2.6'
+            versionMax: ''
+            versionMin: ''
+          
+          - name: PostgreSQL
+            optional: false
+            version: '12'
+            versionMax: ''
+            versionMin: ''
+            
+          - name: Redis
+            optional: false
+            version: '5'
+            versionMax: ''
+            versionMin: ''
+            
+           - name: Docker
+            optional: false
+            version: '19.03.13'
+            versionMax: ''
+            versionMin: ''
