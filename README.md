@@ -21,6 +21,7 @@ See https://os2iot.readthedocs.io/en/latest/ for the pretty version.
 
 See "https://os2.eu/side/code-conduct" for the full code of conduct in danish. 
 
+[x]
 ---
 
 
