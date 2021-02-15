@@ -4,6 +4,16 @@ This is the repo for documentation of OS2IoT.
 
 See https://os2iot.readthedocs.io/en/latest/ for the pretty version.
 
+###Code of conduct: 
+
+[x] Be carefull
+[x] Be respectfull
+[x] Be open
+[x] When in doubt or when disagreements arise - consult others 
+
+See "https://os2.eu/side/code-conduct" for full code of conduct in danish. 
+
+
 
 Shield: [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
 
