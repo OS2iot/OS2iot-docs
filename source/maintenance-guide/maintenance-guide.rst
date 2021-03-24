@@ -53,9 +53,9 @@ Source Code
 Github is used to store the source code for the OS2iot project. It uses
 the following repositories:
 
--  OS2IoT-frontend: https://github.com/OS2iot/OS2IoT-backend
+-  OS2IoT-frontend: https://github.com/OS2iot/OS2IoT-frontend
 
--  OS2IoT-backend: https://github.com/OS2iot/OS2IoT-frontend
+-  OS2IoT-backend: https://github.com/OS2iot/OS2IoT-backend
 
 -  OS2IoT-docker: https://github.com/OS2iot/OS2IoT-docker
 
