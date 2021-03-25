@@ -19,3 +19,4 @@
    audit-log/audit-log.rst
    testing/testing.rst
    exit-strategy/exit-strategy.rst
+   contributing/contributing.rst
