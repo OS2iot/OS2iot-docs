@@ -11,7 +11,8 @@ We love issues and pull requests from everyone. If you're not comfortable with G
 Problems, suggestions and questions in issues
 ---------------------------------------------
 
-Please help development by reporting problems, suggesting changes and asking questions. To do this, you can [create a GitHub issue](https://help.github.com/articles/creating-an-issue/) for this project in the [GitHub Issues for OS2iot] within the relevant folder.
+Please help development by reporting problems, suggesting changes and asking questions. To do this, you can `create a GitHub issue <https://help.github.com/articles/creating-an-issue/>`_ for this project in the GitHub Issues for OS2iot within the relevant folder.
+
 If your input concerns:
 
 * The user interface - *select*: https://github.com/OS2iot/OS2IoT-frontend/issues
@@ -34,7 +35,7 @@ Documentation and code in pull requests
 
 If you want to add to the documentation or code of one of our projects you should make a pull request.
 
-If you never used GitHub, get up to speed with [Understanding the GitHub flow](https://guides.github.com/introduction/flow/) or follow one of the great free interactive courses in the [GitHub learning lab](https://lab.github.com/) on working with GitHub and working with MarkDown, the syntax this project's documentation is in.
+If you never used GitHub, get up to speed with `Understanding the GitHub flow <https://guides.github.com/introduction/flow/>`_ or follow one of the great free interactive courses in the `GitHub learning lab <https://lab.github.com/>`_ on working with GitHub and working with MarkDown, the syntax this project's documentation is in.
 
 This project is [MPL-2.0](LICENSE.md), which essentially means that this project, is in the public domain, and any fixes and enhancements to the code of this project must be shared with OS2 and the public domain. However, you are still allowed to combine the code of this project, with code under other licenses (open or proprietary). 
 
@@ -43,9 +44,9 @@ This project is [MPL-2.0](LICENSE.md), which essentially means that this project
 ~~~~~~~~~~~~~~~~~~~~
 
 
-This project uses the [GitFlow branching model and workflow](https://nvie.com/posts/a-successful-git-branching-model/). When you've forked this repository, please make sure to create a feature branch following the GitFlow model.
+This project uses the `GitFlow branching model and workflow <https://nvie.com/posts/a-successful-git-branching-model/>`_. When you've forked this repository, please make sure to create a feature branch following the GitFlow model.
 
-Add your changes in commits [with a message that explains them](https://robots.thoughtbot.com/5-useful-tips-for-a-better-commit-message). Document choices or decisions you make in the commit message, this will enable everyone to be informed of your choices in the future.
+Add your changes in commits `with a message that explains them <https://robots.thoughtbot.com/5-useful-tips-for-a-better-commit-message>`_. Document choices or decisions you make in the commit message, this will enable everyone to be informed of your choices in the future.
 
 If you are adding code, make sure you've added and updated the relevant documentation and tests before you submit your pull request. Make sure to write tests that show the behavior of the newly added or changed code.
 
