@@ -37,7 +37,7 @@ If you want to add to the documentation or code of one of our projects you shoul
 
 If you never used GitHub, get up to speed with `Understanding the GitHub flow <https://guides.github.com/introduction/flow/>`_ or follow one of the great free interactive courses in the `GitHub learning lab <https://lab.github.com/>`_ on working with GitHub and working with MarkDown, the syntax this project's documentation is in.
 
-This project is [MPL-2.0](LICENSE.md), which essentially means that this project, is in the public domain, and any fixes and enhancements to the code of this project must be shared with OS2 and the public domain. However, you are still allowed to combine the code of this project, with code under other licenses (open or proprietary). 
+This project is MPL-2.0, which essentially means that this project, is in the public domain, and any fixes and enhancements to the code of this project must be shared with OS2 and the public domain. However, you are still allowed to combine the code of this project, with code under other licenses (open or proprietary). 
 
 
 1. Make your changes
@@ -69,8 +69,7 @@ If your documentation and code have passed human review, it is merged.
 
 Your ideas, documentation and code have become an integral part of this project. You are the open source hero we need!
 
----
+------------
 
-Please remember to fork the code in any circumstances when using OS2iot and follow
- `OS2's code of conduct <https://os2.eu/side/code-conduct%22>'_
+**Please remember to fork the code in any circumstances when using OS2iot and follow** `OS2's code of conduct <https://os2.eu/side/code-conduct%22>`_
 
