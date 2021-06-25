@@ -31,6 +31,8 @@ Steps:
     a. Edit the file with a suiteable text editor, such as: VSCode, SublimeText or notepad++.
     b. Replace all instances of :code:`{YOUR_BASE_URL}` with your actual base url, i.e. :code:`test.os2iot.dk`.
     c. Replace all instances of :code:`{YOUR_PUBLIC_KEY_AS_BASE64}` with the base64 encoded part of the certificate (without newlines), i.e. :code:`<X509Certificate>MIIGJDCCBQygAwIBAgIEXd/ZTjANBgkqhkiG9w0BAQsFADBAMQswCQYDVQQGEwJESzESMBAGA1UECgwJVFJVU1QyNDA...=</X509Certificate>`
+    (Tip: `{YOUR_PUBLIC_KEY_AS_BASE64}` is the extracted certificate)
+    
 
 3. Create an IT-system in KOMBIT adgangsstrying:
     a. Stamdata:
@@ -50,14 +52,18 @@ Steps:
         i. Navn: os2iot-adgang-brugersystemrolle
         ii. Domæne: os2iot.dk
         iii. Rollenavn: adgang
-        iv. Version: 1
-        v. This must yield the URI: :code:`http://os2iot.dk/roles/usersystemrole/adgang/`, if another one is wishes then pass the environment variable :code:`KOMBIT_ROLE_NAME` to the backend (default: :code:`http://os2iot.dk/roles/usersystemrole/adgang/`).
+        iv. Version: Choose a unique number (If its already in use you will get an error)
+        v. This must yield the URI: :code:`http://os2iot.dk/roles/usersystemrole/adgang/`, if another one is wished then pass the environment variable :code:`KOMBIT_ROLE_NAME` to the backend (default: :code:`http://os2iot.dk/roles/usersystemrole/adgang/`).
         vi. Save the IT-system
+        
+        |image1|
+        
     b. Create a Jobfunktionsrolle (or update existing)
         i. Navn and Rollenavn is decided by you.
         ii. Press "Tilknyt brugersystemrolle" and locate the IT-system and brugersystemrolle created above and save it.
         iii. Save the jobfunktionsrolle.
     c. Update your IdP to give the relevant users the jobfunktionsrolle created here.
+
 
 5. Configure OS2IoT-backend to support KOMBIT adgangsstrying:
     a. You need to add two environment variables to the command running the backend server in your environment.
