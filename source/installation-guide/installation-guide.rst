@@ -231,22 +231,14 @@ OS2IoT-backend takes several environment variables as configuration, if these ar
 OS2IoT-frontend
 ^^^^^^^^^^^^^^^
 
-The frontend can be configured by modifying :code:`environment.prod.ts` file in :code:`OS2IoT-frontend/src/environments` folder.
-
- .. code-block:: javascript
-
-   export const environment = {
-      production: true,
-      baseUrl: 'http://localhost:3000/api/v1/',
-      tablePageSize: 20,
-   };
+The frontend can also be configured using environment variables. If these are not set a default will be used.
 
 +-------------------------------+--------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
-| Configuration variable        | Purpose                                                                                                      | Default value                                                                           |
+| Environment variable          | Purpose                                                                                                      | Default value                                                                           |
 +===============================+==============================================================================================================+=========================================================================================+
-| production                    | If true, then Angular is set in production mode, disabling debugging features                                | :code:`true`                                                                            |
+| PRODUCTION                    | If true, then Angular is set in production mode, disabling debugging features                                | :code:`false`                                                                           |
 +-------------------------------+--------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
-| baseUrl                       | The Url which users will connect to the backend from. This must be changed for the system to work externally | :code:`http://localhost:3000/api/v1/`                                                   |
+| BASE_URL                      | The Url which users will connect to the backend from. This must be changed for the system to work externally | :code:`http://localhost:3000/api/v1/`                                                   |
 +-------------------------------+--------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
-| tablePageSize                 | Default page size of tables                                                                                  | :code:`20`                                                                              |
+| TABLE_PAGE_SIZE               | Default page size of tables                                                                                  | :code:`20`                                                                              |
 +-------------------------------+--------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
