@@ -232,6 +232,7 @@ OS2IoT-frontend
 ^^^^^^^^^^^^^^^
 
 The frontend can also be configured using environment variables. If these are not set a default will be used.
+Defaults are set in :code:`OS2IoT-frontend/src/environments/environment.ts`
 
 +-------------------------------+--------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
 | Environment variable          | Purpose                                                                                                      | Default value                                                                           |
