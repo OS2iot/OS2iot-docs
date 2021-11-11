@@ -95,7 +95,7 @@ Starting dependencies for development
 
    .. code-block:: bash
 
-      docker-compose up chirpstack-network-server postgresql chirpstack-gateway-bridge chirpstack-geolocation-server chirpstack-application-server os2iot-outbound-mosquitto mosquitto redis os2iot-inbound-mosquitto os2iot-kafka os2iot-postgresql os2iot-zookeeper
+      docker-compose up chirpstack-network-server postgresql chirpstack-gateway-bridge chirpstack-application-server os2iot-outbound-mosquitto mosquitto redis os2iot-inbound-mosquitto os2iot-kafka os2iot-postgresql os2iot-zookeeper
 
 3. To quit: In your terminal you can press Ctrl + C twice. This will safely shut down docker.
 

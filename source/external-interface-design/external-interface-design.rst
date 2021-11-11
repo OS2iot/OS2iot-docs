@@ -130,7 +130,7 @@ and Chirpstack is out of scope of this project.
 
 |image6|
 
-The Chirpstack is comprised of the following 5 modules.
+The Chirpstack is comprised of the following 4 modules.
 
 1. `Appplication
    Server <https://www.chirpstack.io/application-server/use/fuota/>`__
@@ -139,11 +139,7 @@ The Chirpstack is comprised of the following 5 modules.
 
 3. `Gateway bridge <https://www.chirpstack.io/gateway-bridge/>`__
 
-4. `Geolocation
-   server <https://www.chirpstack.io/geolocation-server/>`__ (only for
-   locating edge devices)
-
-5. A postgresql database
+4. A postgresql database
 
 Data synchronization
 ~~~~~~~~~~~~~~~~~~~~
