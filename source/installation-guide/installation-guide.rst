@@ -227,8 +227,13 @@ OS2IoT-backend takes several environment variables as configuration, if these ar
 +-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
 | CHIRPSTACK_JWTSECRET          | Secret to generate JWT for Chirpstack                                                                | :code:`verysecret`                                                                      |
 +-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
-| LOG_LEVEL                     | Minimum Log Level. Must be one of: 'log', 'error', 'warn', 'debug', 'verbose'                        | :code:`debug`                                                                      |
+| LOG_LEVEL                     | Minimum Log Level. Levels ordered from high to low are: 'log', 'error', 'warn', 'debug', 'verbose'   | :code:`debug`                                                                           |
 +-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
+
+Logs levels
+"""""""""""""""
+Specifying a LOG_LEVEL makes sure that only logs with that level or higher are included. Using 'debug' or 'verbose' LOG_LEVEL in a production environment is not recommended.
+
 
 OS2IoT-frontend
 ^^^^^^^^^^^^^^^
