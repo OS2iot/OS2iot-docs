@@ -1,5 +1,8 @@
 # OS2iot's Governance Report 
 
+Dene checkliste er baseret på [OS2s standard governance rapport](https://github.com/OS2offdig/Governance_Reports). Det er en checklist som skal tydeliggøre i hvilken grad produktet efterlever OS2s governance model.
+
+OS2iot er klassificeret som et niveau 3 produkt i OS2 jf. nedenstående.
 
 
 **RELEVANS**
@@ -8,7 +11,7 @@
 | --- | --- | --- | --- | --- |
 |  <ul><li> [x] </li> | R1 | Løsningen skaber lokal værdi | Se [gevinstkort](https://os2.eu/produkt/os2iot) | 0 |
 | <ul><li> [x] </li> | R2 | Løsningen skaber potentielt værdi for andre | Se evt. [folderen om OS2iot](shorturl.at/nqrFS) | 1 | 
-| <ul><li> [x] </li> |  R3 |Løsningen er accepteret af lokal linjeledelse | Løsningen har lokal ledelses opbakning idet at der er kommuner der har underskrevet en tilslutningserklæring  | 2 |
+| <ul><li> [x] </li> |  R3 |Løsningen er accepteret af lokal linjeledelse | Løsningen har lokal ledelses opbakning idet at der er kommuner der har underskrevet en tilslutningserklæring og bakker op med økonomi og viden i projektet  | 2 |
 | <ul><li> [x] </li> | R4 | _Løsningen har tværkommunal potentiale (anbefaling)_ | OS2iot enabler bla. tværkommunal deling af data, Gateways og payload dekoder og opbygning af tværkommunal IoT infrastruktur | 2 |
 | <ul><li> [x] </li> |  R5 |Ophæng til nationale strategier er til stede | Se [forretningsmæssige mål](https://os2.eu/produkt/os2iot) under gevinstkort. OS2iot er også i tråd med [kommunernes digitaliseringsprogram](shorturl.at/qHNR8)| 3 |
 
@@ -23,7 +26,7 @@
 | --- | --- | --- | --- | --- |
 | <ul><li> [x] </li> | F1 | Kildekoden deles | https://github.com/OS2iot | 0 |
 | <ul><li> [x] </li> | F2 |Open Source licenskriterier overholdes | MPL 2.0 og CC-BY-SA-4.0 vedtaget | 0 |
-| <ul><li> [X] </li> | F3 |Udbudsregler og alm. lovformidling er overholdt | ERST rammeaftale er anvendt retmæssigt | 0 |
+| <ul><li> [X] </li> | F3 |Udbudsregler og alm. lovformlighed er overholdt | ERST rammeaftale er anvendt retmæssigt | 0 |
 | <ul><li> [x] </li> | F4 |Der er tænkt på sikkerheden i løsningen | Se dokumentationen [her](https://os2iot.readthedocs.io/en/latest/user-interface-design/ui-design.html#security) og [her](https://os2iot.readthedocs.io/en/latest/external-interface-design/external-interface-design.html?highlight=security#security)| 0 |
 | <ul><li> [x] </li> | F5 | Løsningens formål og værdi er beskrevet | Se [derfor skal du bruge denne løsning](https://os2.eu/produkt/os2iot) + [hvorfor skal en kommune have en OS2iot server?](https://os2.eu/blog/hvorfor-skal-en-kommune-have-en-os2iot-server)| 0 |
 | <ul><li> [x] </li> | F6 |Kildekoden er placeret på OS2's github | https://github.com/OS2iot | 1 |
@@ -42,7 +45,7 @@
 | <ul><li> [x] </li> | F19 | _Løsningen er leveret i et containerformat fx docker (anbefaling)_ | OS2iot er leveret som [Docker](https://github.com/OS2iot/OS2IoT-docker)  | 2 |
 | <ul><li> [x] </li> | F20 | _Uddannelsesmateriale er udarbejdet (anbefaling)_ | Der er udarbejdet video tutorials [her](https://os2iot.os2.eu/#/#filters%5Btaxonomy%5D=type%253Aloop_documents_document%253Bloop_documents_collection%253Bexternal_sources&pager=0:15)| 2 |
 | <ul><li> [x] </li> | F21 | Politisk kommunikation er udarbejdet (lokal + omverden) | Se [følgende](https://os2.eu/blog/hvorfor-skal-en-kommune-have-en-os2iot-server) artikel | 3 |
-| <ul><li> [ ] </li> | F22 | Procesplan + procesansvar for driftsimplementering er udarbejdet | Hvor? | 3 |  
+| <ul><li> [ ] </li> | F22 | Procesplan + procesansvar for driftsimplementering er udarbejdet | Endnu ikke udarbejdet. Afventer at kommuner tager løsningen i brug | 3 |  
 
 <br>
 <br>
@@ -54,10 +57,10 @@
 
 |     |  #  | Krav | Henvisning | Niveau | 
 | --- | --- | ---- | ---------- |--------|
-| <ul><li> [x] </li> | S1 | Produktet har en kobling til OS2's strategi | Kan udfyldes (Her burde der være et link til OS2's strategi | 1 |
-| <ul><li> [x] </li> | S2 | Løsningen understøtter innovation og Open Source | OS2iot understøtter innovation ved at være den første af sin art der samler administration af alle sensorer i en central platform. OS2iot er 100% Open Source | 1 |
-| <ul><li> [ ] </li> | S3 | Produktets (forventlige) kobling til OS2's vision og strategi er beskrevet | Hvor? | 2 |
-| <ul><li> [ ] </li> | S4 | Produktets kobling til og overensstemmelse med OS2's vision og strategi er tilstede og beskrevet | Hvordan? | 3 |
+| <ul><li> [x] </li> | S1 | Produktet har en kobling til OS2's strategi | Afventer beskrivelse | 1 |
+| <ul><li> [x] </li> | S2 | Løsningen understøtter innovation og Open Source | OS2iot understøtter innovation ved at være den første af sin art der samler administration af alle sensorer i en central platform. OS2iot er 100% open source og bygger videre på andre open source komponenter. | 1 |
+| <ul><li> [ ] </li> | S3 | Produktets (forventlige) kobling til OS2's vision og strategi er beskrevet | Afventer beskrivelse | 2 |
+| <ul><li> [ ] </li> | S4 | Produktets kobling til og overensstemmelse med OS2's vision og strategi er tilstede og beskrevet | Afventer beskrivelse | 3 |
 
 
 <br>
@@ -70,17 +73,17 @@
 |     |  #  | Krav | Henvisning | Niveau | 
 | --- | --- | ---  | -----------| ------ |
 | <ul><li> [x] </li> | G1 | Produktet er oprettet i OS2's porteføljestyring | https://os2.eu/produkter | 1 |
-| <ul><li> [x] </li> | G2 | Der koordineres løbende med OS2-sekretariatet  |  | 1 |
-| <ul><li> [x] </li> | G3 | Der er udpeget en projektleder/tovholder | Jonas Iversen, OS2 | 1 |
-| <ul><li> [x] </li> | G4 | Bestyrelsen er orienteret | Kan udfyldes | 1 |
+| <ul><li> [x] </li> | G2 | Der koordineres løbende med OS2-sekretariatet  | Ja, produktkoordintor for OS2iot er placeret i OS2-sekretariatet | 1 |
+| <ul><li> [x] </li> | G3 | Der er udpeget en projektleder/tovholder | Mogens Kjeldsen, OS2 | 1 |
+| <ul><li> [x] </li> | G4 | Bestyrelsen er orienteret | Ja, ved fast status på bestyrelsesmøder | 1 |
 | <ul><li> [x] </li> | G5 | Bestyrelsen har godkendt produktet | Se referatet fra bestyrelses mødet [her](https://os2.eu/sites/default/files/documents/dagsorden_og_referat_-_os2_bestyrelsesmoede_17-08-2017.pdf)  | 2 |
 | <ul><li> [x] </li> | G6 | Der er nedsat en styregruppe | Se styregruppen [her](https://os2.eu/wiki/styregruppe-og-projektgruppe-os2iot-0)  | 2 |
 | <ul><li> [x] </li> | G7 | _Der er nedsat en koordinationsgruppe (anbefaling)_ | Se koordinationsgruppen [her](https://os2.eu/wiki/styregruppe-og-projektgruppe-os2iot-0) | 2 |
 | <ul><li> [x] </li> | G8 | _En projektmodel anvendes og er dokumenteret (anbefaling)_  | Projektet anvender Agile and Scrum by default. Arbejdsprocesser dokumenteret i [jira](https://os2web.atlassian.net/wiki/spaces/O/pages/1044185100/Arbejdsprocesser) | 2 |
-| <ul><li> [ ] </li> | G9 | _Review af kode foretages af tredjepart (anbefaling)_ |  | 2 |
+| <ul><li> [ ] </li> | G9 | _Review af kode foretages af tredjepart (anbefaling)_ | Nej - Men flere leverandører er involveret i drift og videreudvikling. | 2 |
 | <ul><li> [x] </li> | G10 | _Der er udarbejdet en tilslutningserklæring til sikring af økonomi (anbefaling)_ | Kan findes [her](https://os2.eu/dokument/os2iot-tilslutningsaftale) | 2 |
 | <ul><li> [x] </li> | G11 | Bestyrelsen har godkendt styregruppen | Se [følgende](https://os2.eu/sites/default/files/documents/referat_og_dagsorden_-_os2_bestyrelsesmoede_23052019.pdf) referat | 3 |
-| <ul><li> [x] </li> | G12 | Bestyrelsen er repræsenteret i styregruppen | Ja, 2/3 medlemmer af styregruppen er fra bestyrelsen | 3 |
+| <ul><li> [x] </li> | G12 | Bestyrelsen er repræsenteret i styregruppen | Ja, 1 medlem af styregruppen er fra bestyrelsen | 3 |
 | <ul><li> [x] </li> | G13 | Der foreligger en aftale der sikre økonomi til koordinerg og videreudvikling | Tilslutningsaftalen (jf. G10) kommunerne har underskrevet sikre dette  | 3 |
 | <ul><li> [x] </li> | G14 |Der er etableret et fagligt fælleskab bag løsningen hvor erfaringer kan udveksles | [OS2iot's user-forum](https://os2iot.os2.eu/) anvendes til dette formål. På sigt skal der etableres en dedikeret faggruppe. | 3 |
   
