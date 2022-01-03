@@ -51,7 +51,9 @@ Process perspective
 Receive IoT device data
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-See the seperate page: `IoT Data management <../iot-data-handling/iot-data-handling.html`_.
+See the separate page: `IoT Data management`_.
+
+.. _`IoT Data management`: ../iot-data-handling/iot-data-handling.html
 
 Implementation perspective
 --------------------------
@@ -202,20 +204,26 @@ A User has zero or more permission, these permissions are each one of four concr
 
 1. GlobalAdmin
 
-2. OrganizationAdmin
+   a. Each domain instance of OS2IoT has exactly 1 user with this permission.
+
+2. OrganizationApplicationAdmin
    
    a. This relates to a single organization
+   b. This relates to a list of users within that organization. Access is granted to parts of the system requiring this permission
 
-3. Write
+3. OrganizationGatewayAdmin
    
    a. This relates to a single organization
-   
-   b. This relates to a list of applications within that organization
+   b. This relates to a list of users within that organization. Access is granted to parts of the system requiring this permission
 
-4. Read
+4. OrganizationUserAdmin
+   
+   a. This relates to a single organization
+   b. This relates to a list of users within that organization. Access is granted to parts of the system requiring this permission
+
+5. Read
 
    a. This relates to a single organization
-
    b. This relates to a list of applications within that organization
 
 
@@ -252,20 +260,21 @@ Authorization
 ^^^^^^^^^^^^^
 
 By default, a user does not have access to data in OS2iot. A global
-admin or Organization admin must manually give the user permissions to
+admin or User admin must manually give the user permissions to
 organizations or applications.
 
 User permissions
 ^^^^^^^^^^^^^^^^
 
-================== ==================== =======================================================
-User role          System name          Permissions
-================== ==================== =======================================================
-Global admin       Globaladmin          Super user, CRUD everything within the domain
-Organization admin Orgadmin             Manage permissions for an organization and its applications
-Write access       Write                Create, modify and delete objects within an application
-Read access        Read                 Read all data within an application.
-================== ==================== =======================================================
+=================== ============================= ========================================================================
+User role           System name                   Permissions
+=================== ============================= ========================================================================
+Global admin        GlobalAdmin                   Super user, CRUD everything within the domain
+Application admin   OrganizationApplicationAdmin  Access and modify applications and Sigfox devices within an organization
+Gateway admin       OrganizationGatewayAdmin      CRUD gateways within an organization
+User admin          OrganizationUserAdmin         CRUD users and permissions within an organization
+Read access         Read                          Read all data within an application.
+=================== ============================= ========================================================================
 
 Web application security
 ~~~~~~~~~~~~~~~~~~~~~~~~

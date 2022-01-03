@@ -184,7 +184,7 @@ In short you can navigate forth and back in, and you can access all first level 
 
 Futhermore, to get transparency for the user to understand which are transverse or organizational filtered features the navigation menu is divided into three topics in which they each serve an purpose: 
 
-    -  **Administration level**  - Is only visible for Global Administrator and Organization Administrator, and is controlling the read and write rights for the members of each application
+    -  **Administration level**  - Is only visible for Global Administrator and User Organization Administrator, and is controlling the read and write rights for the members of each application
     -  **Organization level**  - Is where you can add Applications, Sigfox Administration, and Device Models to a certain organization.  
     -  **Transverse level**  - is where you can create cross-cutting Gateways, Payload Decoder, and LoRaWan Profiles so all organizations can use these features or add-ons.
 
