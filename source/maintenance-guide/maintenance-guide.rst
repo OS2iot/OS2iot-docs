@@ -178,6 +178,33 @@ More information can be found at https://www.chirpstack.io/application-server/in
 
 For installation configuration of Chirpstack see: https://www.chirpstack.io/application-server/install/config/
 
+Migrations
+-----------
+
+This project is using TypeORM migrations when changes are applied to the database. This is recommended by TypeORM when the project is used for production.
+
+Generate migrations
+~~~~~~~~~~~~~~~~~~~
+
+If you make some changes in the database you need to generate the migration. In the console you write: "generateMigration <your name of the migration>". Then a migration file 
+will be created in a Migration folder. A timestamp will be added to the name to indicate when the migration has been generated.
+
+Run migrations
+~~~~~~~~~~~~~~~~
+When the project is starting, a new command will be called automatically. This happens every time you run the program because of a prestart script.
+The command is runMigration which runs all the pending generated migrations in the Migrations folder, starting from the oldest migration. If there is no pending migrations then nothing will happen.
+
+It will happen in both debug and prod mode.
+
+Revert migration
+~~~~~~~~~~~~~~~~~~
+If you later on wish to revert a migration you can write npm run migration:revert. Then the latest runned migration will be reverted. You can continue to do this until you reach the desired migration.
+
+Show migration
+~~~~~~~~~~~~~~~~
+If you are in doubt which migrations has been run, then you have the possibility to write npm run migration:show in the console. Then the migrations will be shown in the console,
+and if [X] is marked at a migration it means that it has been run. Otherwise it will be an empty [] which means that is has NOT been run. 
+
 Maintaining the docs
 --------------------
 
