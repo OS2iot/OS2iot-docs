@@ -186,13 +186,13 @@ This project is using TypeORM migrations when changes are applied to the databas
 Generate migrations
 ~~~~~~~~~~~~~~~~~~~
 
-If you make some changes in the database you need to generate the migration. In the console you write: "generateMigration <your name of the migration>". Then a migration file 
-will be created in a Migration folder. A timestamp will be added to the name to indicate when the migration has been generated.
+If you make some changes in the database you need to generate the migration. In the console you write: "npm run generate-migration <your name of the migration>". Then a migration file 
+will be created in a Migration folder. A timestamp will be added to the name to indicate when the migration has been generated. If no changes are made to the database, nothing will happen.
 
 Run migrations
 ~~~~~~~~~~~~~~~~
 When the project is starting, a new command will be called automatically. This happens every time you run the program because of a prestart script.
-The command is runMigration which runs all the pending generated migrations in the Migrations folder, starting from the oldest migration. If there is no pending migrations then nothing will happen.
+The command is run-migrations which runs all the pending generated migrations in the Migrations folder, starting from the oldest migration. If there is no pending migrations then nothing will happen.
 
 It will happen in both debug and prod mode.
 
