@@ -186,23 +186,27 @@ This project is using TypeORM migrations when changes are applied to the databas
 Generate migrations
 ~~~~~~~~~~~~~~~~~~~
 
-If you make some changes in the database you need to generate the migration. In the console you write: "npm run generate-migration <your name of the migration>". Then a migration file 
-will be created in a Migration folder. A timestamp will be added to the name to indicate when the migration has been generated. If no changes are made to the database, nothing will happen.
+If you modify or adds an entity (or more than one entity) and/or relationships you then need to generate a migration. In the console you write: :code:`npm run generate-migration <your name of the migration>`. Then a migration file 
+will be created in a migration folder. The folder path is specified in :code:`ormconfig.json`. A timestamp will be added to the name to indicate when the migration has been generated. If no changes have been made to the entity classes, no migrations are generated.
 
 Run migrations
 ~~~~~~~~~~~~~~~~
 When the project is starting, a new command will be called automatically. This happens every time you run the program because of a prestart script.
-The command is run-migrations which runs all the pending generated migrations in the Migrations folder, starting from the oldest migration. If there is no pending migrations then nothing will happen.
+The command is :code:`run-migrations` which runs all the pending generated migrations in the Migrations folder, starting from the oldest migration. 
+In the pending migrations, the :code:`up` block will be executed.
+If there are no pending migrations then no migrations will be runned.
 
 It will happen in both debug and prod mode.
 
 Revert migration
 ~~~~~~~~~~~~~~~~~~
-If you later on wish to revert a migration you can write npm run migration:revert. Then the latest runned migration will be reverted. You can continue to do this until you reach the desired migration.
+If you later on wish to revert a migration you can write :code:`npm run typeorm migration:revert`. Then the latest runned migration will be reverted. What happens is that the :code:`down` block in the latest runned migration will be executed. 
+You can continue to do this until you reach the desired migration.
+The generated migrations will not be deleted when you are reverting so when you run the project again, the migrations will be runned with the :code:`up` block unless you manually deletes them.
 
 Show migration
 ~~~~~~~~~~~~~~~~
-If you are in doubt which migrations has been run, then you have the possibility to write npm run migration:show in the console. Then the migrations will be shown in the console,
+If you are in doubt which migrations has been run, then you have the possibility to write :code:`npm run typeorm migration:show` in the console. Then the migrations will be shown in the console,
 and if [X] is marked at a migration it means that it has been run. Otherwise it will be an empty [] which means that is has NOT been run. 
 
 Maintaining the docs
