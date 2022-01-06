@@ -200,7 +200,7 @@ It will happen in both debug and prod mode.
 
 Revert migration
 ~~~~~~~~~~~~~~~~~~
-If you want to revert a migration later, you can write :code:`npm run typeorm migration:revert`. Then the latest executed migration will be reverted. What happens is that the :code:`down` block in the latest executed migration will be ran. 
+If you want to revert a migration later, you can write :code:`npm run typeorm migration:revert`. Then the latest executed migration will be reverted. What happens is that the :code:`down` block in the latest executed migration will be run. 
 You can continue to do this until you reach the desired migration.
 The generated migrations will not be deleted when you are reverting so when you run the project again, the migrations will be run with the :code:`up` block unless you manually deletes them.
 
