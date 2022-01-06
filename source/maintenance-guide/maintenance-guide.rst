@@ -194,15 +194,15 @@ Run migrations
 When the project is starting, a new command will be called automatically. This happens every time you run the program because of a prestart script.
 The command is :code:`run-migrations` which runs all the pending generated migrations in the Migrations folder, starting from the oldest migration. 
 In the pending migrations, the :code:`up` block will be executed.
-If there are no pending migrations then no migrations will be runned.
+If there are no pending migrations then no migrations will be run.
 
 It will happen in both debug and prod mode.
 
 Revert migration
 ~~~~~~~~~~~~~~~~~~
-If you later on wish to revert a migration you can write :code:`npm run typeorm migration:revert`. Then the latest runned migration will be reverted. What happens is that the :code:`down` block in the latest runned migration will be executed. 
+If you want to revert a migration later, you can write :code:`npm run typeorm migration:revert`. Then the latest executed migration will be reverted. What happens is that the :code:`down` block in the latest executed migration will be ran. 
 You can continue to do this until you reach the desired migration.
-The generated migrations will not be deleted when you are reverting so when you run the project again, the migrations will be runned with the :code:`up` block unless you manually deletes them.
+The generated migrations will not be deleted when you are reverting so when you run the project again, the migrations will be run with the :code:`up` block unless you manually deletes them.
 
 Show migration
 ~~~~~~~~~~~~~~~~
