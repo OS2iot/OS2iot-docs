@@ -178,6 +178,37 @@ More information can be found at https://www.chirpstack.io/application-server/in
 
 For installation configuration of Chirpstack see: https://www.chirpstack.io/application-server/install/config/
 
+Migrations
+-----------
+
+This project is using TypeORM migrations when changes are applied to the database. This is recommended by TypeORM when the project is used for production.
+
+Generate migrations
+~~~~~~~~~~~~~~~~~~~
+
+If you modify or adds an entity (or more than one entity) and/or relationships you then need to generate a migration. In the console you write: :code:`npm run generate-migration <your name of the migration>`. Then a migration file 
+will be created in a migration folder. The folder path is specified in :code:`ormconfig.json`. A timestamp will be added to the name to indicate when the migration has been generated. If no changes have been made to the entity classes, no migrations are generated.
+
+Run migrations
+~~~~~~~~~~~~~~~~
+When the project is starting, a new command will be called automatically. This happens every time you run the program because of a prestart script.
+The command is :code:`run-migrations` which runs all the pending generated migrations in the Migrations folder, starting from the oldest migration. 
+In the pending migrations, the :code:`up` block will be executed.
+If there are no pending migrations then no migrations will be run.
+
+It will happen in both debug and prod mode.
+
+Revert migration
+~~~~~~~~~~~~~~~~~~
+If you want to revert a migration later, you can write :code:`npm run typeorm migration:revert`. Then the latest executed migration will be reverted. What happens is that the :code:`down` block in the latest executed migration will be run. 
+You can continue to do this until you reach the desired migration.
+The generated migrations will not be deleted when you are reverting so when you run the project again, the migrations will be run with the :code:`up` block unless you manually deletes them.
+
+Show migration
+~~~~~~~~~~~~~~~~
+If you are in doubt which migrations has been run, then you have the possibility to write :code:`npm run typeorm migration:show` in the console. Then the migrations will be shown in the console,
+and if [X] is marked at a migration it means that it has been run. Otherwise it will be an empty [] which means that is has NOT been run. 
+
 Maintaining the docs
 --------------------
 
