@@ -26,13 +26,13 @@ with the API key, you must provide it as the header "x-api-key". Below, a screen
 
 |api-key-usage|
 
-The bottom half of the screenshot is the response. The request was limited to 2 applications using the `limit` query parameter.
+The bottom half of the screenshot is the response. The request was limited to 2 applications using the :code:`limit` query parameter.
 As seen, the backend responded with 2 (collapsed) applications.
 
 
 Limitations
 -----------
-While most of the system is accessible with API key There are some security limitations, however:
+While most of the system is accessible using API key authentication, there are some security limitations, however:
 
 - You cannot manage your API key or someone else's
 - You cannot manage users nor user groups
