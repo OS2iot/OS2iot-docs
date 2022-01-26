@@ -29,7 +29,7 @@ This sequence diagram describes the flow from the user to the Chirpstack Applica
 Sending downlink payload
 -------------------------
 
-When the multicast-group is created it's possible to send a downlink payload to the group of devices. This is done by navigating to the details-page of the multicast-group, and from here you have to choose a specific port and a payload that you wish to send to the devices in the Multicast-group.
+When the multicast-group is created it's possible to send a downlink payload to the group of devices. This is done by navigating to the details page of the multicast-group, and from here you have to choose a specific port and a payload that you wish to send to the devices in the Multicast-group.
 
 The downlink payload is sent using Chirpstack which also has the multicast-group with the devices from OS2IoT.  
 
@@ -38,7 +38,7 @@ Explanation of properties
 
 A very short explanation of some of the properties that needs to be fulfilled when creating a multicast-group:
 
-**Multicast address:** An address that defines the multicast-group. Has to be a 8-character hex value.
+**Multicast address:** An address that defines the multicast-group. Has to be an 8-character hex value.
 
 **Application Session Key:** An application session key used to encrypt the payloads that are send to the multicast-group. Has to be a 32-character hex value.
 
