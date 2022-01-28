@@ -52,7 +52,7 @@ and the content is only boxed in with at .container-fluid class from Bootstrap, 
   </div>
 
 Boxed Feature width Layout
-^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 |image2-1|
 
@@ -219,9 +219,10 @@ Global search is used to search across entities in OS2IoT, this is done via free
 When searching in global search, the result is not displayed as in other searches, since in global search, several entities can be searched at the same time. 
 The result is displayed instead on a single page where both the data type and selected data for this data type are displayed. 
 The following entities are searchable via global search:
-    - Applications
-    - IoT-devices
-    - Gateways
+
+-   Applications
+-   IoT-devices
+-   Gateways
 
 |image4-1|
 
@@ -233,11 +234,12 @@ For example, it will i.a. be possible to seek a application on the basis of the 
 but not on e.g. the creation date, as searches on dates would otherwise yield too many irrelevant results.
 The picture below shows how the search result is presented.
 |image4-2|
-    1) showing which icon the search has broad, separated into applications, units, and gateways, 
-    2) which type divided into Applications, Generic Http, Lorawan, Sigfox, and Gateways,
-    3) showing the name,
-    4) showing the id,
-    5) showing which organization the item belongs to. 
+
+1)  showing which icon the search has broad, separated into applications, units, and gateways, 
+2)  which type divided into Applications, Generic Http, Lorawan, Sigfox, and Gateways,
+3)  showing the name,
+4)  showing the id,
+5)  showing which organization the item belongs to. 
 
 Help
 ~~~~~~~~~~~~~

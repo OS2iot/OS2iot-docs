@@ -1,17 +1,17 @@
 API key access
-====================
+----------------
 
 OS2IoT supports API key authentification. This allows external clients to use the system without the need of a browser or a user.
 
 Configuration
--------------
+^^^^^^^^^^^^^
 
 In order to use this type of authentication, an administrator must create an API key with one or more user groups.
 This can be done on the portal through the API key management pages. It can be accessed through the menu.
 
 
 Usage
------
+^^^^^
 With an API key, you can fetch and manage data in your OS2IoT system just as well as if you were a user on the browser.
 What you can access and manage is limited by the user group (-s) tied to the API key.
 
@@ -31,7 +31,7 @@ As seen, the backend responded with 2 (collapsed) applications.
 
 
 Limitations
------------
+^^^^^^^^^^^
 While most of the system is accessible using API key authentication, there are some security limitations, however:
 
 - You cannot manage your API key or someone else's

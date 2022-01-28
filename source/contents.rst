@@ -17,7 +17,6 @@
    iot-data-handling/iot-data-handling.rst
    downlink-helpers/downlink-helpers.rst
    kombit-adgangsstyring/kombit-adgangsstyring.rst
-   api-key-access/api-key-access.rst
    audit-log/audit-log.rst
    testing/testing.rst
    exit-strategy/exit-strategy.rst

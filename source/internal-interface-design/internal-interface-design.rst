@@ -76,3 +76,5 @@ There is four levels of permissions in OS2IoT:
 
 The permissions are hieratical, meaning that you implicitly have all lesser permissions than the ones you have explicitly.
 For instance, if a user is an Organization Admin for an Organization, then that user also have the Write and Read permissions.
+
+.. include:: api-key-access.rst
