@@ -51,7 +51,9 @@ Process perspective
 Receive IoT device data
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-See the seperate page: `IoT Data management <../iot-data-handling/iot-data-handling.html`_.
+See the separate page: `IoT Data management`_.
+
+.. _`IoT Data management`: ../iot-data-handling/iot-data-handling.html
 
 Implementation perspective
 --------------------------
@@ -280,8 +282,14 @@ OS2iot REST API security
 
 In order to use the REST API exposed by OS2iot, the user must be authenticated.
 
-Authentication is done using the JWT gained from the :code:`/api/v1/auth/login` endpoint.
+There are two methods of authentication. The first method is done by using the JWT gained from the :code:`/api/v1/auth/login` endpoint.
 The JWT is inserted as a Bearer token in the :code:`Authorization` header of the type :code:`Bearer` as described in RFC 6750, section 2.1.
+
+The second method of authentication involves using an API key generated on the :code:`/api/v1/api-key` endpoint.
+An API key is tied to one or more user groups so the access level reflects what each user group is permitted.
+It can be created by users with an organization administrator role or higher.
+
+The API key is inserted as text in the :code:`X-API-KEY` header. Note that if a valid JWT token is provided, then API key authentication is skipped.
 
 Device security
 ~~~~~~~~~~~~~~~
