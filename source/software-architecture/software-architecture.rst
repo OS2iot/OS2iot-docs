@@ -282,7 +282,7 @@ OS2iot REST API security
 
 In order to use the REST API exposed by OS2iot, the user must be authenticated.
 
-There's two methods of authentication. The first method is done by using the JWT gained from the :code:`/api/v1/auth/login` endpoint.
+There are two methods of authentication. The first method is done by using the JWT gained from the :code:`/api/v1/auth/login` endpoint.
 The JWT is inserted as a Bearer token in the :code:`Authorization` header of the type :code:`Bearer` as described in RFC 6750, section 2.1.
 
 The second method of authentication involves using an API key generated on the :code:`/api/v1/api-key` endpoint.
