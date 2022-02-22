@@ -31,7 +31,8 @@ Steps:
     a. Edit the file with a suiteable text editor, such as: VSCode, SublimeText or notepad++.
     b. Replace all instances of :code:`{YOUR_BASE_URL}` with your actual base url, i.e. :code:`test.os2iot.dk`.
     c. Replace all instances of :code:`{YOUR_PUBLIC_KEY_AS_BASE64}` with the base64 encoded part of the certificate (without newlines), i.e. :code:`<X509Certificate>MIIGJDCCBQygAwIBAgIEXd/ZTjANBgkqhkiG9w0BAQsFADBAMQswCQYDVQQGEwJESzESMBAGA1UECgwJVFJVU1QyNDA...=</X509Certificate>`
-    (Tip: `{YOUR_PUBLIC_KEY_AS_BASE64}` is the extracted certificate)
+       
+       (Tip: `{YOUR_PUBLIC_KEY_AS_BASE64}` is the extracted certificate)
     
 
 3. Create an IT-system in KOMBIT adgangsstrying:

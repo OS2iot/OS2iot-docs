@@ -13,6 +13,7 @@
    external-interface-design/external-interface-design.rst
    software-architecture/software-architecture.rst
    payload-decoders/payload-decoders.rst
+   multicast/multicast.rst
    iot-data-handling/iot-data-handling.rst
    downlink-helpers/downlink-helpers.rst
    kombit-adgangsstyring/kombit-adgangsstyring.rst
