@@ -83,3 +83,5 @@ implicit read permission within that scope.
 For instance, if a user has Application Admin within an Organization, then that user also has Read permission within it.
 
 Global Admin is at the top of the hierarchy and can thus do what any of the other permissions provide access to.
+
+.. include:: api-key-access.rst
