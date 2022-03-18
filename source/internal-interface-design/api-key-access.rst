@@ -38,6 +38,9 @@ While most of the system is accessible using API key authentication, there are s
 - You cannot manage users nor user groups
 - You cannot manage organizations
 
+You can use an API key to request information necessary for using OS2IoT by using endpoints starting with :code:`/api-key-info`. They require API key authentication.
+For instance, to fetch the organization tied to your API key, you can make a :code:`GET` request to the route which ends with :code:`/api-key-info/organization`.
+
 Currently, there's no expiration date on an API key. It will not expire unless an administrator revokes it on the key management page.
 
 .. |api-key-usage| image:: ./media/api-key-usage.jpg
