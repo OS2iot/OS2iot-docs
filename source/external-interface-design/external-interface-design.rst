@@ -132,8 +132,8 @@ and Chirpstack is out of scope of this project.
 
 The Chirpstack is comprised of the following 4 modules.
 
-1. `Appplication
-   Server <https://www.chirpstack.io/application-server/use/fuota/>`__
+1. `Application
+   Server <https://www.chirpstack.io/application-server/>`__
 
 2. `Network Server <https://www.chirpstack.io/network-server/>`__
 
@@ -161,6 +161,13 @@ Changes to these entities must always happen in OS2iot, which is then
 synchronized to Chirpstack. It is not supported to change data directly
 in Chirpstack. All manipulation of settings in the Chirpstack is thus
 done via the Chirpstack API. If locally running on port 8080 then Chirpstack Application Services Swagger UI is available at http://localhost:8080/api
+
+There is no direct mapping between applications in OS2iot and applications in Chirpstack, even though they cover a similar concept. 
+Instead, a separate Chirpstack application is created for each separate ServiceProfile created through OS2iot. 
+
+The new Chirpstack application is created the first time a device with a previously unused ServiceProfile is added to an OS2iot application.
+This is illustrated in the flowchart below:
+|image13|
 
 Security
 ~~~~~~~~
@@ -472,3 +479,4 @@ See `the seperate page for KOMBIT adgangsstyring <../kombit-adgangsstyring/kombi
 .. |image5| image:: media/image9.png
 .. |image6| image:: media/image10.png
 .. |image7| image:: media/image12.png
+.. |image13| image:: media/image13.png
