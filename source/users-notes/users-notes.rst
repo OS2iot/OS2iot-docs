@@ -23,7 +23,7 @@ How to change chirpstacks admin password
 ----------------------------------------
 
 Step-by-step:
-############
+#############
 
 1. Log in to the ChirpStack Application Server web interface using the default credentials
 2. Change the password of the admin user under: 'All users' -> 'admin' -> 'Change Password'
