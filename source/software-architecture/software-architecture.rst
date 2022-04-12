@@ -344,6 +344,10 @@ Data target security
 
 It is the responsibility of the users of OS2iot and administrators of the data targets to ensure data is encrypted during transmission using e.g. TLS. This section describes the available authentication options in OS2iot.
 
-HTTP PUSH
+HTTP PUSH 
+^^^^^^^^^^^^
+OS2iot supports using a HTTP "Authorization" header or HTTP basic authentication
+
+FIWARE 
 ^^^^^^^^^^^^
 OS2iot supports using a HTTP "Authorization" header or HTTP basic authentication
