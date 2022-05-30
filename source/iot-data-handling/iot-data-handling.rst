@@ -70,11 +70,37 @@ Sending to data-targets
 -----------------------
 
 Once the data is transformed/decoded, it can be sent to the intended data-targets.
-OS2iot currently only supports HTTP push as a data-target. But is built to be extended for other kinds of data-targets, e.g. MQTT, PostgreSQL, etc. 
+OS2iot currently supports HTTP push, FIWARE and MQTT as data-targets. It can be extended with other kinds of data-targets, e.g. PostgreSQL, etc. 
 
 The data-targets are configured as part of an application, and therefore can only include data from the IoT-Devices in said application. 
 For each IoT-Device, it is up to the user to select an appropriate payload decoder, to translate the raw payload to JSON.
 
-At the time of writing there is no retry mechanism in OS2iot, rather it uses "fire-and-forget" / "at most once delivery", over HTTP(S).
+At the time of writing, there is no retry mechanism in OS2iot over HTTP(s). It uses a "fire-and-forget" / "at most once delivery" pattern.
+
+MQTT data-target
+^^^^^^^^^^^^^^^^
+
+OS2iot supports publishing data to a broker when it's received using MQTT. MQTT is a standard, lightweight messaging protocol based on the publish/subscribe pattern.
+
+When configuring such a data-target, there's a few terms and keywords to be aware of:
+
+- **QoS**: The QoS (Quality of Service) level determines the guarantee of delivery for a specific message. Different network environments may require different QoS levels.
+  Ideally, the level should be set to match the network reliability and application logic. This is the main point of MQTT.
+  
+  There are 3 QoS levels:
+
+  - 0 (at most once)
+  - 1 (at least once)
+  - 2 (exactly once)
+
+  There are a number of well written articles regarding QoS. One such example is
+  `this blog entry <https://www.hivemq.com/blog/mqtt-essentials-part-6-mqtt-quality-of-service-levels/>`_.
+- **Topic**: The MQTT data-target must be provided a topic with which it can label the data. This is used by the MQTT broker to filter messages from
+  MQTT clients. Here, OS2iot is a client.
+- **Connection authentication**: The most common methods of authentication are username and password and/or client certificates. At the time of writing, username and password
+  authentication is supported, but it can be extended to implement other methods. 
+
+You can read more on MQTT `here <https://mqtt.org/>`_
 
 .. |image2| image:: ./media/image8.png
+   

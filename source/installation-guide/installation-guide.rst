@@ -219,6 +219,8 @@ OS2IoT-backend takes several environment variables as configuration, if these ar
 +-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
 | BACKEND_BASEURL               | URL for external services to connect to the backend (THIS SHOULD BE CHANGED!)                        | :code:`https://test-os2iot-backend.os2iot.dk`                                           |
 +-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
+| FRONTEND_BASEURL              | URL for the frontend, used when building email links (THIS SHOULD BE CHANGED!)                       | :code:`http://localhost:8081`                                                           |
++-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
 | KOMBIT_ENTRYPOINT             | The context broker URL for KOMBIT adgangsstyring                                                     | :code:`https://adgangsstyring.eksterntest-stoettesystemerne.dk/runtime/saml2/issue.idp` |
 +-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
 | KOMBIT_CERTIFICATEPRIVATEKEY  | The certificate  private key for KOMBIT adgangsstyring                                               | :code:`null`                                                                            |
@@ -228,6 +230,8 @@ OS2IoT-backend takes several environment variables as configuration, if these ar
 | CHIRPSTACK_JWTSECRET          | Secret to generate JWT for Chirpstack                                                                | :code:`verysecret`                                                                      |
 +-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
 | LOG_LEVEL                     | Minimum Log Level. Levels ordered from high to low are: 'log', 'error', 'warn', 'debug', 'verbose'   | :code:`debug`                                                                           |
++-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
+| METADATA_SAVED_COUNT          | Maximum number of message metadata to store from an IoT device                                       | :code:`20`                                                                              |
 +-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
 
 Logs levels
