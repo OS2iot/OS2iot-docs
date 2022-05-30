@@ -61,7 +61,7 @@ There are five levels of permissions in OS2IoT:
 - Application Admin
 
  - Is scoped to a single organization and zero or more applications
- - Can access and modify applications and Sigfox devices within that organization
+ - Can access and modify applications and Sigfox devices within the user group in that organization
 
 - Gateway Admin 
 

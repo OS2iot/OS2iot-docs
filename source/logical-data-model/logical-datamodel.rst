@@ -161,8 +161,6 @@ PermissionType
 3. OrganizationGatewayAdmin
 4. OrganizationUserAdmin
 5. Read
-6. OrganizationPermission
-7. OrganizationApplicationPermissions
 
 SendStatus
 ~~~~~~~~~~~~~~~~~

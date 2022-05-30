@@ -193,23 +193,26 @@ In order to get transparency on integrating the Sigfox Administration you first 
 
 User Rights
 ~~~~~~~~~~~~~
-It requires a certain right to be able to access certain features with global-admin, organizations admin, or write/read features.
+It requires a certain right to be able to access certain features with the different admin and read roles.
 
 Navigation to the system with global-admin functions is done by 
-    1) adding a whole section for administrative use for global-admin to control the system of user, user groups(permissions), and organizations
+    1) adding a whole section for administrative use for global-admin to control the system of user, user groups (permissions), and organizations
     2) adding new organizaions to the system
-    3) given write rights (delete and edit) to everything inside the organization
+    3) giving admin rights (delete and edit) to everything inside the organization
     4) activation of another global-admin user
 
-Navigation to the system with organization-admin functions is done by 
-    1) adding system control of user, user groups (permissions) to the organization pane
-    2) given write rights (delete and edit) to everything inside the organization
+Navigation to the system with application admin functions is done by
+    1) giving admin rights (delete and edit) to applications and Sigfox devices inside the organization
 
-Navigation to the system with write functions is done by 
-    1) given write rights (delete and edit) to everything inside the organization
+Navigation to the system with gateway admin functions is done by
+    1) giving admin rights (delete and edit) to gateways inside the organization
+
+Navigation to the system with user admin functions is done by 
+    1) adding system control of user, user groups (permissions) to the organization pane
+    2) giving admin rights (delete and edit) to users and user groups
 
 Navigation to the system with read functions is done by 
-    1) given read rights and cannot delete or edit anything inside the organization
+    1) giving read rights and cannot delete or edit anything inside the organization
 
 
 Global Search
@@ -322,7 +325,7 @@ Hide components and buttons
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Action Buttons in tables and list on overview pages are hidden if the user does not have rights to use / view them.
 [Picture] shows a user with write access to a certain organisation and cannot delete a device profile if not granted the rights to it 
-[Picture] shows a organisation admin with visible buttons in the same view. 
+[Picture] shows an organization admin with visible buttons in the same view. 
 
 User with read rights. 
 

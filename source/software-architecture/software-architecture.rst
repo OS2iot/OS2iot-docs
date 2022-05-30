@@ -200,26 +200,27 @@ Security perspective
 --------------------
 
 This figure shows the classes which make up the permission model for OS2IoT.
-A User has zero or more permission, these permissions are each one of four concrete types:
+A user is part of zero or more permissions (user groups). Each permission has one or more permission types
+which determine what's accessible within the organization. The concrete types are as follows:
 
 1. GlobalAdmin
 
-   a. Each domain instance of OS2IoT has exactly 1 user with this permission.
+   a. Each domain instance of OS2IoT has exactly 1 user with this type.
 
 2. OrganizationApplicationAdmin
    
    a. This relates to a single organization
-   b. This relates to a list of users within that organization. Access is granted to parts of the system requiring this permission
+   b. This relates to a list of users within that organization. Access is granted to parts of the system requiring this type
 
 3. OrganizationGatewayAdmin
    
    a. This relates to a single organization
-   b. This relates to a list of users within that organization. Access is granted to parts of the system requiring this permission
+   b. This relates to a list of users within that organization. Access is granted to parts of the system requiring this type
 
 4. OrganizationUserAdmin
    
    a. This relates to a single organization
-   b. This relates to a list of users within that organization. Access is granted to parts of the system requiring this permission
+   b. This relates to a list of users within that organization. Access is granted to parts of the system requiring this type
 
 5. Read
 
