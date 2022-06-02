@@ -50,31 +50,38 @@ which is explained below.
 
 Authorization (Permissions)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Permissions are given on specific applications to users and API keys through UserGroups. A UserGroup can have multiple permissions. 
 
-There is four levels of permissions in OS2IoT:
-
+There are five levels of permissions in OS2IoT:
 
 - Global Admin
 
- - Can do anything
+ - Can do everything for all organizations and applications
 
-- Organization Admin 
-
- - Is scoped to a single organization
- - Can do anything to that organization
- - Can add new users
-
-- Write 
+- Application Admin
 
  - Is scoped to a single organization and zero or more applications
- - Can write/create/delete entities within an organization on certain applications
+ - Can access and modify applications and Sigfox devices within the user group in that organization
+
+- Gateway Admin 
+
+ - Is scoped to a single organization
+ - Can access and modify gateways within that organization
+
+- User Admin 
+
+ - Is scoped to a single organization
+ - Can access and modify users and permissions within that organization
 
 - Read
 
  - Is scoped to a single organization and zero or more applications
  - Can read (view) entities within certain applications within an organization
 
-The permissions are hieratical, meaning that you implicitly have all lesser permissions than the ones you have explicitly.
-For instance, if a user is an Organization Admin for an Organization, then that user also have the Write and Read permissions.
+Each of the admin permissions is part of a hierarchy with the read permission. If you have an Admin permission within an organization, with zero or more applications, you have an
+implicit read permission within that scope.
+For instance, if a user has Application Admin within an Organization, then that user also has Read permission within it.
+
+Global Admin is at the top of the hierarchy and can thus do what any of the other permissions provide access to.
 
 .. include:: api-key-access.rst
