@@ -50,13 +50,13 @@ which is explained below.
 
 Authorization (Permissions)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Permissions are given on specific applications to users and API keys through UserGroups. A UserGroup can have multiple permissions. 
 
 There are five levels of permissions in OS2IoT:
 
-
 - Global Admin
 
- - Can do anything
+ - Can do everything for all organizations and applications
 
 - Application Admin
 

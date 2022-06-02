@@ -204,8 +204,8 @@ A user is part of zero or more permissions (user groups). Each permission has on
 which determine what's accessible within the organization. The concrete types are as follows:
 
 1. GlobalAdmin
-
-   a. Each domain instance of OS2IoT has exactly 1 user with this type.
+   a. Each domain instance of OS2IoT has at least 1 user with this type, which is created on the first startup of the backend.
+   b. Users with the GlobalAdmin role can assign other users to also have the GlobalAdmin role
 
 2. OrganizationApplicationAdmin
    
@@ -271,7 +271,7 @@ User permissions
 User role           System name                   Permissions
 =================== ============================= ========================================================================
 Global admin        GlobalAdmin                   Super user, CRUD everything within the domain
-Application admin   OrganizationApplicationAdmin  Access and modify applications and Sigfox devices within an organization
+Application admin   OrganizationApplicationAdmin  Access and modify applications, DeviceModels and IoT devices within an organization
 Gateway admin       OrganizationGatewayAdmin      CRUD gateways within an organization
 User admin          OrganizationUserAdmin         CRUD users and permissions within an organization
 Read access         Read                          Read all data within an application.
