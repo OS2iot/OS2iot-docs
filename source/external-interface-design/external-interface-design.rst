@@ -443,6 +443,21 @@ exponential back-off. Or an API exposing all messages which have not
 been acknowledged by the receiver, for a short period of time (for
 instance 3 days like SigFox).
 
+FIWARE
+^^^^^^
+
+FIWARE data target allows users to integrate OS2IoT with any "Powered by FIWARE" platform by enabling the connection to the Context Broker Generic Enabler.
+
+Data are send to the context broker via the :code:`/ngsi-ld/v1/entityOperations/upsert/` operation. 
+
+The output of the payload decoder function needs to comply with the NGSI-LD format as it is sent as a body of the request without any alteration. It should represent an array of objects to be updated.
+
+The context (part of the NGSI-LD standard) can be provided in the request body or can be defined in the data target configuration. In the latter case, it will be included within the headers of the request.
+
+The Fiware data target supports the multitenancy of the Context Broker (but not every context broker supports multitenancy). The name of the tenant can be specified in the configuration. If no value is provided, the default tenant will be used. To specify the tenant OS2IoT is using :code:`NGSILD-Tenant` header.
+
+
+
 Opendata.dk
 ^^^^^^^^^^^
 
