@@ -77,7 +77,7 @@ For each IoT-Device, it is up to the user to select an appropriate payload decod
 
 At the time of writing, there is no retry mechanism in OS2iot over HTTP(s). It uses a "fire-and-forget" / "at most once delivery" pattern.
 
-For more info on the different data-target options, look `here <https://os2iot.readthedocs.io/en/latest/external-interface-design/external-interface-design.html?highlight=data%20target#id2>`_
+For more info on the different data-target options, look `here <.../external-interface-design/external-interface-design.html?highlight=data%20target#id2>`_
 
 .. |image2| image:: ./media/image8.png
    
