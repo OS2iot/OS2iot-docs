@@ -443,6 +443,31 @@ exponential back-off. Or an API exposing all messages which have not
 been acknowledged by the receiver, for a short period of time (for
 instance 3 days like SigFox).
 
+MQTT
+^^^^^^^^^^^^^^^^
+
+OS2iot supports publishing data to a broker when it's received using MQTT. MQTT is a standard, lightweight messaging protocol based on the publish/subscribe pattern.
+
+When configuring such a data-target, there's a few terms and keywords to be aware of:
+
+- **QoS**: The QoS (Quality of Service) level determines the guarantee of delivery for a specific message. Different network environments may require different QoS levels.
+  Ideally, the level should be set to match the network reliability and application logic. This is the main point of MQTT.
+  
+  There are 3 QoS levels:
+
+  - 0 (at most once)
+  - 1 (at least once)
+  - 2 (exactly once)
+
+  There are a number of well written articles regarding QoS. One such example is
+  `this blog entry <https://www.hivemq.com/blog/mqtt-essentials-part-6-mqtt-quality-of-service-levels/>`_.
+- **Topic**: The MQTT data-target must be provided a topic with which it can label the data. This is used by the MQTT broker to filter messages from
+  MQTT clients. Here, OS2iot is a client.
+- **Connection authentication**: The most common methods of authentication are username and password and/or client certificates. At the time of writing, username and password
+  authentication is supported, but it can be extended to implement other methods. 
+
+You can read more on MQTT `here <https://mqtt.org/>`_
+
 FIWARE
 ^^^^^^
 
