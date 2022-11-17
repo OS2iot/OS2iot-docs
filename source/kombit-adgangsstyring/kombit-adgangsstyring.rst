@@ -16,6 +16,9 @@ Prerequisites:
 
 2. A NemID FOCES or VOCES (FOCES is preferred) for production use (Issued by: TRUST2408 OCES CA). If the OS2IoT installation is a TEST system, and the test environment for KOMBIT adgangsstyring is being used, then a FOCES/VOCES for the NemID integration environment is sufficent (Issued by: TRUST2408 Systemtest).
 
+3. The public certificate from the KOMBIT IDP. Can be retrieved from
+    a. **KOMBIT Test endpoint:** https://adgangsstyring.eksterntest-stoettesystemerne.dk/runtime/saml2/metadata.idp
+    b. **KOMBIT Prod endpoint:** https://adgangsstyring.stoettesystemerne.dk/runtime/saml2/metadata.idp
 
 Once the prerequisites are in order the configuration can begin.
 
@@ -91,6 +94,13 @@ Steps:
             .. code-block:: javascript
 
                 KOMBIT_ENTRYPOINT="https://adgangsstyring.eksterntest-stoettesystemerne.dk/runtime/saml2/issue.idp"
+        
+        iiiii. The variable :code:`KOMBIT_CERTIFICATEPUBLICKEY` must be set to the public key of the KOMBIT idp. If unset, the backend will not validate responses from KOMBIT, even if they are valid. Must be one line, with only the key part as shown below
+            d. An example for :code:`.env` could be:
+
+            .. code-block:: javascript
+
+                KOMBIT_CERTIFICATEPUBLICKEY="MIIGHTCCBQWgAwIBAgIEXgiTCTA[...]H0QDoU9mHDP17gSZZ"
 
 
 Test:
