@@ -481,7 +481,7 @@ The context (part of the NGSI-LD standard) can be provided in the request body o
 
 The Fiware data target supports the multitenancy of the Context Broker (but not every context broker supports multitenancy). The name of the tenant can be specified in the configuration. If no value is provided, the default tenant will be used. To specify the tenant OS2IoT is using :code:`NGSILD-Tenant` header.
 
-
+If your Context Broker is secured with OAuth2 it's possible to configure target to obtain necessary client credentials from Authentication Server. To do that it's required to provide token endpoint together with Client ID and Client Secret while configuring the target.
 
 Opendata.dk
 ^^^^^^^^^^^
