@@ -13,8 +13,9 @@ There are two primary ways of systematically exporting the data from OS2iot:
 
 Export using the REST API
 -------------------------
+The REST API is automatically exported from the backend via swagger. 
 
-The REST API documentation is available at https://your-backend-hostname.tld/api/v1/docs/#/
+When your backend is running, either locally or hosted, the REST API documentation is available at `[your-backend-base-url]/api/v1/docs/#/`
 
 After using the login endpoint to get a JWT, use it for the calls.
 
