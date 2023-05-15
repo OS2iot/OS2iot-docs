@@ -17,6 +17,8 @@ OS2iot supports three types of devices:
     2. SigFox devices
 
     3. Generic HTTP devices
+    
+    4. MQTT devices
 
 OS2iot ingests data for each of these device types in a slightly different way:
 
@@ -56,6 +58,11 @@ OS2iot supports generic HTTP(S) devices, that means that each device of this typ
 The endpoint :code:`/api/v1/receive-data?apiKey=<guid>` is used for this, where :code:`<guid>` is a GUID like: :code:`2704e33f-b678-4d3a-a3b9-b36454cabf22`.
 If the API-key is valid and corresponds to a device in OS2iot, then the response will be 204 No Content, and the message is further processed. 
 If the API-key is unknown, then the resposne will be 403 Bad Request with the message: :code:`MESSAGE.DEVICE-DOES-NOT-EXIST`
+
+MQTT
+^^^^
+
+.. TODO: Details on mqtt and their support
 
 Payload transformation and storage
 ----------------------------------
