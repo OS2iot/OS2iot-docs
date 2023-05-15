@@ -65,7 +65,7 @@ frontend.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 OS2iot uses the following 3\ :sup:`rd` party components as dependencies:
-
+.. Todo more info on mosquitto
 ============ ============================================================================== =========================== ==================== ==============
 Component    Use                                                                            Reference                   License              Version
 ============ ============================================================================== =========================== ==================== ==============
@@ -150,6 +150,8 @@ The solution is deployed as a number of Docker containers.
 -  Postgres
 
 -  Apache Kafka
+
+- Secure Mosquitto broker
 
 Docker Compose is used to ease deployment of the solution. 
 For scalability and increased robustness, the solution can be deployed to kubernetes cluser.
@@ -325,6 +327,11 @@ NB-IoT
 
 Data from NB-IoT devices is received in the same manner as from generic IoT devices as described earlier and so uses the same security mechanisms.
 It is required that the device itself can be configured to send to a configured HTTP endpoint, and supports HTTPS.
+
+MQTT
+^^^^
+
+.. TODO security description
 
 Sigfox
 ^^^^^^
