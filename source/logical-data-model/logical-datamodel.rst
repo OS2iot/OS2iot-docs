@@ -93,6 +93,9 @@ DataTargetType
 ~~~~~~~~~~~~~~~~~
 
 1. HttpPush
+2. Fiware
+3. MQTT
+4. OpenDataDK
 
 IoTDeviceType
 ~~~~~~~~~~~~~~~~~
@@ -100,6 +103,8 @@ IoTDeviceType
 1. GenericHttp
 2. LoRaWAN
 3. SigFox
+4. MQTTBroker
+5. MQTTSubscriber
 
 ErrorCodes 
 ~~~~~~~~~~~~~~~~~
@@ -183,6 +188,11 @@ SigFoxPayloadType
 4. DisplayInASCII
 5. RadioPlanningFrame
 6. Sensitv2
+
+AuthenticationType
+~~~~~~~~~~~~~~~~~~
+1. PASSWORD
+2. CERTIFICATE
 
 .. |image1| image:: ./media/image4.png
 

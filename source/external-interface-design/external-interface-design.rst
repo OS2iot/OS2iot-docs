@@ -415,6 +415,8 @@ https://support.sigfox.com/apidocs#operation/deviceTypeBulkRestart is
 used. At a later point the bulk job status API can be used:
 https://support.sigfox.com/apidocs#operation/getBulkJobForDevice.
 
+.. TODO: Write MQTT device docs
+
 Data Targets
 ------------
 
