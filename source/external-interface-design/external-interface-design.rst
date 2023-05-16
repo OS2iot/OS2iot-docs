@@ -308,6 +308,13 @@ over the network by a device.
 
 .. _update-existing-device-1:
 
+MQTT
+^^^^
+.. TODO: Write MQTT device docs
+
+Blabla
+
+
 Sigfox
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -414,12 +421,6 @@ is used. And to restart the devices of a given type the API:
 https://support.sigfox.com/apidocs#operation/deviceTypeBulkRestart is
 used. At a later point the bulk job status API can be used:
 https://support.sigfox.com/apidocs#operation/getBulkJobForDevice.
-
-MQTT
-^^^^
-.. TODO: Write MQTT device docs
-
-Blabla
 
 Data Targets
 ------------
