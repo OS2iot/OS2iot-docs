@@ -10,7 +10,7 @@ The following sequence diagram illustrates how data is processed when it is rece
 Data ingestion
 --------------
 
-OS2iot supports three types of devices:
+OS2iot supports four types of devices:
 
     1. LoRaWAN devices (using Chirpstack)
 
