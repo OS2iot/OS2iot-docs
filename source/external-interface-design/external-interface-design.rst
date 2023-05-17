@@ -30,7 +30,7 @@ Two different patterns are used between the internal components:
    | Used between the frontend, backend and database.
 
 -  | **Publish-subscribe**
-   | Used in communication between the backend and MQTT broker for Chirpstack.
+   | Used in communication between the backend and MQTT broker for Chirpstack and the internal MQTT broker.
 
 External systems
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
