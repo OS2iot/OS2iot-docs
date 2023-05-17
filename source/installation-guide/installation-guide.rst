@@ -245,7 +245,13 @@ OS2IoT-backend takes several environment variables as configuration, if these ar
 +-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
 | METADATA_SAVED_COUNT          | Maximum number of message metadata to store from an IoT device                                       | :code:`20`                                                                              |
 +-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
-| DEVICE_STATS_INTERVAL_IN_DAYS | How many days back to fetch IoT device statistics                                                    | :code:`29`                                                                              |
+| MQTT_BROKER_HOSTNAME          | The hostname of the MQTT broker.                                                                     | :code:`localhost`                                                                       |
++-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
+| MQTT_SUPER_USER_PASSWORD      | The password for the internal MQTT listener.                                                         | :code:`SuperUser`                                                                       |
++-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
+| ENCRYPTION_SYMMETRIC_KEY      | A symmetric key that is used for encrypting                                                          | :code:`SecretKey`                                                                       |
++-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
+| CA_KEY_PASSWORD               | The password for the Certificate Authority key.                                                      | :code:`os2iot`                                                                          |
 +-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
 
 Logs levels
@@ -296,7 +302,7 @@ To get the mosquitto broker working, you have to create some certificates and up
 
    11. Update the :code:`MQTT_BROKER_HOSTNAME` with the ip/hostname that you used for step 4 and 6, and :code:`CA_KEY_PASSWORD` with the password that you entered in step 3 in the docker-compose.yml file placed in OS2IoT-docker.
 
-If you want to use kubernetes then you need some futher steps. You have to install kubectl.
+If you want to use kubernetes then you need some futher steps. First you have to install kubectl.
 
    1. Open a command prompt in administrator mode.
 
