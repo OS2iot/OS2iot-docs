@@ -302,7 +302,7 @@ To get the mosquitto broker working, you have to create some certificates and up
 
    11. Update the :code:`MQTT_BROKER_HOSTNAME` with the ip/hostname that you used for step 4 and 6, and :code:`CA_KEY_PASSWORD` with the password that you entered in step 3 in the docker-compose.yml file placed in OS2IoT-docker.
 
-If you want to use kubernetes then you need some futher steps. First you have to install kubectl.
+If you want to use kubernetes to host mosquitto then you need some futher steps. First you have to install kubectl.
 
    1. Open a command prompt in administrator mode.
 

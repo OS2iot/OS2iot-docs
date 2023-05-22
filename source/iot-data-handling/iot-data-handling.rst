@@ -64,7 +64,7 @@ MQTT
 
 OS2IoT supports two kinds of MQTT devices. An MQTT-publisher and an MQTT-subscriber. 
 
-OS2IoT also supports two kinds of authorization for MQTT-publishers: Username/password and certificate.
+OS2IoT supports two kinds of authorization for MQTT devices: Username/password and certificate.
 
 MQTT-publisher
 ~~~~~~~~~~~~~~
@@ -80,7 +80,7 @@ MQTT-subscriber
 ~~~~~~~~~~~~~~~
 
 When an MQTT-subscriber is created a connection to the external broker is made using the entered credentials. 
-When a message is received by the external broker, on the topic configured. OS2IoT will also receive the message and further process it.
+When a message is received by the external broker on the topic configured, OS2IoT will also receive the message and further process it.
 
 
 Payload transformation and storage
