@@ -357,7 +357,7 @@ https://ieeexplore.ieee.org/document/8766430/), Sigfox should not be
 used for critical applications due to poor protection from replay
 attacks.
 
-.. |image1| image:: ./media/image7.png
+.. |image1| image:: ./media/image1.png
 .. |image3| image:: ./media/image9.png
 .. |image4| image:: ./media/image3.png
 .. |image5| image:: ./media/image4.png
