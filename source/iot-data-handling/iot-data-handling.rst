@@ -62,7 +62,26 @@ If the API-key is unknown, then the resposne will be 403 Bad Request with the me
 MQTT
 ^^^^
 
-.. TODO: Details on mqtt and their support
+OS2IoT supports two kinds of MQTT devices. An MQTT-publisher and an MQTT-subscriber. 
+
+OS2IoT also supports two kinds of authorization for MQTT-publishers: Username/password and certificate.
+
+MQTT-publisher
+~~~~~~~~~~~~~~
+
+When an MQTT-publisher is created, the credentials for connecting to the internal MQTT-broker are generated. 
+These consists of a URL, a port and a topic for the device to send data to. 
+If the authorization type is certificate then the required certificates will be generated. If username/password is used these are manually entered.
+
+When a known MQTT-publisher sends data to the topic assigned to it, the message will be further processed. 
+If a device attempts to send to a different topic the message will be discarded.
+
+MQTT-subscriber
+~~~~~~~~~~~~~~~
+
+When an MQTT-subscriber is created a connection to the external broker is made using the entered credentials. 
+When a message is received by the external broker, on the topic configured. OS2IoT will also receive the message and further process it.
+
 
 Payload transformation and storage
 ----------------------------------

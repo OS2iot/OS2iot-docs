@@ -310,9 +310,17 @@ over the network by a device.
 
 MQTT
 ^^^^
-.. TODO: Write MQTT device docs
 
-Blabla
+There are two kinds of MQTT devices available. An MQTT-publisher and an MQTT-subscriber.
+
+MQTT-publisher
+~~~~~~~~~~~~~~
+
+
+
+
+MQTT-subscriber
+~~~~~~~~~~~~~~~
 
 
 Sigfox
