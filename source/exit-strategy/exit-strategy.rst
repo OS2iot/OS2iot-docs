@@ -1,15 +1,27 @@
 Exit strategy
 =============
 
-There are two primary ways of systematically exporting the data from OS2iot:
+There are three primary ways of systematically exporting the data from OS2iot:
 
-1. Using the REST API
+1. Using the Export 
+
+    a. Ideal if you just need to get all the information about devices in an application.
+
+2. Using the REST API
 
     a. Ideal if you want to import/change it into something else, and OS2iot is still running.
 
-2. Exporting the database
+3. Exporting the database
 
     a. If OS2iot is no longer running, the postgres database will contain all the data from the system.
+
+Export using CSV export 
+-----------------------
+
+It is possible, when on the details page for an application, to get a csv file containing all the devices in the application. 
+
+This csv file is formatted to be compatible with the bulk import feature, button located right next to it, to make it possible to reimport the devices into a different application.
+
 
 Export using the REST API
 -------------------------
