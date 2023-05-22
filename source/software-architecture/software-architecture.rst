@@ -359,8 +359,8 @@ attacks.
 
 .. |image1| image:: ./media/image7.png
 .. |image3| image:: ./media/image9.png
-.. |image4| image:: ./media/os2iot-overview.png
-.. |image5| image:: ./media/os2iot-layers.png
+.. |image4| image:: ./media/image3.png
+.. |image5| image:: ./media/image4.png
 
 Data target security
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
