@@ -311,16 +311,18 @@ over the network by a device.
 MQTT
 ^^^^
 
-There are two kinds of MQTT devices available. An MQTT-publisher and an MQTT-subscriber.
+There are two kinds of MQTT devices available. MQTT-publisher and MQTT-subscriber.
 
 MQTT-publisher
 ~~~~~~~~~~~~~~
 
 
 
-
 MQTT-subscriber
 ~~~~~~~~~~~~~~~
+
+The MQTT-subscriber uses the MQTT protocol to subscribe to a topic on an external MQTT broker. A client is created in the OS2IoT backend.
+This client will connect to the external MQTT broker using the provided URL, port and authentication, and then subscribe to data on the provided topic.
 
 
 Sigfox
