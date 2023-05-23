@@ -278,31 +278,37 @@ Defaults are set in :code:`OS2IoT-frontend/src/environments/environment.ts`
 OS2IoT-Mosquitto broker
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-To get the mosquitto broker working, you have to create some certificates and update some values. These following steps is done with Windows and it's required that you have openssl installed. If you use linux, then write :code:`sudo` before the commands (you still have to install openssl).
+To get the mosquitto broker working, you have to create some certificates and update some values. These following steps is done with Windows. If you use linux, then write :code:`sudo` before the commands.
+
+Prerequisites: openssl installed and accesible from path
+
+Generate files:
 
    1. Open the command prompt in administrator mode.
-   
-   2. The following certificates and keys HAS to be placed in the folder "OS2IoT-docker/configuration/mosquitto-broker-os2iot", so it's recommended to navigate to that folder from the start.
 
-   3. Create a certificate authority(CA) key with this command: :code:`openssl genrsa -des3 -out ca.key 2048`. You will be prompted to enter a password. It's very important that you save this password, since it will be used later.
+   2. Create a certificate authority(CA) key with this command: :code:`openssl genrsa -des3 -out ca.key 2048`. You will be prompted to enter a password. It's very important that you save this password, since it will be used later.
 
-   4. Create the CA certificate with this command: :code:`openssl req -new -x509 -days 1826 -key ca.key -out ca.crt`. You will be asked to enter the password from the step before. After this, you will be prompted to enter informations. These values are not important, except one: "Common name". Common name HAS to be the ip/hostname of your broker.
+   3. Create the CA certificate with this command: :code:`openssl req -new -x509 -days 1826 -key ca.key -out ca.crt`. You will be asked to enter the password from the step before. After this, you will be prompted to enter informations. These values are not important, except one: "Common name". Common name HAS to be the ip/hostname of your broker.
 
-   5. Create the server key (for the broker) with the command: :code:`openssl genrsa -out server.key 2048`
+   4. Create the server key (for the broker) with the command: :code:`openssl genrsa -out server.key 2048`
 
    6. Create the server signing request with the command: :code:`openssl req -new -out server.csr -key server.key`. You will be prompted to enter some informations. These values are not important, except one: "Common name". Common name HAS to be the ip/hostname of your broker. The rest of the values should not be exact the same as in step 4.
 
    7. Create the server certificate (that is signed by the CA) with this command: :code:`openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 360`. You will be prompted to enter the password from step 3.
 
-   8. If the ca.crt, ca.key, server.crt and server.key aren't placed in the folder "OS2IoT-docker/configuration/mosquitto-broker-os2iot" then place them in that folder.
+If you want to get docker container with mosquitto running, then follow these steps:
 
-   9. Open the mosquitto-os2iot.conf file placed in OS2IoT-docker/configuration/mosquitto-broker-os2iot in a text editor and update the values about your database.
+   1. Place the generated files, ca.key, ca.crt, server.key and server.crt from the above steps in the folder "OS2IoT-docker/configuration/mosquitto-broker-os2iot". You don't need the server.csr.
 
-   10. Copy the files ca.crt and ca.key and place them in OS2IoT-backend/resources.
+   2. Open the mosquitto-os2iot.conf file placed in OS2IoT-docker/configuration/mosquitto-broker-os2iot in a text editor and update the values to match your database.
 
-   11. Update the :code:`MQTT_BROKER_HOSTNAME` with the ip/hostname that you used for step 4 and 6, and :code:`CA_KEY_PASSWORD` with the password that you entered in step 3 in the docker-compose.yml file placed in OS2IoT-docker.
+   3. Copy the files ca.crt and ca.key and place them in OS2IoT-backend/resources.
 
-If you want to use kubernetes to host mosquitto then you need some futher steps. First you have to install kubectl.
+   4. Update the :code:`MQTT_BROKER_HOSTNAME` with the ip/hostname that you used for step 4 and 6, and :code:`CA_KEY_PASSWORD` with the password that you entered in step 3 in the docker-compose.yml file placed in OS2IoT-docker.
+
+If you want to use kubernetes to host mosquitto then you need some futher steps.
+
+Prerequisites: kubectl installed and accesible from path
 
    1. Open a command prompt in administrator mode.
 
