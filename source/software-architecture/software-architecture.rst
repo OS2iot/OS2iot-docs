@@ -66,16 +66,16 @@ frontend.
 
 OS2iot uses the following 3\ :sup:`rd` party components as dependencies:
 
-============ ============================================================================== =========================== ==================== ==============
-Component    Use                                                                            Reference                   License              Version
-============ ============================================================================== =========================== ==================== ==============
-Chirpstack   LoRaWAN device Integration                                                     https://chirpstack.io       MIT License          3
-Mosquitto    MQTT broker for LoRaWAN and data target integrations                           https://mosquitto.org/      EPL/EDL License      1.6
-Apache Kafka Internal message broker used in the OS2iot backed for device data integrations https://kafka.apache.org/   Apache License 2.0   2.6
-PostgreSQL   Persistent data storage                                                        https://www.postgresql.org/ PostgreSQL License   12
-Redis        In-memory data store                                                           https://redis.io/           BSD License          5
-Docker       Virtualization software                                                        https://www.docker.com/     Apache License 2.0   19.03.13
-============ ============================================================================== =========================== ==================== ==============
+============ ===================================================================================================  =========================== ==================== ==============
+Component    Use                                                                                                  Reference                   License              Version
+============ ===================================================================================================  =========================== ==================== ==============
+Chirpstack   LoRaWAN device Integration                                                                           https://chirpstack.io       MIT License          3
+Mosquitto    MQTT broker for LoRaWAN and data target integrations and the internal MQTT broker for MQTT devices.  https://mosquitto.org/      EPL/EDL License      1.6
+Apache Kafka Internal message broker used in the OS2iot backed for device data integrations                       https://kafka.apache.org/   Apache License 2.0   2.6
+PostgreSQL   Persistent data storage                                                                              https://www.postgresql.org/ PostgreSQL License   12
+Redis        In-memory data store                                                                                 https://redis.io/           BSD License          5
+Docker       Virtualization software                                                                              https://www.docker.com/     Apache License 2.0   19.03.13
+============ ===================================================================================================  =========================== ==================== ==============
 
 
 Backend
@@ -151,6 +151,8 @@ The solution is deployed as a number of Docker containers.
 
 -  Apache Kafka
 
+- Secure Mosquitto broker
+
 Docker Compose is used to ease deployment of the solution. 
 For scalability and increased robustness, the solution can be deployed to kubernetes cluser.
 
@@ -204,6 +206,7 @@ A user is part of zero or more permissions (user groups). Each permission has on
 which determine what's accessible within the organization. The concrete types are as follows:
 
 1. GlobalAdmin
+
    a. Each domain instance of OS2IoT has at least 1 user with this type, which is created on the first startup of the backend.
    b. Users with the GlobalAdmin role can assign other users to also have the GlobalAdmin role
 
@@ -326,6 +329,18 @@ NB-IoT
 Data from NB-IoT devices is received in the same manner as from generic IoT devices as described earlier and so uses the same security mechanisms.
 It is required that the device itself can be configured to send to a configured HTTP endpoint, and supports HTTPS.
 
+MQTT
+^^^^
+
+The MQTT Broker devices is communicating with the internal MQTT broker with encrypted TLS. The broker is futhermore implemented with the go-auth plugin (https://github.com/iegomez/mosquitto-go-auth).
+
+The go-auth plugin is used so that devices trying to communicating with the internal MQTT broker has to be verified in the database by sending their username and password or by sending a device certificate that only can be verified if it's signed by the CA certificate. 
+If the internal MQTT broker can't verify the device trying to connect then the internal MQTT broker will close the connection for the device.
+
+The internal MQTT broker is also checking if the device trying to publish or subscribe to the broker has access to the specific topic that the device is trying to publish or subscribe to.
+
+The MQTT Client devices can support both username/password and cert authentication if a broker requires it.
+
 Sigfox
 ^^^^^^
 
@@ -342,10 +357,10 @@ https://ieeexplore.ieee.org/document/8766430/), Sigfox should not be
 used for critical applications due to poor protection from replay
 attacks.
 
-.. |image1| image:: ./media/image7.png
+.. |image1| image:: ./media/image1.png
 .. |image3| image:: ./media/image9.png
-.. |image4| image:: ./media/os2iot-overview.png
-.. |image5| image:: ./media/os2iot-layers.png
+.. |image4| image:: ./media/image3.png
+.. |image5| image:: ./media/image4.png
 
 Data target security
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

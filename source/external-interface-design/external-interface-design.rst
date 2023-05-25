@@ -20,7 +20,7 @@ Integration patterns
 Internal systems
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Internally, OS2iot consists of four components shown in this figure.
+Internally, OS2iot consists of five components shown in this figure.
 
 |image2|
 
@@ -30,7 +30,7 @@ Two different patterns are used between the internal components:
    | Used between the frontend, backend and database.
 
 -  | **Publish-subscribe**
-   | Used in communication between the backend and MQTT broker for Chirpstack.
+   | Used in communication between the backend and MQTT broker for Chirpstack and the internal MQTT broker.
 
 External systems
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -50,10 +50,12 @@ IoT devices
 
 Figure 3 - IoT device integration overview
 
-All IoT device integrations except LoRaWAN use callbacks to send data to
+All IoT device integrations except LoRaWAN and MQTT use callbacks to send data to
 OS2iot using HTTPS in a request-response manner. Device management for 
 Sigfox (i.e. adding and modifying IoT devices) is done by
 sending requests to Sigfox's Cloud backend.
+
+MQTT devices uses the MQTT protocol to communicate with the broker.
 
 Data from Chirpstack devices are sent to OS2iot through Chirpstack using
 MQTT, where Chirpstack is the publisher and OS2iot is the subscriber.
@@ -308,6 +310,40 @@ over the network by a device.
 
 .. _update-existing-device-1:
 
+MQTT
+^^^^
+
+There are two kinds of MQTT devices available. MQTT-publisher and MQTT-subscriber. These two devices works in different matters which will be described below.
+
+MQTT-publisher
+~~~~~~~~~~~~~~
+The MQTT-publisher device will make it possible for a physical device to communicate with the internal OS2IoT mosquitto broker.
+The MQTT-publisher is created in the OS2IoT backend and is created with the credentials that the device needs for communicating with the internal broker.
+
+The MQTT-publisher device can either be created with username/password or credentials. If the publisher is created with username/password it will use port 8885, and if created with certificate it will use port 8884.
+
+When a physical MQTT device will publish some data, then OS2IoT will check for the specific topic that the device is publishing to in the database, and if the topic is set in the database, it will process the data.
+If a MQTT-publisher device with the specific topic isn't created then the broker won't be able to find it in the database and therefore it will reject the data.
+
+The specific topic for the created device will be :code:`device/organizationID/applicationID/deviceID`.
+
+
+
+
+MQTT-subscriber
+~~~~~~~~~~~~~~~
+
+The MQTT-subscriber uses the MQTT protocol to subscribe to a topic on an external MQTT broker. A client is created in the OS2IoT backend.
+This client will connect to the external MQTT broker using the provided URL, port and authentication, and then subscribe to data on the provided topic.
+
+OS2IoT doesn't have any knowlegde of the external broker so it's totally up to the user to provide the different inputs.
+If the input isn't valid and a connection can't be made to the external broker, a flag will be set in the database which tells OS2IoT that the connection can't be made and then OS2IoT will stop trying to connect to the external broker.
+
+If the inputs from the user IS valid, then a connection will be made and the device will listen to any updates from the broker.
+
+The MQTT-subscriber device has the possibility to use either certificate or username/password to a external broker if needed.
+
+
 Sigfox
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -514,7 +550,7 @@ See `the seperate page for KOMBIT adgangsstyring <../kombit-adgangsstyring/kombi
 
 .. |image1| image:: media/image5.png
 .. |image2| image:: media/image6.png
-.. |image3| image:: media/image7.png
+.. |image3| image:: media/image5.png
 .. |image4| image:: media/image8.png
 .. |image5| image:: media/image9.png
 .. |image6| image:: media/image10.png
