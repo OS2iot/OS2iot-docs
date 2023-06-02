@@ -332,14 +332,14 @@ It is required that the device itself can be configured to send to a configured 
 MQTT
 ^^^^
 
-The MQTT Broker devices is communicating with the internal MQTT broker with encrypted TLS. The broker is futhermore implemented with the go-auth plugin (https://github.com/iegomez/mosquitto-go-auth).
+The MQTT internal Broker devices is communicating with the internal MQTT broker with encrypted TLS. The broker is futhermore implemented with the go-auth plugin (https://github.com/iegomez/mosquitto-go-auth).
 
 The go-auth plugin is used so that devices trying to communicating with the internal MQTT broker has to be verified in the database by sending their username and password or by sending a device certificate that only can be verified if it's signed by the CA certificate. 
 If the internal MQTT broker can't verify the device trying to connect then the internal MQTT broker will close the connection for the device.
 
 The internal MQTT broker is also checking if the device trying to publish or subscribe to the broker has access to the specific topic that the device is trying to publish or subscribe to.
 
-The MQTT Client devices can support both username/password and cert authentication if a broker requires it.
+The MQTT external broker devices can support both username/password and cert authentication if a broker requires it.
 
 Sigfox
 ^^^^^^

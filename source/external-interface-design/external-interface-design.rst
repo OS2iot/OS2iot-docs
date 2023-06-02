@@ -313,27 +313,27 @@ over the network by a device.
 MQTT
 ^^^^
 
-There are two kinds of MQTT devices available. MQTT-publisher and MQTT-subscriber. These two devices works in different matters which will be described below.
+There are two kinds of MQTT devices available. MQTT external broker and MQTT internal broker. These two devices works in different matters which will be described below.
 
-MQTT-publisher
+MQTT external broker
 ~~~~~~~~~~~~~~
-The MQTT-publisher device will make it possible for a physical device to communicate with the internal OS2IoT mosquitto broker.
-The MQTT-publisher is created in the OS2IoT backend and is created with the credentials that the device needs for communicating with the internal broker.
+The MQTT external broker device will make it possible for a physical device to communicate with the internal OS2IoT mosquitto broker.
+The MQTT external broker is created in the OS2IoT backend and is created with the credentials that the device needs for communicating with the internal broker.
 
-The MQTT-publisher device can either be created with username/password or credentials. If the publisher is created with username/password it will use port 8885, and if created with certificate it will use port 8884.
+The MQTT external broker device can either be created with username/password or credentials. If the publisher is created with username/password it will use port 8885, and if created with certificate it will use port 8884.
 
 When a physical MQTT device will publish some data, then OS2IoT will check for the specific topic that the device is publishing to in the database, and if the topic is set in the database, it will process the data.
-If a MQTT-publisher device with the specific topic isn't created then the broker won't be able to find it in the database and therefore it will reject the data.
+If a MQTT external broker device with the specific topic isn't created then the broker won't be able to find it in the database and therefore it will reject the data.
 
 The specific topic for the created device will be :code:`device/organizationID/applicationID/deviceID`.
 
 
 
 
-MQTT-subscriber
+MQTT internal broker
 ~~~~~~~~~~~~~~~
 
-The MQTT-subscriber uses the MQTT protocol to subscribe to a topic on an external MQTT broker. A client is created in the OS2IoT backend.
+The MQTT internal broker uses the MQTT protocol to subscribe to a topic on an external MQTT broker. A client is created in the OS2IoT backend.
 This client will connect to the external MQTT broker using the provided URL, port and authentication, and then subscribe to data on the provided topic.
 
 OS2IoT doesn't have any knowlegde of the external broker so it's totally up to the user to provide the different inputs.
@@ -341,7 +341,7 @@ If the input isn't valid and a connection can't be made to the external broker, 
 
 If the inputs from the user IS valid, then a connection will be made and the device will listen to any updates from the broker.
 
-The MQTT-subscriber device has the possibility to use either certificate or username/password to a external broker if needed.
+The MQTT internal broker device has the possibility to use either certificate or username/password to a external broker if needed.
 
 
 Sigfox
