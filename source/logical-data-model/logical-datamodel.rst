@@ -103,8 +103,8 @@ IoTDeviceType
 1. GenericHttp
 2. LoRaWAN
 3. SigFox
-4. MQTTBroker
-5. MQTTSubscriber
+4. MQTTInternalBroker
+5. MQTTExternalBroker
 
 ErrorCodes 
 ~~~~~~~~~~~~~~~~~
