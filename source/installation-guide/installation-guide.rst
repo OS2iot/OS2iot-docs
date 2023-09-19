@@ -100,6 +100,12 @@ Once the path is added run:
 
 More docker related troubleshooting can be found at: https://github.com/OS2iot/OS2IoT-docker#troubleshooting-faq
 
+Security
+--------
+
+OS2IoT only supports tls 1.2+. It is however recommended to only use tls 1.3. 
+
+
 Running in Kubernetes
 ---------------------
 
@@ -319,3 +325,4 @@ Prerequisites: kubectl installed and accesible from path
    4. Update the empty values in OS2IoT-docker/helm/charts/mosquitto-os2iot/values.yaml
 
    5. Update the :code:`MQTT_BROKER_HOSTNAME` with the ip/hostname that you used for step 4 and 6 in the steps above, and :code:`CA_KEY_PASSWORD` with the password that you entered in step 3 in the steps above, in the file "OS2IoT-docker/helm/charts/os2iot-backend/deployment.yaml".
+
