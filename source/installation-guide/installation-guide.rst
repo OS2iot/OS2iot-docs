@@ -310,7 +310,7 @@ If you want to get docker container with mosquitto running, then follow these st
 
    3. Copy the files ca.crt and ca.key and place them in OS2IoT-backend/resources.
 
-   4. Update the :code:`MQTT_BROKER_HOSTNAME` with the ip/hostname that you used for step 4 and 6, and :code:`CA_KEY_PASSWORD` with the password that you entered in step 3 in the docker-compose.yml file placed in OS2IoT-docker.
+   4. Update the :code:`MQTT_BROKER_HOSTNAME` with the ip/hostname that you used for step 3 and 5, and :code:`CA_KEY_PASSWORD` with the password that you entered in step 2 in the docker-compose.yml file placed in OS2IoT-docker.
 
 If you want to use kubernetes to host mosquitto then you need some futher steps.
 
@@ -324,5 +324,5 @@ Prerequisites: kubectl installed and accesible from path
 
    4. Update the empty values in OS2IoT-docker/helm/charts/mosquitto-os2iot/values.yaml
 
-   5. Update the :code:`MQTT_BROKER_HOSTNAME` with the ip/hostname that you used for step 3 and 5 in the steps above, and :code:`CA_KEY_PASSWORD` with the password that you entered in step 3 in the steps above, in the file "OS2IoT-docker/helm/charts/os2iot-backend/deployment.yaml".
+   5. Update the :code:`MQTT_BROKER_HOSTNAME` with the ip/hostname that you used for step 3 and 5 in the steps above, and :code:`CA_KEY_PASSWORD` with the password that you entered in step 2 in the steps above, in the file "OS2IoT-docker/helm/charts/os2iot-backend/deployment.yaml".
 
