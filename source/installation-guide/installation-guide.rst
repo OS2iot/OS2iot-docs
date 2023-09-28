@@ -298,9 +298,9 @@ Generate files:
 
    4. Create the server key (for the broker) with the command: :code:`openssl genrsa -out server.key 2048`
 
-   6. Create the server signing request with the command: :code:`openssl req -new -out server.csr -key server.key`. You will be prompted to enter some informations. These values are not important, except one: "Common name". Common name HAS to be the ip/hostname of your broker. The rest of the values should not be exact the same as in step 4.
+   5. Create the server signing request with the command: :code:`openssl req -new -out server.csr -key server.key`. You will be prompted to enter some informations. These values are not important, except one: "Common name". Common name HAS to be the ip/hostname of your broker. The rest of the values should not be exact the same as in step 3.
 
-   7. Create the server certificate (that is signed by the CA) with this command: :code:`openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 360`. You will be prompted to enter the password from step 3.
+   6. Create the server certificate (that is signed by the CA) with this command: :code:`openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 360`. You will be prompted to enter the password from step 3.
 
 If you want to get docker container with mosquitto running, then follow these steps:
 
@@ -324,5 +324,5 @@ Prerequisites: kubectl installed and accesible from path
 
    4. Update the empty values in OS2IoT-docker/helm/charts/mosquitto-os2iot/values.yaml
 
-   5. Update the :code:`MQTT_BROKER_HOSTNAME` with the ip/hostname that you used for step 4 and 6 in the steps above, and :code:`CA_KEY_PASSWORD` with the password that you entered in step 3 in the steps above, in the file "OS2IoT-docker/helm/charts/os2iot-backend/deployment.yaml".
+   5. Update the :code:`MQTT_BROKER_HOSTNAME` with the ip/hostname that you used for step 3 and 5 in the steps above, and :code:`CA_KEY_PASSWORD` with the password that you entered in step 3 in the steps above, in the file "OS2IoT-docker/helm/charts/os2iot-backend/deployment.yaml".
 
