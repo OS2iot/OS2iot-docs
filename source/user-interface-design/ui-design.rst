@@ -160,7 +160,7 @@ The navigation bar, which will always be found at the top of all pages in the Sy
 |            +-----+-------------------------------------------------------------------------------------------------------+
 |            | 8   | By pressing "LoRaWan Gateways", the User is navigated to the Gateways overview                        |
 |            +-----+-------------------------------------------------------------------------------------------------------+
-|            | 9   | By pressing "LoRaWan Profiles", the User is navigated to the overview of service and device profiles  |
+|            | 9   | By pressing "LoRaWan Profiles", the User is navigated to the overview of device profiles              |
 |            +-----+-------------------------------------------------------------------------------------------------------+
 |            | 10  | By pressing "Payload Decoder", the User is navigated to the payload decoder overview                  |
 |            +-----+-------------------------------------------------------------------------------------------------------+
@@ -324,8 +324,6 @@ these are to hide action buttons for the user, mask data on lists and deny acces
 Hide components and buttons
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Action Buttons in tables and list on overview pages are hidden if the user does not have rights to use / view them.
-[Picture] shows a user with write access to a certain organisation and cannot delete a device profile if not granted the rights to it 
-[Picture] shows an organization admin with visible buttons in the same view. 
 
 User with read rights. 
 

@@ -95,7 +95,7 @@ Starting dependencies for development
 
    .. code-block:: bash
 
-      docker-compose up chirpstack-network-server postgresql chirpstack-gateway-bridge chirpstack-application-server os2iot-outbound-mosquitto mosquitto redis os2iot-inbound-mosquitto os2iot-kafka os2iot-postgresql os2iot-zookeeper
+      docker-compose up chirpstack postgresql postgresCsV4 chirpstack-gateway-bridge mosquitto-os2iot mosquitto redis os2iot-kafka os2iot-postgresql os2iot-zookeeper
 
 3. To quit: In your terminal you can press Ctrl + C twice. This will safely shut down docker.
 
@@ -173,10 +173,9 @@ Chirpstack
 
 Chirpstack is bundled as part of OS2IoT-docker.
 
-The Chirpstack API documentation will be exposed at http://localhost:8080/api . 
-More information can be found at https://www.chirpstack.io/application-server/integrate/rest/
+The Chirpstack gRPC Protocol documentation can be found at: https://www.chirpstack.io/docs/chirpstack/api/api.html
 
-For installation configuration of Chirpstack see: https://www.chirpstack.io/application-server/install/config/
+For installation configuration of Chirpstack see: https://www.chirpstack.io/docs/chirpstack/configuration.html
 
 Migrations
 -----------

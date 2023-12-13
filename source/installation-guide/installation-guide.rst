@@ -49,7 +49,7 @@ Steps
 
          .. code-block:: bash
          
-            dos2unix OS2IoT-docker/configuration/postgresql/initdb/001-init-chirpstack_ns.sh OS2IoT-docker/configuration/postgresql/initdb/002-init-chirpstack_as.sh OS2IoT-docker/configuration/postgresql/initdb/003-chirpstack_as_trgm.sh OS2IoT-docker/configuration/postgresql/initdb/004-chirpstack_as_hstore.sh
+            dos2unix OS2IoT-docker/configuration/postgresCsV4/initdb/001-init-chirpstack.sh OS2IoT-docker/configuration/postgresCsV4/initdb/002-chirpstack_extensions.sh
 
 3. Build the docker containers using docker-compose
 
@@ -73,7 +73,7 @@ Steps
 
       ii. Backend: 3000
 
-      iii. Chirpstack Application Server: 8080
+      iii. Chirpstack: 8080
 
       iv. Chirpstack Gateway (UDP from gateways to Chirpstack): 1700
 
@@ -258,6 +258,8 @@ OS2IoT-backend takes several environment variables as configuration, if these ar
 | ENCRYPTION_SYMMETRIC_KEY      | A symmetric key that is used for encrypting                                                          | :code:`SecretKey`                                                                       |
 +-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
 | CA_KEY_PASSWORD               | The password for the Certificate Authority key.                                                      | :code:`os2iot`                                                                          |
++-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
+| CHIRPSTACK_API_KEY            | The API key (Bearer token) created in Chirpstack.                                                    | :code:`apikey`                                                                          |
 +-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
 
 Logs levels
