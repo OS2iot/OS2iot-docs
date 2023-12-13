@@ -342,7 +342,7 @@ according to his user system roles and associated data boundaries, he will be re
 
 
 
-.. |image1| image:: ./media/image1.png
+.. |image1| image:: ./media/image11.png
 .. |image2-1| image:: ./media/image2-1.png
 .. |image2-2| image:: ./media/image2-2.png
 .. |image2-3| image:: ./media/image2-3.png
