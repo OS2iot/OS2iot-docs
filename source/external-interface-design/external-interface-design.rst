@@ -131,16 +131,15 @@ and Chirpstack is out of scope of this project.
 
 |image6|
 
-The Chirpstack is comprised of the following modules. In Chirpstack V4, the Application Server and Network Server is merged into one component.
-which before(V3) was two different components
+In Chirpstack V4, the Application and network server has been merged into the same component.
 
 1. `Gateway bridge <https://www.chirpstack.io/docs/chirpstack-gateway-bridge/>`__
 
 2. A postgresql database
 
-3. A MQTT Broker
+3. An MQTT Broker
 
-4. Chirpstack(Application Server and Network Server)
+4. `Chirpstack <https://www.chirpstack.io/docs/>`__
 
 Data synchronization
 ~~~~~~~~~~~~~~~~~~~~
@@ -160,10 +159,7 @@ This includes:
 
 Changes to these entities must always happen in OS2iot, which is then
 synchronized to Chirpstack. It is not supported to change data directly
-in Chirpstack. All manipulation of settings in the Chirpstack is thus
-done via the Chirpstack API. The protocol documentation for the api is documented at https://www.chirpstack.io/docs/chirpstack/api/api.html.
-
-After the update to Chirpstack V4, applications on OS2IoT are also created one-to-one on Chirpstack.
+in Chirpstack. The protocol documentation for the api is documented at https://www.chirpstack.io/docs/chirpstack/api/api.html.
 
 Security
 ~~~~~~~~
