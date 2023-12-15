@@ -25,7 +25,7 @@ Running the tests
 
     a. Start the dependencies using docker-compose from te OS2IoT-docker folder: 
 
-        i. :code:`docker-compose up --force-recreate --build -d chirpstack postgresql postgresCsV4 chirpstack-gateway-bridge mosquitto-os2iot mosquitto redis os2iot-kafka os2iot-postgresql os2iot-zookeeper`
+        i. :code:`docker-compose up --force-recreate --build -d chirpstack postgresql postgresChirpstackV4 chirpstack-gateway-bridge mosquitto-os2iot mosquitto redis os2iot-kafka os2iot-postgresql os2iot-zookeeper`
 
 2. Install dependencies to run test from the OS2IoT-backend folder:
 

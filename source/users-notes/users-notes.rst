@@ -30,4 +30,4 @@ Step-by-step:
 |image1|
 
 
-.. |image1| image:: ./media/image1.png
+.. |image1| image:: ./media/change-password.png

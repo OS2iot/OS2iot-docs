@@ -5,7 +5,7 @@ This chapter describes how data is ingested into OS2iot, how it is processed, an
 
 The following sequence diagram illustrates how data is processed when it is received.
 
-|image2|
+|image1|
 
 Data ingestion
 --------------
@@ -105,5 +105,5 @@ At the time of writing, there is no retry mechanism in OS2iot over HTTP(s). It u
 
 For more info on the different data-target options, look `here <.../external-interface-design/external-interface-design.html?highlight=data%20target#id2>`_
 
-.. |image2| image:: ./media/image8.png
+.. |image1| image:: ./media/receive-data-flow.png
    

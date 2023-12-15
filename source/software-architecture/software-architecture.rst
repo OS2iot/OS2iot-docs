@@ -14,11 +14,11 @@ different solution components. Orange components are 3\ :sup:`rd` party
 solution dependencies that are not developed or maintained in this
 project, but are necessary for OS2iot to function.
 
-|image4|
+|image3|
 
 Figure 1 - Solution overview
 
-|image5|
+|image4|
 
 Figure 2 - Layered architecture
 
@@ -231,7 +231,7 @@ which determine what's accessible within the organization. The concrete types ar
    b. This relates to a list of applications within that organization
 
 
-|image3|
+|image2|
 
 User login and permissions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -357,10 +357,10 @@ https://ieeexplore.ieee.org/document/8766430/), Sigfox should not be
 used for critical applications due to poor protection from replay
 attacks.
 
-.. |image1| image:: ./media/image2.png
-.. |image3| image:: ./media/image9.png
-.. |image4| image:: ./media/image5.png
-.. |image5| image:: ./media/image4.png
+.. |image1| image:: ./media/external-integration-overview.png
+.. |image2| image:: ./media/security.png
+.. |image3| image:: ./media/solution-overview.png
+.. |image4| image:: ./media/layered-architecture.png
 
 Data target security
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

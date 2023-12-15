@@ -49,7 +49,7 @@ Steps
 
          .. code-block:: bash
          
-            dos2unix OS2IoT-docker/configuration/postgresCsV4/initdb/001-init-chirpstack.sh OS2IoT-docker/configuration/postgresCsV4/initdb/002-chirpstack_extensions.sh
+            dos2unix OS2IoT-docker/configuration/postgresChirpstackV4/initdb/001-init-chirpstack.sh OS2IoT-docker/configuration/postgresChirpstackV4/initdb/002-chirpstack_extensions.sh
 
 3. Build the docker containers using docker-compose
 

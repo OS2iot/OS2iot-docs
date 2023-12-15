@@ -17,8 +17,6 @@ Creation in OS2IoT
 If you want to make a multicast-group in OS2IoT you have to go into a specific application and then create the multicast-group from there.
 
 You have to fill out all the required forms, and in the end you can add some devices. It's required that the devices share the same application in chirpstack.
-Before the Chirpstack update to Chirpstack V4, it was based on Service Profiles, but since Service Profiles are not part of Chirpstack V4, it is now based on the application under which your devices are created.
-If your devices are under the same application in OS2IoT, but you still encounter errors during creation, it may be because your devices were created in Chirpstack V3. In that case, the devices need to be created with the same Service Profile they had at the time of their creation.
 
 The multicast-address has to be an 8-character hexadecimal (hex) value, and the network and application session key has to be a 32-character hex value. 
 
@@ -49,4 +47,4 @@ A very short explanation of some of the properties that needs to be fulfilled wh
 
 ----------
 
-.. |image1| image:: ./media/image2.png
+.. |image1| image:: ./media/create-multicast.png

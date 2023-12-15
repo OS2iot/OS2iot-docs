@@ -131,7 +131,7 @@ and Chirpstack is out of scope of this project.
 
 |image6|
 
-In Chirpstack V4, the Application and network server has been merged into the same component.
+The Chirpstack is comprised of the following 4 modules.
 
 1. `Gateway bridge <https://www.chirpstack.io/docs/chirpstack-gateway-bridge/>`__
 
@@ -481,11 +481,9 @@ KOMBIT Adgangstyring
 See `the seperate page for KOMBIT adgangsstyring <../kombit-adgangsstyring/kombit-adgangsstyring.html>`_
 
 
-.. |image1| image:: media/image14.png
-.. |image2| image:: media/image6.png
-.. |image3| image:: media/image14.png
-.. |image4| image:: media/image8.png
-.. |image5| image:: media/image9.png
-.. |image6| image:: media/image10.png
-.. |image7| image:: media/image12.png
-.. |image13| image:: media/image13.png
+.. |image1| image:: media/external-integration-overview.png
+.. |image2| image:: media/internal-integration-design.png
+.. |image3| image:: media/external-integration-overview.png
+.. |image4| image:: media/datatargets.png
+.. |image5| image:: media/authentication.png
+.. |image6| image:: media/device-data-flow.png
