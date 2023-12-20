@@ -16,14 +16,15 @@ Creation in OS2IoT
 -------------------
 If you want to make a multicast-group in OS2IoT you have to go into a specific application and then create the multicast-group from there.
 
-You have to fill out all the required forms, and in the end you can add some devices. It's required that the devices share the same service profile, which is set when you create a LoRaWAN device.
+You have to fill out all the required forms, and in the end you can add some devices. It's required that the devices share the same application in chirpstack.
+
 The multicast-address has to be an 8-character hexadecimal (hex) value, and the network and application session key has to be a 32-character hex value. 
 
 If these requirements are not met, then the multicast-group will not be created.
 
-When you have added the devices that have the same service profile, and have filled out the other forms, then a multicast-group will be created in the database and in Chirpstack.
+When you have added the devices and have filled out the other forms, then a multicast-group will be created in the database and in Chirpstack.
 
-This sequence diagram describes the flow from the user to the Chirpstack Application Server:
+This sequence diagram describes the flow from the user to the Chirpstack Server:
 |image1|
 
 Sending downlink payload
@@ -46,4 +47,4 @@ A very short explanation of some of the properties that needs to be fulfilled wh
 
 ----------
 
-.. |image1| image:: ./media/image1.png
+.. |image1| image:: ./media/create-multicast.png

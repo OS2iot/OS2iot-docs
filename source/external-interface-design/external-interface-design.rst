@@ -126,22 +126,20 @@ in Chirpstack.
 Data from IoT devices is received by Chirpstack and sent to OS2iot by
 publishing to a MQTT broker which has OS2iot as a subscriber.
 
-Data sent to IoT devices is sent from OS2iot to Chirpstack using a
-the REST API. Communication between the IoT devices, gateways
+Data sent to IoT devices is sent from OS2iot to Chirpstack using gRPC. Communication between the IoT devices, gateways
 and Chirpstack is out of scope of this project.
 
 |image6|
 
 The Chirpstack is comprised of the following 4 modules.
 
-1. `Application
-   Server <https://www.chirpstack.io/application-server/>`__
+1. `Gateway bridge <https://www.chirpstack.io/docs/chirpstack-gateway-bridge/>`__
 
-2. `Network Server <https://www.chirpstack.io/network-server/>`__
+2. A postgresql database
 
-3. `Gateway bridge <https://www.chirpstack.io/gateway-bridge/>`__
+3. An MQTT Broker
 
-4. A postgresql database
+4. `Chirpstack <https://www.chirpstack.io/docs/>`__
 
 Data synchronization
 ~~~~~~~~~~~~~~~~~~~~
@@ -155,21 +153,13 @@ This includes:
 
 -  IoT devices
 
--  Service profiles
-
 -  Device profiles
+
+-  Multicast groups.
 
 Changes to these entities must always happen in OS2iot, which is then
 synchronized to Chirpstack. It is not supported to change data directly
-in Chirpstack. All manipulation of settings in the Chirpstack is thus
-done via the Chirpstack API. If locally running on port 8080 then Chirpstack Application Services Swagger UI is available at http://localhost:8080/api
-
-There is no direct mapping between applications in OS2iot and applications in Chirpstack, even though they cover a similar concept. 
-Instead, a separate Chirpstack application is created for each separate ServiceProfile created through OS2iot. 
-
-The new Chirpstack application is created the first time a device with a previously unused ServiceProfile is added to an OS2iot application.
-This is illustrated in the flowchart below:
-|image13|
+in Chirpstack. The protocol documentation for the api is documented at https://www.chirpstack.io/docs/chirpstack/api/api.html.
 
 Security
 ~~~~~~~~
@@ -178,75 +168,32 @@ OS2iot and Chirpstack have separate security models and do not share
 users. Instead, all communication between OS2iot and Chirpstack is done
 using a service account with administrator permissions in Chirpstack.
 
-For communicating with the chirpstack api, it is necessary to set up a
-JWT token.
+For communicating with the chirpstack api, it is necessary to create a apikey on Chirpstack, which you must insert in the environment variable: :code:`CHIRPSTACK_API_KEY`.
 
-We use the following code to generate a valid JWT for Chirpstack, here the is taken from the environment variable: :code:`CHIRPSTACK_JWTSECRET`, as described in `the installation guide <../installation-guide/installation-guide.html#id1>`_.
+This apikey is included in the header in every call to the Chirpstack api and has the format of an Bearer token:
 
 .. code-block:: typescript
 
-   @Injectable()
-   export class JwtToken {
-      static setupToken(): string {
-         const claims = {
-               iss: "as", // issuer of the claim
-               aud: "as", // audience for which the claim is intended
-               iat: Math.floor(new Date().valueOf() / 1000 - 10), // unix time from which the token is valid
-               nbf: Math.floor(new Date().valueOf() / 1000 - 10), // unix time from which the token is valid
-               exp: Math.floor(new Date().valueOf() / 1000) + 60 * 60 * 24 * 14, // unix time when the token expires
-               sub: "user", // subject of the claim (an user)
-               username: "admin", // username the client claims to be
-         };
-
-         const jwt = nJwt.create(claims, configuration()["chirpstack"]["jwtsecret"], "HS256");
-         const token = jwt.compact();
-         return token;
-      }
-   }
-
-
-The JWT is used as part of a special header named: :code:`Grpc-Metadata-Authorization`, while the value is the standard authorization header for a JWT as a Bearer token.
-
-.. code-block:: javascript
-
-   var request = require('request');
-   var headers = {
-       'Accept': 'application/json',
-       'Grpc-Metadata-Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5X2lkIjoiYWExMGVkMmQtODdjZC00YmJlLTljZDktNmM4ODQ0ZTc5OTA2IiwiYXVkIjoiYXMiLCJpc3MiOiJhcyIsIm5iZiI6MTU5NjExMzIwMiwic3ViIjoiYXBpX2tleSJ9.7JfLkDe1xqqrqUtoKuSwHobUo7HGv-RvD0atftsgD_c'
-   };
-
-   var options = {
-       url: 'http://localhost:8080/api/device-profiles',
-       headers: headers
-   };
+      makeMetadataHeader(): Metadata {
+        const metadata = new Metadata();
+        metadata.set("authorization", "Bearer " + configuration()["chirpstack"]["apikey"]);
+        return metadata;
+    }
 
 Prerequisites 
 """"""""""""""""""""""""""""""
 
-In order to use the Chirpstack for LoRaWAN devices certain things has to be set up, in a
-specific order.
-
--  Network server
-
-   -  The network server has to be added. This is set up as a
-      automatic process on startup of OS2iot backend.
+In order to use the Chirpstack for LoRaWAN devices certain things has to be set up.
 
 -  Gateway
 
-   -  Create gateway profile
-
-   -  Add a minimum of 1 gateway server to the system (this is done automatically).
+   -  Register gateway
 
 -  Devices
-
-   -  Create service profile
 
    -  Create device profile
 
    -  Register device
-
-      -  Note that once a Service Profile has been selected, it can't be
-         changed.
 
 Error handling
 ~~~~~~~~~~~~~~
@@ -258,8 +205,7 @@ If the error occured without it being caused by a user, e.g. IoT-device sends da
 Communicating with edge devices
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-REST API is the easiest way to send payloads to edge devices. Retrieving
-data is done via MQTT.
+REST API is the easiest way to send payloads to edge devices. Retrieving data is done via MQTT.
 
 Reading data
 
@@ -281,17 +227,6 @@ Reading data
    scheduling or handling. E.g. in case when a payload could not be
    scheduled as it exceeds the maximum payload-size.
 
-Register network server
-~~~~~~~~~~~~~~~~~~~~~~~
-
-When registering the network server. The server attribute has to be set
-according to the docker container followed by port 8000 as shown in the
-following example.
-
-**"server":"chirpstack-network-server:8000",**
-
-.. _register-new-device-1:
-
 Register new device
 ~~~~~~~~~~~~~~~~~~~
 
@@ -301,12 +236,10 @@ means. Over-the-Air Activation (OTAA) and Activation by Personalization
 with Network. The network assigns a dynamic DevAddr and negotiate
 security keys with the device. In other cases the DevAddr as well as the
 security keys is hardcoded in the device. This means activating a device
-by personalization (ABP). "Device profile" and "Service profil" has to
-be set In order to register a device. The *Device Profile* defines the
-boot **parameters** that are needed by ChirpStack Network Server to
-“connect” with a edge device. The *Service Profile* defines the features
-that are enabled for the devices and the rate of messages that can send
-over the network by a device.
+by personalization (ABP). "Device profile" has to
+be set in order to register a device. The *Device Profile* defines the
+boot **parameters** that are needed by the ChirpStack Server to
+“connect” with a edge device.
 
 .. _update-existing-device-1:
 
@@ -316,7 +249,7 @@ MQTT
 There are two kinds of MQTT devices available. MQTT external broker and MQTT internal broker. These two devices works in different matters which will be described below.
 
 MQTT external broker
-~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
 The MQTT external broker device will make it possible for a physical device to communicate with the internal OS2IoT mosquitto broker.
 The MQTT external broker is created in the OS2IoT backend and is created with the credentials that the device needs for communicating with the internal broker.
 
@@ -331,7 +264,7 @@ The specific topic for the created device will be :code:`device/organizationID/a
 
 
 MQTT internal broker
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 The MQTT internal broker uses the MQTT protocol to subscribe to a topic on an external MQTT broker. A client is created in the OS2IoT backend.
 This client will connect to the external MQTT broker using the provided URL, port and authentication, and then subscribe to data on the provided topic.
@@ -548,11 +481,9 @@ KOMBIT Adgangstyring
 See `the seperate page for KOMBIT adgangsstyring <../kombit-adgangsstyring/kombit-adgangsstyring.html>`_
 
 
-.. |image1| image:: media/image5.png
-.. |image2| image:: media/image6.png
-.. |image3| image:: media/image5.png
-.. |image4| image:: media/image8.png
-.. |image5| image:: media/image9.png
-.. |image6| image:: media/image10.png
-.. |image7| image:: media/image12.png
-.. |image13| image:: media/image13.png
+.. |image1| image:: media/external-integration-overview.png
+.. |image2| image:: media/internal-integration-design.png
+.. |image3| image:: media/external-integration-overview.png
+.. |image4| image:: media/datatargets.png
+.. |image5| image:: media/authentication.png
+.. |image6| image:: media/device-data-flow.png

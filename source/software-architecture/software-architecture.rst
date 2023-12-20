@@ -12,13 +12,13 @@ both supported IoT devices and data targets, and it makes replacing and
 maintaining each component simpler. Figure 1 shows an overview of the
 different solution components. Orange components are 3\ :sup:`rd` party
 solution dependencies that are not developed or maintained in this
-project, but are necessary for OS2iot to function
+project, but are necessary for OS2iot to function.
 
-|image4|
+|image3|
 
 Figure 1 - Solution overview
 
-|image5|
+|image4|
 
 Figure 2 - Layered architecture
 
@@ -69,7 +69,7 @@ OS2iot uses the following 3\ :sup:`rd` party components as dependencies:
 ============ ===================================================================================================  =========================== ==================== ==============
 Component    Use                                                                                                  Reference                   License              Version
 ============ ===================================================================================================  =========================== ==================== ==============
-Chirpstack   LoRaWAN device Integration                                                                           https://chirpstack.io       MIT License          3
+Chirpstack   LoRaWAN device and Gateway Integration                                                               https://chirpstack.io       MIT License          4.6
 Mosquitto    MQTT broker for LoRaWAN and data target integrations and the internal MQTT broker for MQTT devices.  https://mosquitto.org/      EPL/EDL License      1.6
 Apache Kafka Internal message broker used in the OS2iot backed for device data integrations                       https://kafka.apache.org/   Apache License 2.0   2.6
 PostgreSQL   Persistent data storage                                                                              https://www.postgresql.org/ PostgreSQL License   12
@@ -231,7 +231,7 @@ which determine what's accessible within the organization. The concrete types ar
    b. This relates to a list of applications within that organization
 
 
-|image3|
+|image2|
 
 User login and permissions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -357,10 +357,10 @@ https://ieeexplore.ieee.org/document/8766430/), Sigfox should not be
 used for critical applications due to poor protection from replay
 attacks.
 
-.. |image1| image:: ./media/image1.png
-.. |image3| image:: ./media/image9.png
-.. |image4| image:: ./media/image3.png
-.. |image5| image:: ./media/image4.png
+.. |image1| image:: ./media/external-integration-overview.png
+.. |image2| image:: ./media/security.png
+.. |image3| image:: ./media/solution-overview.png
+.. |image4| image:: ./media/layered-architecture.png
 
 Data target security
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

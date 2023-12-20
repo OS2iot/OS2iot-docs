@@ -160,7 +160,7 @@ The navigation bar, which will always be found at the top of all pages in the Sy
 |            +-----+-------------------------------------------------------------------------------------------------------+
 |            | 8   | By pressing "LoRaWan Gateways", the User is navigated to the Gateways overview                        |
 |            +-----+-------------------------------------------------------------------------------------------------------+
-|            | 9   | By pressing "LoRaWan Profiles", the User is navigated to the overview of service and device profiles  |
+|            | 9   | By pressing "LoRaWan Profiles", the User is navigated to the overview of device profiles              |
 |            +-----+-------------------------------------------------------------------------------------------------------+
 |            | 10  | By pressing "Payload Decoder", the User is navigated to the payload decoder overview                  |
 |            +-----+-------------------------------------------------------------------------------------------------------+
@@ -168,7 +168,7 @@ The navigation bar, which will always be found at the top of all pages in the Sy
 +------------+-----+-------------------------------------------------------------------------------------------------------+
 
 
-‘Sitemap’
+Sitemap
 ^^^^^^^^^^
 
 This section describes the flow between the pages.
@@ -324,8 +324,6 @@ these are to hide action buttons for the user, mask data on lists and deny acces
 Hide components and buttons
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Action Buttons in tables and list on overview pages are hidden if the user does not have rights to use / view them.
-[Picture] shows a user with write access to a certain organisation and cannot delete a device profile if not granted the rights to it 
-[Picture] shows an organization admin with visible buttons in the same view. 
 
 User with read rights. 
 
@@ -344,22 +342,22 @@ according to his user system roles and associated data boundaries, he will be re
 
 
 
-.. |image1| image:: ./media/image1.png
-.. |image2-1| image:: ./media/image2-1.png
-.. |image2-2| image:: ./media/image2-2.png
-.. |image2-3| image:: ./media/image2-3.png
-.. |image2-4| image:: ./media/image2-4.png
-.. |image3| image:: ./media/image3.png
-    :width: 200px
-.. |image4-1| image:: ./media/image4-1.png
-.. |image4-2| image:: ./media/image4-2.png
-.. |image5-1| image:: ./media/image5-1.png
-.. |image5-2| image:: ./media/image5-2.png
-.. |image6| image:: ./media/image6.png
-.. |image7-1| image:: ./media/image7-1.png
-.. |image7-2| image:: ./media/image7-2.png
-.. |image8| image:: ./media/image8.png
-.. |image9-1| image:: ./media/image9-1.png
-.. |image9-2| image:: ./media/image9-2.png
-.. |image10| image:: ./media/image10.png
+.. |image1| image:: ./media/sitemap.png
+.. |image2-1| image:: ./media/boxed-feature-width-layout.png
+.. |image2-2| image:: ./media/boxed-full-width-layout.png
+.. |image2-3| image:: ./media/boxed-form-width-layout.png
+.. |image2-4| image:: ./media/feature-box-layout.png
+.. |image3| image:: ./media/navigation-bar.png
+    :width: 250px
+.. |image4-1| image:: ./media/global-search.png
+.. |image4-2| image:: ./media/search.png
+.. |image5-1| image:: ./media/downlink.png
+.. |image5-2| image:: ./media/OTAA.png
+.. |image6| image:: ./media/delete-error.png
+.. |image7-1| image:: ./media/field-validation.png
+.. |image7-2| image:: ./media/users-validation.png
+.. |image8| image:: ./media/error-message.png
+.. |image9-1| image:: ./media/hide-buttons.png
+.. |image9-2| image:: ./media/show-buttons.png
+.. |image10| image:: ./media/access-denied.png
 

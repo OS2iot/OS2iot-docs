@@ -194,5 +194,5 @@ AuthenticationType
 1. PASSWORD
 2. CERTIFICATE
 
-.. |image1| image:: ./media/image4.png
+.. |image1| image:: ./media/logical-datamodel.png
 

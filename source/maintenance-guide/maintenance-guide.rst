@@ -95,14 +95,20 @@ Starting dependencies for development
 
    .. code-block:: bash
 
-      docker-compose up chirpstack-network-server postgresql chirpstack-gateway-bridge chirpstack-application-server os2iot-outbound-mosquitto mosquitto redis os2iot-inbound-mosquitto os2iot-kafka os2iot-postgresql os2iot-zookeeper
+      docker-compose up chirpstack postgresql postgresChirpstackV4 chirpstack-gateway-bridge mosquitto-os2iot mosquitto redis os2iot-kafka os2iot-postgresql os2iot-zookeeper
 
 3. To quit: In your terminal you can press Ctrl + C twice. This will safely shut down docker.
 
 Troubleshooting
-^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~
 
-For troubleshooting help see the `installation guide <../installation-guide/installation-guide.html#troubleshooting>`_.
+Creation of multicasts:
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+Before the Chirpstack update to Chirpstack V4, the creation of multicast devices in a multicast group was based on Service Profiles, but since Service Profiles are not part of Chirpstack V4, it is now based on the application under which your devices are created.
+If your devices are under the same application in OS2IoT, but you still encounter errors during creation, it may be because your devices were created in Chirpstack V3. In that case, the devices need to be created with the same Service Profile they had at the time of their creation.
+
+For more troubleshooting help see the `installation guide <../installation-guide/installation-guide.html#troubleshooting>`_.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Starting the frontend and backend for development
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -173,10 +179,9 @@ Chirpstack
 
 Chirpstack is bundled as part of OS2IoT-docker.
 
-The Chirpstack API documentation will be exposed at http://localhost:8080/api . 
-More information can be found at https://www.chirpstack.io/application-server/integrate/rest/
+The Chirpstack gRPC Protocol documentation can be found at: https://www.chirpstack.io/docs/chirpstack/api/api.html
 
-For installation configuration of Chirpstack see: https://www.chirpstack.io/application-server/install/config/
+For installation configuration of Chirpstack see: https://www.chirpstack.io/docs/chirpstack/configuration.html
 
 Migrations
 -----------
@@ -227,28 +232,3 @@ Building locally
 
 
 ReadTheDocs will automatically pull changes pushed to the :code:`master` branch and build it.
-
-.. |search for Docker app| image:: ./media/image5.png
-.. |whale on taskbar| image:: ./media/image6.png
-.. |Docker Quick Start tutorial| image:: ./media/image7.png
-.. |Download Visual Studio-kode| image:: ./media/image8.png
-.. |Opsætningsguide| image:: ./media/image9.png
-.. |IDE| image:: ./media/image10.png
-.. |Sti til krydsfiler| image:: ./media/image11.png
-.. |Download og kør installationsprogram| image:: ./media/image12.png
-.. |Verify Installation| image:: ./media/image13.png
-
-.. |image1| image:: ./media/image5.png
-.. |image2| image:: ./media/image6.png
-.. |image3| image:: ./media/image7.png
-.. |image4| image:: ./media/image8.png
-.. |image5| image:: ./media/image9.png
-.. |image6| image:: ./media/image10.png
-.. |image7| image:: ./media/image11.png
-.. |image8| image:: ./media/image12.png
-.. |image9| image:: ./media/image13.png
-.. |image10| image:: ./media/image14.png
-.. |Debugging diagram| image:: ./media/image15.png
-.. |Simplified initial Run and Debug view| image:: ./media/image16.png
-.. |image13| image:: ./media/image17.png
-.. |A successful Git branching model » nvie.com| image:: ./media/image18.png
