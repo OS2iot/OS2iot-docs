@@ -67,7 +67,7 @@ OS2IoT supports two kinds of MQTT devices. An MQTT external broker and an MQTT i
 OS2IoT supports two kinds of authorization for MQTT devices: Username/password and certificate.
 
 MQTT external broker
-~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 When an MQTT external broker is created, the credentials for connecting to the internal MQTT-broker are generated. 
 These consists of a URL, a port and a topic for the device to send data to. 
@@ -77,7 +77,7 @@ When a known MQTT external broker sends data to the topic assigned to it, the me
 If a device attempts to send to a different topic the message will be discarded.
 
 MQTT internal broker
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 When an MQTT internal broker is created a connection to the external broker is made using the entered credentials. 
 When a message is received by the external broker on the topic configured, OS2IoT will also receive the message and further process it.
