@@ -42,11 +42,12 @@ a new login must be performed as described above.
 Using Swagger with authorization
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To use Swagger with protected endpoints, you must first login, and then add the JWT to Swagger.
+To use Swagger with protected endpoints you must first login, and provide either a API key or JWT to Swagger. 
 This is done by pressing the "Authorize" button near the top right. 
-To test your login, the ``/api/v1/auth/profile`` endpoint can be called, it will return the contents of the JWT payload, 
-which is explained below.
 
+To test your login with JWT, the ``/api/v1/auth/profile`` endpoint can be called, it will return the contents of the JWT payload.
+
+To test your login with an API-key, the GET ``/api/v1/application`` endpoint can be called. It will return all applications that this API-key gave you permission to.
 
 Authorization (Permissions)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
