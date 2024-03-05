@@ -5,7 +5,7 @@ This chapter describes how data is ingested into OS2iot, how it is processed, an
 
 The following sequence diagram illustrates how data is processed when it is received.
 
-|image2|
+|image1|
 
 Data ingestion
 --------------
@@ -67,7 +67,7 @@ OS2IoT supports two kinds of MQTT devices. An MQTT external broker and an MQTT i
 OS2IoT supports two kinds of authorization for MQTT devices: Username/password and certificate.
 
 MQTT external broker
-~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 When an MQTT external broker is created, the credentials for connecting to the internal MQTT-broker are generated. 
 These consists of a URL, a port and a topic for the device to send data to. 
@@ -77,7 +77,7 @@ When a known MQTT external broker sends data to the topic assigned to it, the me
 If a device attempts to send to a different topic the message will be discarded.
 
 MQTT internal broker
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 When an MQTT internal broker is created a connection to the external broker is made using the entered credentials. 
 When a message is received by the external broker on the topic configured, OS2IoT will also receive the message and further process it.
@@ -105,5 +105,5 @@ At the time of writing, there is no retry mechanism in OS2iot over HTTP(s). It u
 
 For more info on the different data-target options, look `here <.../external-interface-design/external-interface-design.html?highlight=data%20target#id2>`_
 
-.. |image2| image:: ./media/image8.png
+.. |image1| image:: ./media/receive-data-flow.png
    

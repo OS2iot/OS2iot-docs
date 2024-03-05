@@ -399,9 +399,9 @@ Content guidelines
 Only elements such as titles, select options, links, buttons, input
 fields, etc are named programmatically. The content is user generated.
 
-.. |image1| image:: ./media/image1.png
-.. |image2-1| image:: ./media/image2-1.png
-.. |image2-2| image:: ./media/image2-2.png
-.. |image3| image:: ./media/image3.png
-.. |image4| image:: ./media/image4.png
-.. |image5| image:: ./media/image5-1.png
+.. |image1| image:: ./media/main-navigation.png
+.. |image2-1| image:: ./media/grid.png
+.. |image2-2| image:: ./media/breakpoints.png
+.. |image3| image:: ./media/text.png
+.. |image4| image:: ./media/icons.png
+.. |image5| image:: ./media/fonts.png

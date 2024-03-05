@@ -60,7 +60,8 @@ Steps:
         v. This must yield the URI: :code:`http://os2iot.dk/roles/usersystemrole/adgang/`, if another one is wished then pass the environment variable :code:`KOMBIT_ROLE_NAME` to the backend (default: :code:`http://os2iot.dk/roles/usersystemrole/adgang/`).
         vi. Save the IT-system
         
-     ![image1](https://user-images.githubusercontent.com/58931435/123416016-56aeea00-d5b6-11eb-90f6-51e052687b75.jpg)
+     |image1|
+     (https://user-images.githubusercontent.com/58931435/123416016-56aeea00-d5b6-11eb-90f6-51e052687b75.jpg)
 
         
     b. Create a Jobfunktionsrolle (or update existing)
@@ -107,3 +108,5 @@ Test:
 ^^^^^
 
 To test the functionality, press the "Login med KOMBIT Adgangsstyring" button from the login page (:code:`/auth`).
+
+.. |image1| image:: ./media/kombit.png

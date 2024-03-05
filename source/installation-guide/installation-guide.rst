@@ -49,7 +49,7 @@ Steps
 
          .. code-block:: bash
          
-            dos2unix OS2IoT-docker/configuration/postgresql/initdb/001-init-chirpstack_ns.sh OS2IoT-docker/configuration/postgresql/initdb/002-init-chirpstack_as.sh OS2IoT-docker/configuration/postgresql/initdb/003-chirpstack_as_trgm.sh OS2IoT-docker/configuration/postgresql/initdb/004-chirpstack_as_hstore.sh
+            dos2unix OS2IoT-docker/configuration/postgresChirpstackV4/initdb/001-init-chirpstack.sh OS2IoT-docker/configuration/postgresChirpstackV4/initdb/002-chirpstack_extensions.sh
 
 3. Build the docker containers using docker-compose
 
@@ -73,7 +73,7 @@ Steps
 
       ii. Backend: 3000
 
-      iii. Chirpstack Application Server: 8080
+      iii. Chirpstack: 8080
 
       iv. Chirpstack Gateway (UDP from gateways to Chirpstack): 1700
 
@@ -99,6 +99,12 @@ Once the path is added run:
 -  :code:`docker-compose up`
 
 More docker related troubleshooting can be found at: https://github.com/OS2iot/OS2IoT-docker#troubleshooting-faq
+
+Security
+--------
+
+OS2IoT only supports tls 1.2+. It is however recommended to only use tls 1.3. 
+
 
 Running in Kubernetes
 ---------------------
@@ -239,8 +245,6 @@ OS2IoT-backend takes several environment variables as configuration, if these ar
 +-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
 | KOMBIT_ROLE_NAME              | This string must be a substring of the brugersystemrolle you grant users for them to be given access | :code:`http://os2iot.dk/roles/usersystemrole/adgang/`                                   |
 +-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
-| CHIRPSTACK_JWTSECRET          | Secret to generate JWT for Chirpstack                                                                | :code:`verysecret`                                                                      |
-+-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
 | LOG_LEVEL                     | Minimum Log Level. Levels ordered from high to low are: 'log', 'error', 'warn', 'debug', 'verbose'   | :code:`debug`                                                                           |
 +-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
 | METADATA_SAVED_COUNT          | Maximum number of message metadata to store from an IoT device                                       | :code:`20`                                                                              |
@@ -252,6 +256,12 @@ OS2IoT-backend takes several environment variables as configuration, if these ar
 | ENCRYPTION_SYMMETRIC_KEY      | A symmetric key that is used for encrypting                                                          | :code:`SecretKey`                                                                       |
 +-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
 | CA_KEY_PASSWORD               | The password for the Certificate Authority key.                                                      | :code:`os2iot`                                                                          |
++-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
+| CHIRPSTACK_API_KEY            | The API key (Bearer token) created in Chirpstack.                                                    | :code:`apikey`                                                                          |
++-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
+| CHIRPSTACK_HOSTNAME           | Hostname for Chirpstack                                                                              | :code:`localhost`                                                                       |
++-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
+| CHIRPSTACK_PORT               | Chirpstack port                                                                                      | :code:`8080`                                                                            |
 +-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
 
 Logs levels
@@ -292,9 +302,9 @@ Generate files:
 
    4. Create the server key (for the broker) with the command: :code:`openssl genrsa -out server.key 2048`
 
-   6. Create the server signing request with the command: :code:`openssl req -new -out server.csr -key server.key`. You will be prompted to enter some informations. These values are not important, except one: "Common name". Common name HAS to be the ip/hostname of your broker. The rest of the values should not be exact the same as in step 4.
+   5. Create the server signing request with the command: :code:`openssl req -new -out server.csr -key server.key`. You will be prompted to enter some informations. These values are not important, except one: "Common name". Common name HAS to be the ip/hostname of your broker. The rest of the values should not be exact the same as in step 3.
 
-   7. Create the server certificate (that is signed by the CA) with this command: :code:`openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 360`. You will be prompted to enter the password from step 3.
+   6. Create the server certificate (that is signed by the CA) with this command: :code:`openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 360`. You will be prompted to enter the password from step 3.
 
 If you want to get docker container with mosquitto running, then follow these steps:
 
@@ -304,7 +314,7 @@ If you want to get docker container with mosquitto running, then follow these st
 
    3. Copy the files ca.crt and ca.key and place them in OS2IoT-backend/resources.
 
-   4. Update the :code:`MQTT_BROKER_HOSTNAME` with the ip/hostname that you used for step 4 and 6, and :code:`CA_KEY_PASSWORD` with the password that you entered in step 3 in the docker-compose.yml file placed in OS2IoT-docker.
+   4. Update the :code:`MQTT_BROKER_HOSTNAME` with the ip/hostname that you used for step 3 and 5, and :code:`CA_KEY_PASSWORD` with the password that you entered in step 2 in the docker-compose.yml file placed in OS2IoT-docker.
 
 If you want to use kubernetes to host mosquitto then you need some futher steps.
 
@@ -318,4 +328,5 @@ Prerequisites: kubectl installed and accesible from path
 
    4. Update the empty values in OS2IoT-docker/helm/charts/mosquitto-os2iot/values.yaml
 
-   5. Update the :code:`MQTT_BROKER_HOSTNAME` with the ip/hostname that you used for step 4 and 6 in the steps above, and :code:`CA_KEY_PASSWORD` with the password that you entered in step 3 in the steps above, in the file "OS2IoT-docker/helm/charts/os2iot-backend/deployment.yaml".
+   5. Update the :code:`MQTT_BROKER_HOSTNAME` with the ip/hostname that you used for step 3 and 5 in the steps above, and :code:`CA_KEY_PASSWORD` with the password that you entered in step 2 in the steps above, in the file "OS2IoT-docker/helm/charts/os2iot-backend/deployment.yaml".
+
