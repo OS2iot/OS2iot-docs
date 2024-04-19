@@ -124,20 +124,44 @@ The default credential can be seen in `Users Notes <../users-notes/users-notes.h
 
 Map
 ~~~
-OS2IoT maps are running on the Leafletjs framework: https://leafletjs.com/. The tiles are current presented using OpenStreetMap: https://www.openstreetmap.org.
+OS2IoT maps are running on the Leafletjs framework: https://leafletjs.com/. The Street view tiles are currently presented using OpenStreetMap: https://www.openstreetmap.org.
+
+The satellite tiles are presented using Datafordeler: https://datafordeler.dk/. The specific tiles is from "Ortofoto forår WMTS": https://datafordeler.dk/dataoversigt/geodanmark-ortofoto/ortofoto-foraar-wmts/.
+
+The height curves overlay is also presented by Datafordeler, and is the "DHM WMS": https://datafordeler.dk/dataoversigt/danmarks-hoejdemodel-dhm/dhm-wms/.
 
 The tiles can be changed by following the steps listed below: 
 
 1. Find "map.component.ts" in the frontend project
 
-2. Within the initMap() method, replace L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png') with the desired tiles
+2. Within the initMap() method, for changing the Street view, replace :code:`L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')` with the desired tiles. For changing the satellite map, replace :code:`L.tileLayer('https://services.datafordeler.dk/GeoDanmarkOrto/orto_foraar_wmts......')` with the desired tiles.
 
    a. Make sure you also change the attribution attribute.
 
 Note that the solution must be deployed before the changes takes presence.
 
+It's possible to search for a location with the search bar on the map when creating a new device or gateway. When you find your destination, you can dobbeltclick on the map to move the marker to that spot.
+
+The height curves will only be visible if you are zoomed in to a certain level, and if you have selected the height curves option on the map.
+
+Authentication
+^^^^^^^^^^^^^^^
+
+For using the satellite map and height curves, a user has to be created in Datafordeler: https://datafordeler.dk/konto/log-paa-selvbetjening/. Without this, the frontend won't be authenticated to access the data.
+
+1. Create a new user on https://datafordeler.dk
+2. After creation, create "Tjenestebruger".
+
+   a. Choose "Brugernavn og adgangskode"
+   b. Create a password. BE AWARE! Don't choose a password you use elsewhere. When using the map, all the requests to datafordeler has the username and password included in the http request, which COULD be intercepted.
+   c. Press "Opret".
+
+3. Use the given username and your created password as your credentials in the environment variables in the frontend. See the "installation-guide" in these docs.
+
+
+
 Debugging 
-^^^^^^^^^^
+~~~~~~~~~~~
 
 Debugging the frontend
 ''''''''''''''''''''''
