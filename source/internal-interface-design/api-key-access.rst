@@ -11,7 +11,7 @@ This can be done on the portal through the API key management pages. It can be a
 
 
 Usage
-'''''
+^^^^^
 With an API key, you can fetch and manage data in your OS2IoT system just as well as if you were a user on the browser.
 What you can access and manage is limited by the user group (-s) tied to the API key.
 
