@@ -11,7 +11,7 @@ This can be done on the portal through the API key management pages. It can be a
 
 
 Usage
-^^^^^
+'''''
 With an API key, you can fetch and manage data in your OS2IoT system just as well as if you were a user on the browser.
 What you can access and manage is limited by the user group (-s) tied to the API key.
 
@@ -20,15 +20,33 @@ With that in mind, let's dive into using an API key. Let's make a few assumption
 - We have an API key with the value :code:`00000000-abcd-ef00-0000-012345678901`
 - This API key is tied to a user group with Read priviliges to an organization and all its applications
 - There exists a :code:`GET` endpoint for fetching applications. The route ends with :code:`/application`
+- The Base URL for the OS2IOT Backend is known, e.g. :code:`https://os2iot-backend.SERVERNAME.EXAMPLE/api/v1/chirpstack/`
 
 There's a broad variety of applications, terminals etc. which can perform HTTP requests. To authenticate this request
-with the API key, you must provide it as the header "x-api-key". Below, a screenshot is shown of how this is done in Postman.
+with the API key, you must provide it as the HTTP header "x-api-key".
+
+Usage in Postman
+^^^^^^^^^^^^^^^^
+Below, a screenshot is shown of how this can be done in Postman.
 
 |api-key-usage|
 
 The bottom half of the screenshot is the response. The request was limited to 2 applications using the :code:`limit` query parameter.
 As seen, the backend responded with 2 (collapsed) applications.
 
+Usage in Python
+^^^^^^^^^^^^^^^
+A simple example of making the API call in Python
+
+.. code:: python
+
+  import requests
+  url = "https://os2iot-backend.SERVERNAME.EXAMPLE/api/v1/application?limit=2&offset=0"
+  headers = {
+    'x-api-key': '00000000-abcd-ef00-0000-012345678901'
+  }
+  response = requests.request("GET", url, headers=headers)
+  print(response.text)
 
 Limitations
 ^^^^^^^^^^^
