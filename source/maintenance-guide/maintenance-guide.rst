@@ -126,7 +126,7 @@ Map
 ~~~
 OS2IoT maps are running on the Leafletjs framework: https://leafletjs.com/. The Street view tiles are currently presented using OpenStreetMap: https://www.openstreetmap.org.
 
-The satellite tiles are presented using Datafordeler: https://datafordeler.dk/. The specific tiles is from "Ortofoto forår WMTS": https://datafordeler.dk/dataoversigt/geodanmark-ortofoto/ortofoto-foraar-wmts/.
+The satellite tiles are presented using Datafordeler: https://datafordeler.dk/. The specific tiles are from "Ortofoto forår WMTS": https://datafordeler.dk/dataoversigt/geodanmark-ortofoto/ortofoto-foraar-wmts/.
 
 The height curves overlay is also presented by Datafordeler, and is the "DHM WMS": https://datafordeler.dk/dataoversigt/danmarks-hoejdemodel-dhm/dhm-wms/.
 
