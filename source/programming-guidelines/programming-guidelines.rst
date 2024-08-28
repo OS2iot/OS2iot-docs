@@ -43,7 +43,7 @@ orchestration using docker.
 Front-end
 ^^^^^^^^^
 
-Angular 9 is used for the frontend. The file structure described in the
+Angular is used for the frontend. The file structure described in the
 Angular documentation will be used. This can be seen here:
 https://angular.io/guide/file-structure
 
@@ -112,7 +112,7 @@ SIG is used to weekly evaluate code-quality: https://www.softwareimprovementgrou
 Front-end – Programming standards
 ---------------------------------
 
-The frontend code is written in TypeScript [2]_ (Angular 9). In the
+The frontend code is written in TypeScript [2]_ (Angular). In the
 project ESLint [3]_ is setup to lint the code for preventable and/or
 syntax related errors. To keep code formatting consistent Prettier [4]_ is used to format the code. 
 We try to follow the do’s and don’ts of TypeScript
