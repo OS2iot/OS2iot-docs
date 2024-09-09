@@ -77,6 +77,9 @@ Steps
 
       iv. Chirpstack Gateway (UDP from gateways to Chirpstack): 1700
 
+7. For communicating with the chirpstack api, which is necessary for OS2IoT to work, it is necessary to create a api key on Chirpstack, which you must insert in the environment variable: :code:`CHIRPSTACK_API_KEY`.
+Access the chirpstack page on http://localhost:8080, navigate to API Keys under Network Server in the sidebar, and create the api key. After this, you must create an .env file where you fill out the :code:`CHIRPSTACK_API_KEY` with the api key created in chirpstack.
+
 Troubleshooting
 ^^^^^^^^^^^^^^^
 
