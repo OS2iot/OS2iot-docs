@@ -366,7 +366,7 @@ JavaScript
 
 In accordance with the Angular best practices TypeScript is used and
 compiled to JavaScript. As of the date of writing this document the
-newest version of Angular (9.1) uses TypeScript 3.8. This supports the
+used version of Angular (17) uses TypeScript 5. This supports the
 newest browsers in accordance with the agreement with the customer and
 thus this is used.
 

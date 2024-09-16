@@ -27,9 +27,9 @@ Form and style
 
 -  Each logical component is in its own file.
 
--  Indentation is 4 spaces
+-  Indentation is 2 spaces
 
--  Lines should be broken if they exceed 160 characters
+-  Lines should be broken if they exceed 120 characters
 
 -  Only have one declaration pr. Line
 
