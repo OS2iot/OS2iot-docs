@@ -267,8 +267,8 @@ OS2IoT-backend takes several environment variables as configuration, if these ar
 | CHIRPSTACK_PORT               | Chirpstack port                                                                                      | :code:`8080`                                                                            |
 +-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
 
-We recommend disabling the HTTP Server header in your response, as it can reveal information that may expose your application to vulnerabilities.
-The following example demonstrates how to disable the Server HTTP header when running in Kubernetes with an Istio setup.
+We recommend disabling the HTTP "Server" header in your responses, as it can reveal information that may expose your application to vulnerabilities.
+The following example demonstrates how to disable the HTTP "Server" header when running in Kubernetes with an Istio setup.
 
 Create a new file named envoyfilter.yaml and place it in the helm/template directory.
 
