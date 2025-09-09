@@ -76,8 +76,8 @@ Setup developement
 To setup your dev environment please follow these instructions:
 
 1. Get the solution from Github. Clone the OS2IoT-docker, OS2IoT-backend, and OS2IoT-frontend.
-2. Install typescript and angular globally on your computer.
-   a. Angular 9 – install by open terminal and type :code:`npm install -g @angular/cli`
+2. Install typescript and Angular globally on your computer.
+   a. Angular – Find the current Angular version in the package.json file, and install that Angular version by open terminal and type :code:`npm install -g @angular/cli@{{VERSION_NUMBER}}`
    b. Typescript – install by open terminal and type :code:`npm install -g typescript`
 3. For OS2IoT-frontend install dependencies and start
    a. Navigate terminal to the OS2IoT-frontend folder and type :code:`npm install`

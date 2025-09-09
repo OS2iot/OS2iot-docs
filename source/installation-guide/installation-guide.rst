@@ -77,6 +77,9 @@ Steps
 
       iv. Chirpstack Gateway (UDP from gateways to Chirpstack): 1700
 
+7. For communicating with the chirpstack api, which is necessary for OS2IoT to work, it is necessary to create a api key on Chirpstack, which you must insert in the environment variable: :code:`CHIRPSTACK_API_KEY`.
+Access the chirpstack page on http://localhost:8080, navigate to API Keys under Network Server in the sidebar, and create the api key. After this, you must create an .env file where you fill out the :code:`CHIRPSTACK_API_KEY` with the api key created in chirpstack.
+
 Troubleshooting
 ^^^^^^^^^^^^^^^
 
@@ -263,6 +266,51 @@ OS2IoT-backend takes several environment variables as configuration, if these ar
 +-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
 | CHIRPSTACK_PORT               | Chirpstack port                                                                                      | :code:`8080`                                                                            |
 +-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
+
+We recommend disabling the HTTP "Server" header in your responses, as it can reveal information that may expose your application to vulnerabilities.
+The following example demonstrates how to disable the HTTP "Server" header when running in Kubernetes with an Istio setup.
+
+Create a new file named envoyfilter.yaml and place it in the helm/template directory.
+
+a. Add the following content to envoyfilter.yaml:
+
+.. code-block:: bash
+
+   apiVersion: networking.istio.io/v1alpha3
+   kind: EnvoyFilter
+   metadata:
+      name: ef-removeserver
+      namespace: {{ .Values.envoyFilter.namespace }}
+   spec:
+      configPatches:
+      - applyTo: NETWORK_FILTER
+         match:
+            listener:
+            filterChain:
+               filter:
+                  name: "envoy.filters.network.http_connection_manager"
+         patch:
+            operation: MERGE
+            value:
+            typed_config:
+               "@type": "type.googleapis.com/envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager"
+               server_header_transformation: PASS_THROUGH
+      - applyTo: ROUTE_CONFIGURATION
+         patch:
+            operation: MERGE
+            value:
+            response_headers_to_remove:
+            - "x-envoy-upstream-service-time"
+            - "server"
+
+2. In the values.yaml file for your backend Helm chart, add the following configuration:
+
+.. code-block:: bash
+
+   # Add EnvoyFilter settings here
+   envoyFilter:
+      enabled: true # Set to 'false' to disable the filter
+      namespace: "istio-system" # The namespace where the EnvoyFilter should be applied
 
 Logs levels
 """""""""""""""
