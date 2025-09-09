@@ -267,6 +267,51 @@ OS2IoT-backend takes several environment variables as configuration, if these ar
 | CHIRPSTACK_PORT               | Chirpstack port                                                                                      | :code:`8080`                                                                            |
 +-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
 
+We recommend disabling the HTTP "Server" header in your responses, as it can reveal information that may expose your application to vulnerabilities.
+The following example demonstrates how to disable the HTTP "Server" header when running in Kubernetes with an Istio setup.
+
+Create a new file named envoyfilter.yaml and place it in the helm/template directory.
+
+a. Add the following content to envoyfilter.yaml:
+
+.. code-block:: bash
+
+   apiVersion: networking.istio.io/v1alpha3
+   kind: EnvoyFilter
+   metadata:
+      name: ef-removeserver
+      namespace: {{ .Values.envoyFilter.namespace }}
+   spec:
+      configPatches:
+      - applyTo: NETWORK_FILTER
+         match:
+            listener:
+            filterChain:
+               filter:
+                  name: "envoy.filters.network.http_connection_manager"
+         patch:
+            operation: MERGE
+            value:
+            typed_config:
+               "@type": "type.googleapis.com/envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager"
+               server_header_transformation: PASS_THROUGH
+      - applyTo: ROUTE_CONFIGURATION
+         patch:
+            operation: MERGE
+            value:
+            response_headers_to_remove:
+            - "x-envoy-upstream-service-time"
+            - "server"
+
+2. In the values.yaml file for your backend Helm chart, add the following configuration:
+
+.. code-block:: bash
+
+   # Add EnvoyFilter settings here
+   envoyFilter:
+      enabled: true # Set to 'false' to disable the filter
+      namespace: "istio-system" # The namespace where the EnvoyFilter should be applied
+
 Logs levels
 """""""""""""""
 Specifying a LOG_LEVEL makes sure that only logs with that level or higher are included. Using 'debug' or 'verbose' LOG_LEVEL in a production environment is not recommended.
