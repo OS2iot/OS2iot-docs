@@ -26,7 +26,7 @@ Configuration
 
    a. This is done by setting the environment variable :code:`BACKEND_BASEURL` in the runtime environment for the backend.
 
-   b. In docker-compose this can be set in the :code:`docker-compose.yml` file. 
+   b. In docker-compose this can be set in the :code:`docker-compose.yml` file.
 
       i. I.e. :code:`BACKEND_BASEURL: "https://os2iot.dk"`
 
@@ -40,15 +40,15 @@ Steps
        ├── OS2IoT-backend (https://github.com/OS2iot/OS2IoT-backend)
 
        ├── OS2IoT-docker (https://github.com/OS2iot/OS2IoT-docker)
-       
+
        ├── OS2IoT-frontend (https://github.com/OS2iot/OS2IoT-frontend)
 
 2. Make sure that Chirpstacks configuration files for initializing the postgres database is in unix format, such that the docker container can run it
 
-   a. This can be done with dos2unix or another tool 
+   a. This can be done with dos2unix or another tool
 
          .. code-block:: bash
-         
+
             dos2unix OS2IoT-docker/configuration/postgresChirpstackV4/initdb/001-init-chirpstack.sh OS2IoT-docker/configuration/postgresChirpstackV4/initdb/002-chirpstack_extensions.sh
 
 3. Build the docker containers using docker-compose
@@ -67,7 +67,7 @@ Steps
 
 6. If this instance of OS2IoT should be accessible from other machines, then naturally the relevant ports should be opened in the firewall(s).
 
-   a. Relevant ports: 
+   a. Relevant ports:
 
       i. Frontend: 8081
 
@@ -106,7 +106,7 @@ More docker related troubleshooting can be found at: https://github.com/OS2iot/O
 Security
 --------
 
-OS2IoT only supports tls 1.2+. It is however recommended to only use tls 1.3. 
+OS2IoT only supports tls 1.2+. It is however recommended to only use tls 1.3.
 
 
 Running in Kubernetes
@@ -119,10 +119,10 @@ During the development of OS2IoT, Azure was used for hosting the solution.
 Disclaimer
 ^^^^^^^^^^
 
-This configuration is not intended for a production setup. 
+This configuration is not intended for a production setup.
 There is no persistent volumes for the database(s), Redis, Kafka etc. so data will not be persisted when using this configuration.
 There is no log gathering in this setup.
-These should at least be resolved before deploying OS2iot in a production setup. 
+These should at least be resolved before deploying OS2iot in a production setup.
 
 Setting up an environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -143,7 +143,7 @@ During development the following was used:
 
    5. Azure VM to host Jenkins.
 
-The exact steps will depend on the requirements for the exact deployment, and therefore it is left as an exercise for the reader. 
+The exact steps will depend on the requirements for the exact deployment, and therefore it is left as an exercise for the reader.
 
 Deployment
 ^^^^^^^^^^
@@ -151,7 +151,7 @@ Deployment
 Jenkins was used for deployment, the deploy used the following shell script to perform the deploy.
 Sensitive information have been redacted.
 
-.. code-block:: bash 
+.. code-block:: bash
 
    #!/bin/sh
    set -xe
@@ -243,6 +243,8 @@ OS2IoT-backend takes several environment variables as configuration, if these ar
 | KOMBIT_ENTRYPOINT             | The context broker URL for KOMBIT adgangsstyring                                                     | :code:`https://adgangsstyring.eksterntest-stoettesystemerne.dk/runtime/saml2/issue.idp` |
 +-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
 | KOMBIT_CERTIFICATEPRIVATEKEY  | The certificate  private key for KOMBIT adgangsstyring                                               | :code:`null`                                                                            |
++-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
+| KOMBIT_CERTIFICATEOWNPUBLICKEY| The certificate public key for KOMBIT adgangsstyring (Matching private above)                        | :code:`null`                                                                            |
 +-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
 | KOMBIT_CERTIFICATEPUBLICKEY   | Public certificate from the KOMBIT idp for verifying SAML response                                   | :code:`"INSERT_KOMBIT_CERT"`                                                            |
 +-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+

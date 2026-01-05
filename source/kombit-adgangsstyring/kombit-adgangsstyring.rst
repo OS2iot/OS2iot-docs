@@ -34,9 +34,9 @@ Steps:
     a. Edit the file with a suiteable text editor, such as: VSCode, SublimeText or notepad++.
     b. Replace all instances of :code:`{YOUR_BASE_URL}` with your actual base url, i.e. :code:`test.os2iot.dk`.
     c. Replace all instances of :code:`{YOUR_PUBLIC_KEY_AS_BASE64}` with the base64 encoded part of the certificate (without newlines), i.e. :code:`<X509Certificate>MIIGJDCCBQygAwIBAgIEXd/ZTjANBgkqhkiG9w0BAQsFADBAMQswCQYDVQQGEwJESzESMBAGA1UECgwJVFJVU1QyNDA...=</X509Certificate>`
-       
+
        (Tip: `{YOUR_PUBLIC_KEY_AS_BASE64}` is the extracted certificate)
-    
+
 
 3. Create an IT-system in KOMBIT adgangsstrying:
     a. Stamdata:
@@ -59,11 +59,11 @@ Steps:
         iv. Version: Choose a unique number (If its already in use you will get an error)
         v. This must yield the URI: :code:`http://os2iot.dk/roles/usersystemrole/adgang/`, if another one is wished then pass the environment variable :code:`KOMBIT_ROLE_NAME` to the backend (default: :code:`http://os2iot.dk/roles/usersystemrole/adgang/`).
         vi. Save the IT-system
-        
+
      |image1|
      (https://user-images.githubusercontent.com/58931435/123416016-56aeea00-d5b6-11eb-90f6-51e052687b75.jpg)
 
-        
+
     b. Create a Jobfunktionsrolle (or update existing)
         i. Navn and Rollenavn is decided by you.
         ii. Press "Tilknyt brugersystemrolle" and locate the IT-system and brugersystemrolle created above and save it.
@@ -75,33 +75,40 @@ Steps:
     a. You need to add two environment variables to the command running the backend server in your environment.
         i. This can be using the :code:`.env` file, or by setting them in some other manner.
         ii. The variable :code:`BACKEND_BASEURL` must be set to the URL a users browser will access the backend at, including the protocol, i.e. :code:`https://test.os2iot.dk`. The domain must be identical to the value you put into the metadata file above: `{YOUR_BASE_URL}`.
-            a. An example for :code:`.env` could be: 
-            
+            a. An example for :code:`.env` could be:
+
             .. code-block:: javascript
 
                 BACKEND_BASEURL="https://test.os2iot.dk"
 
         iii. The variable :code:`KOMBIT_CERTIFICATEPRIVATEKEY` must be set to the private key from earlier. Since this file contains newlines, it might be easier to use `\\n` inside a string to set this variable.
 
-            b. An example for :code:`.env` could be: 
+            b. An example for :code:`.env` could be:
 
             .. code-block:: javascript
 
                 KOMBIT_CERTIFICATEPRIVATEKEY="-----BEGIN RSA PRIVATE KEY-----\nMIIEoQIBAFAKEAQEAlgq4JESby9DF7l73hViKZJ1/l9iIjCndQdjXNf0mOe9uMrWJ\nrDi0few9jFAKEIb0v33UmH20yFe7FiozjRBAgvml+lfZP2DN583evs6rGfHPNQHLb\nLP2g/2cehFAKE4asddasdsadsadX+hnYVJjnzOYmiPAAK418Tnq6g1tk4upPx9O\nlHgWWaDMwFAKEuKczbx/ALy9FxDk7x25Mpxqi3pUg35sMy76/JrdlEfuQzdjpaxp5\n4j29LqjPoFAKElpBJ6DjZotIcV9BL9rjNgZTb4N6jqHUqbyYOGfHAydFnJmeMYRMX\nViYkxag0WFAKEJ/P5YP9bCA3eYIbwJgyi6srT+wIDAQABAoIBAQCUmz1SvplIPxkr\nROgHLHC1wFAKEFoX3vSclpq1Rasdasda+7IJa9LF1v6z9VJWSCz9ZBnuIM\nngoiSY8EyFAKEj8X5LtLkb3CYlNZOQSvTX27xmqsxC2NRSTCt+wi3zpcqzqXXIZiX\n+asddasdsFAKEsadsdasdasdsadsdas+000hVqfokMxOyQ5ao0VECGXIokw+LSx\nlFhDvhRaJFAKEKhWL6nXiZC1QKGJdFsSZ+TdIemZoFaur8/C67Ih10AGH2wUnyoqy\naygdVg4WcFAKE5kDkAEYCpYtrXv0uqjGekSVeplYAaNdz1RXfklu7/k+PwJTv7mje\n15c5PABhAFAKEAPy80MzPKqm1SElhyRUbMx01yJEp6jouygHKLuoUlQu32ZntkjhY\nZjPE2+GmYFAKEXcocirmCpPf6MhbTJvvV4hDh4vmiuNjTWpudqK65UByFhzlnBuIZ\niNIZVHXyWFAKEwkd2fb0A59918LlERArVDYHXmTRVVjEyBgl8yTjIQSiDAoGBAJf6\nilrugZ8i1FAKEUgj606Ng5LBkW3ADgn9yz9PvpPXD3EiCEpSVKz7PxDa9xKjSrWqZ\n8EEYq6Z83FAKE7Gna/Ur97NfSPJDUtDbAw9m+9dDryNFqEbUrfxRAffAaq41xGjaY\nzp5t9wRsTFAKEkqCsDj+CChwSrCxc/TnffY4+AZ0pAoGAeftrz54hmj1LwVc35T72\ngZ+mySFw0FAKE14pM8F+0vC4lEV0PmLBZy5y0/4j8lTtPjTAPaI/8rU8Ng+SvyRan\nALz1fsUh8FAKES6dhdcstNkbgSD1InjHyzmy5TiAFYlGLxFAVSfa48yqKX/Dp4kyI\nM2XqpM6XRFAKEprCashQ9Fp8CgYB8uLBIVYlspnIk6P4cvnNmlcK3e3SKpWa33unt\nnLI8uoKRwFAKE6Iv33RvCbNPyVAra+//t/CgJ1lk8osayTHQn0eFHcJIhrV1Dvcg8\nbvlefdFtAFAKEzulYHmD75Xc5+UKw4ZBW9hmMuK/Jfz+lue1rcvWG+k/vjFSH5QAt\n9nbumQJ/RFAKEUqHciYXc+Q4lUSN3yvY5Ae6m1CvjmTg4Lzuc+0N7lnsp/FLDUg7P\nLbF7dgOw9FAKE40+sLhxAf8/b86LDVANUlfiN4JMUQYr6xZ1Ts1dCN9wRgZ4cbdU2\nT5XZL2YlXFAKEW5IcI8RKEYCHsNJIkPlh6LfNyrdAj56x2/w9Ew==\n-----END RSA PRIVATE KEY-----"
 
-        iiii. The variable :code:`KOMBIT_ENTRYPOINT` must be set to the entrypoint of KOMBIT. If unset, it will be set to: :code:`https://adgangsstyring.eksterntest-stoettesystemerne.dk/runtime/saml2/issue.idp`, which is the test environment.
+        iv. The variable :code:`KOMBIT_ENTRYPOINT` must be set to the entrypoint of KOMBIT. If unset, it will be set to: :code:`https://adgangsstyring.eksterntest-stoettesystemerne.dk/runtime/saml2/issue.idp`, which is the test environment.
             c. An example for :code:`.env` could be:
 
             .. code-block:: javascript
 
                 KOMBIT_ENTRYPOINT="https://adgangsstyring.eksterntest-stoettesystemerne.dk/runtime/saml2/issue.idp"
-        
-        iiiii. The variable :code:`KOMBIT_CERTIFICATEPUBLICKEY` must be set to the public key of the KOMBIT idp. If unset, the backend will not validate responses from KOMBIT, even if they are valid. Must be one line, with only the key part as shown below
+
+        v. The variable :code:`KOMBIT_CERTIFICATEPUBLICKEY` must be set to the public key of the KOMBIT idp. If unset, the backend will not validate responses from KOMBIT, even if they are valid. Must be one line, with only the key part as shown below
             d. An example for :code:`.env` could be:
 
             .. code-block:: javascript
 
                 KOMBIT_CERTIFICATEPUBLICKEY="MIIGHTCCBQWgAwIBAgIEXgiTCTA[...]H0QDoU9mHDP17gSZZ"
+
+        vi. The variable :code:`KOMBIT_CERTIFICATEOWNPUBLICKEY` must be set to the public key from earlier. Must be one line, with only the key part as shown below
+            e. An example for :code:`.env` could be:
+
+            .. code-block:: javascript
+
+                KOMBIT_CERTIFICATEOWNPUBLICKEY="MIIGHTCCBQWgAwIBAgIEXgiTCTA[...]H0QDoU9mHDP17gSZZ"
 
 
 Test:
