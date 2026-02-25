@@ -18,6 +18,7 @@ What you can access and manage is limited by the user group (-s) tied to the API
 With that in mind, let's dive into using an API key. Let's make a few assumptions:
 
 - We have an API key with the value :code:`00000000-abcd-ef00-0000-012345678901`
+- The API key has an expiration date in the future
 - This API key is tied to a user group with Read priviliges to an organization and all its applications
 - There exists a :code:`GET` endpoint for fetching applications. The route ends with :code:`/application`
 - The Base URL for the OS2IOT Backend is known, e.g. :code:`https://os2iot-backend.SERVERNAME.EXAMPLE/api/v1/chirpstack/`
