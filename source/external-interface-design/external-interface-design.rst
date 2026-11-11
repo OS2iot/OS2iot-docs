@@ -73,6 +73,8 @@ OS2iot supports integrations to:
 
 -  HTTP(S) Push data targets
 
+-  MQTT data targets
+
 Authentication
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

@@ -207,6 +207,9 @@ Navigation to the system with application admin functions is done by
 Navigation to the system with gateway admin functions is done by
     1) giving admin rights (delete and edit) to gateways inside the organization
 
+Navigation to the system with data target admin functions is done by
+    1) giving admin rights (delete and edit) to data targets inside the organization
+
 Navigation to the system with user admin functions is done by 
     1) adding system control of user, user groups (permissions) to the organization pane
     2) giving admin rights (delete and edit) to users and user groups

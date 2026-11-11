@@ -63,7 +63,8 @@ PermissionLevel
 2. OrganizationUserAdmin
 3. OrganizationGatewayAdmin
 4. OrganizationApplicationAdmin
-5. GlobalAdmin
+5. OrganizationDataTargetAdmin
+6. GlobalAdmin
 
 ActionType
 ~~~~~~~~~~~~~~~
@@ -162,10 +163,11 @@ PermissionType
 ~~~~~~~~~~~~~~~~~
 
 1. GlobalAdmin
-2. OrganizationApplicationAdmin
-3. OrganizationGatewayAdmin
-4. OrganizationUserAdmin
-5. Read
+2. OrganizationDataTargetAdmin
+3. OrganizationApplicationAdmin
+4. OrganizationGatewayAdmin
+5. OrganizationUserAdmin
+6. Read
 
 SendStatus
 ~~~~~~~~~~~~~~~~~
